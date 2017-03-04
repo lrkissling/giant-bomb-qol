@@ -1,0 +1,16 @@
+{
+  "description": "Provides some simple quality-of-life enhancements to giantbomb.com.",
+  "manifest_version": 2,
+  "name": "Giant Bomb QOL",
+  "version": "1.0",
+
+  "content_scripts": [
+    {
+      "matches": [
+        "*://www.giantbomb.com/videos/*"
+      ],
+      "js": ["video_navigator.js"]
+    }
+  ]
+
+}
