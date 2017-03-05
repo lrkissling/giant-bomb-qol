@@ -1,4 +1,4 @@
-A simple WebExtension that provides some Quality-of-Life improvements of giantbomb.com.
+A simple WebExtension that provides some Quality-of-Life improvements to giantbomb.com.
 
 This extension does the following:
 
