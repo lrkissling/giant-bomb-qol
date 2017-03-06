@@ -1,0 +1,43 @@
+#qol_video_navigator {
+  height: 46px;
+  border-top: 1px solid lightgrey;
+}
+
+#qol_prev_vid, #qol_next_vid {
+  width: 50%;
+  display: inline-block;
+}
+
+#qol_prev_vid:hover, #qol_next_vid:hover {
+  background-color: lightgrey;
+}
+
+#qol_prev_vid {
+  border-right: 1px solid lightgrey;
+}
+
+#qol_prev_vid_link {
+  width: 100%;
+  float: right;
+}
+
+#qol_prev_vid_link > div {
+  float: right;
+}
+
+#qol_prev_vid_link > div > span, #qol_prev_vid_link > div > img {
+  padding-right: 5px;
+}
+
+#qol_next_vid_arrow {
+  float: right;
+}
+
+#qol_next_vid_link {
+  width: 100%;
+  float: left;
+}
+
+#qol_next_vid_link > span, #qol_next_vid_link > img {
+  padding-left: 5px;
+}

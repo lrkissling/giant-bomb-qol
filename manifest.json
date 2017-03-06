@@ -7,6 +7,7 @@
   "content_scripts": [
     {
       "matches": ["*://www.giantbomb.com/videos/*"],
+      "css": ["giant_bomb_qol.css"],
       "js": ["video_navigator.js"]
     }
   ],
