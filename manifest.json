@@ -11,4 +11,5 @@
     }
   ],
 
+  "web_accessible_resources": ["img/prev.png", "img/next.png"]
 }
