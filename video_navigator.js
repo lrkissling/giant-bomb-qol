@@ -31,11 +31,11 @@ var a1 = $.ajax({
 
 a2.done(function(data) {
   var prev_video_image = data.results[0].image.thumb_url;
-  var prev_video_name  = data.results[0].name;
+  var prev_video_name  = formatVideoName(data.results[0].name);
   var prev_video_url   = data.results[0].site_detail_url;
 
   var next_video_image = data.results[1].image.thumb_url;
-  var next_video_name  = data.results[1].name;
+  var next_video_name  = formatVideoName(data.results[1].name);
   var next_video_url   = data.results[1].site_detail_url;
 
   // TODO: investigate ways to more elegently inject html via WebExtension
@@ -43,13 +43,13 @@ a2.done(function(data) {
   var html = [
       '<div id="qol_prev_vid">',
       '<a id="qol_prev_vid_link" href="' + prev_video_url + '">',
-      '<div><span>' + prev_video_name + '</span>',
+      '<div><span class="qol-vid-name">' + prev_video_name + '</span>',
       '<img src="' + prev_video_image + '">',
       '</div></a></div>',
       '<div id="qol_next_vid">',
       '<a id="qol_next_vid_link" href="' + next_video_url + '">',
       '<img src="' + next_video_image + '">',
-      '<span>' + next_video_name + '</span></a></div>'
+      '<span class="qol-vid-name">' + next_video_name + '</span></a></div>'
     ].join('');
 
   var div = document.createElement('div');
@@ -71,3 +71,9 @@ a2.done(function(data) {
   parentElement = document.getElementById('qol_next_vid_link');
   parentElement.appendChild(img);
 });
+
+// Shortens the name and adds an ellipsis if it's too long
+function formatVideoName(name) {
+  if (name.length <= 50) return name;
+  return name.substring(0,50) + '...';
+}
