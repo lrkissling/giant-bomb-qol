@@ -11,6 +11,9 @@
 #qol_prev_vid, #qol_next_vid {
   width: 50%;
   display: inline-block;
+  transition: background .25s ease-in-out;
+   -moz-transition: background .25s ease-in-out;
+   -webkit-transition: background .25s ease-in-out;
 }
 
 #qol_prev_vid:hover, #qol_next_vid:hover {
