@@ -29,6 +29,7 @@ var a1 = $.ajax({
             });
          });
 
+// once API calls are completed, create and inject the HTML
 a2.done(function(data) {
   var prev_video_image = data.results[0].image.thumb_url;
   var prev_video_name  = formatVideoName(data.results[0].name);
@@ -38,18 +39,21 @@ a2.done(function(data) {
   var next_video_name  = formatVideoName(data.results[1].name);
   var next_video_url   = data.results[1].site_detail_url;
 
-  // TODO: investigate ways to more elegently inject html via WebExtension
-  // ugly first pass code for creating and formatting the html
+  var prev_arrow       = browser.extension.getURL('img/prev.png');
+  var next_arrow       = browser.extension.getURL("img/next.png");
+
   var html = [
       '<div id="qol_prev_vid">',
       '<a id="qol_prev_vid_link" href="' + prev_video_url + '">',
+      '<img src="' + prev_arrow + '"/>',
       '<span class="qol-vid-name">' + prev_video_name + '</span>',
       '<img id = "qol_prev_vid_thumb" src="' + prev_video_image + '">',
       '</a></div>',
       '<div id="qol_next_vid">',
       '<a id="qol_next_vid_link" href="' + next_video_url + '">',
       '<img src="' + next_video_image + '">',
-      '<span class="qol-vid-name">' + next_video_name + '</span></a></div>'
+      '<span class="qol-vid-name">' + next_video_name + '</span>',
+      '<img src="' + next_arrow + '"/></a></div>'
     ].join('');
 
   var div = document.createElement('div');
@@ -59,21 +63,11 @@ a2.done(function(data) {
 
   var parentElement = document.getElementsByClassName('tab-content')[0];
   parentElement.insertBefore(div, parentElement.firstChild);
-
-  var img = document.createElement('img');
-  img.src = browser.extension.getURL('img/prev.png');
-  parentElement = document.getElementById('qol_prev_vid_link');
-  parentElement.insertBefore(img, parentElement.firstChild);
-
-  img = document.createElement('img');
-  img.src = browser.extension.getURL("img/next.png");
-  img.setAttribute('id', 'qol_next_vid_arrow');
-  parentElement = document.getElementById('qol_next_vid_link');
-  parentElement.appendChild(img);
 });
 
+// TODO: only works for screen of a particular width. Need to find better solution.
 // Shortens the name and adds an ellipsis if it's too long
 function formatVideoName(name) {
   if (name.replace(' ','').length <= 40) return name;
-  return name.substring(0,40) + '...';
+  return name.substring(0,40) + '\u2026'; // unicode for ellipsis
 }
