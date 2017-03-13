@@ -43,9 +43,9 @@ a2.done(function(data) {
   var html = [
       '<div id="qol_prev_vid">',
       '<a id="qol_prev_vid_link" href="' + prev_video_url + '">',
-      '<div><span class="qol-vid-name">' + prev_video_name + '</span>',
-      '<img src="' + prev_video_image + '">',
-      '</div></a></div>',
+      '<span class="qol-vid-name">' + prev_video_name + '</span>',
+      '<img id = "qol_prev_vid_thumb" src="' + prev_video_image + '">',
+      '</a></div>',
       '<div id="qol_next_vid">',
       '<a id="qol_next_vid_link" href="' + next_video_url + '">',
       '<img src="' + next_video_image + '">',
@@ -74,6 +74,6 @@ a2.done(function(data) {
 
 // Shortens the name and adds an ellipsis if it's too long
 function formatVideoName(name) {
-  if (name.length <= 50) return name;
-  return name.substring(0,50) + '...';
+  if (name.replace(' ','').length <= 40) return name;
+  return name.substring(0,40) + '...';
 }
