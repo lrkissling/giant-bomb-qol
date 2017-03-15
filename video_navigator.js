@@ -1,32 +1,35 @@
+// Have to trawl the web page for the video ID. Twitter link should be safe.
+var attr = document.getElementsByClassName('share-twitter')[0]
+                    .getAttribute('data-event-tracking').split('|');
+var current_video_id = attr[attr.length - 1];
+
 // first API call to retrieve necessary information from current video
 var a1 = $.ajax({
-            url: 'https://www.giantbomb.com/api/video/2300-11894/',
+            url: 'https://www.giantbomb.com/api/video/' + current_video_id + '/',
             dataType: 'json',
-            // TODO: get video_show and video_category info when API makes it available
             data: { api_key: '5a510947131f62ca7c62a7ef136beccae13da2fd',
-                    field_list: 'id,video_type',
+                    field_list: 'id,video_show,video_categories',
                     format: 'json'
                   }
          }),
     a2 = a1.then(function(data) {
-            // TODO: use ID to determine previous and next videos in playlist.
-            var current_video_id = data.results.id;
+            var video_show = data.results.video_show.id;
+            var video_categories = data.results.video_categories;
 
-            /* Currently statically set due to WIP and limitations of API.
-               Hopefully fixed when show and category info is integrated into API
-            */
-            var video_type       = 'video_type:2';
+            var filter = getVideoFilter(video_show, video_categories);
 
-            // second API call to get info on other videos of same type.
-            return $.ajax({
-              url: 'https://www.giantbomb.com/api/videos/',
-              dataType: 'json',
-              data: { api_key: '5a510947131f62ca7c62a7ef136beccae13da2fd',
-                      field_list: 'image,name,site_detail_url',
-                      filter: video_type,
-                      format: 'json'
-                    }
-            });
+            if (filter != null) {
+              // second API call to get info on other videos of same show/category.
+              return $.ajax({
+                url: 'https://www.giantbomb.com/api/videos/',
+                dataType: 'json',
+                data: { api_key: '5a510947131f62ca7c62a7ef136beccae13da2fd',
+                        field_list: 'image,name,site_detail_url',
+                        filter: filter,
+                        format: 'json'
+                      }
+              });
+            }
          });
 
 // once API calls are completed, create and inject the HTML
@@ -64,6 +67,18 @@ a2.done(function(data) {
   var parentElement = document.getElementsByClassName('tab-content')[0];
   parentElement.insertBefore(div, parentElement.firstChild);
 });
+
+function getVideoFilter(video_show, video_categories) {
+  if (video_show != null) {
+    return "video_show:" + video_show;
+  }
+
+  if (video_categories != null) {
+    return "video_categories=" + video_categories[0].id
+  }
+
+  return null;
+}
 
 // TODO: only works for screen of a particular width. Need to find better solution.
 // Shortens the name and adds an ellipsis if it's too long
