@@ -13,7 +13,10 @@ var a1 = $.ajax({
                   }
          }),
     a2 = a1.then(function(data) {
-            // narrows the search to within 3 months of current video.
+            /* Narrows the search to within 3 months of current video. Necessary
+               because some shows and categories have >100 videos, which is the
+               upper limit of how many can be returned in a search.
+            */
             var publish_date = moment(data.results.publish_date, 'YYYY-MM-DD hh:mm:ss');
             var start_date   = publish_date.clone().subtract(3, 'months');
             var end_date     = publish_date.clone().add(3, 'months');
@@ -26,7 +29,7 @@ var a1 = $.ajax({
               ].join('');
 
             // filters search by the video's show/category
-            var video_show       = data.results.video_show.id;
+            var video_show       = data.results.video_show;
             var video_categories = data.results.video_categories;
             var f2 = getVideoFilter(video_show, video_categories);
 
@@ -85,7 +88,7 @@ a2.done(function(data) {
 */
 function getVideoFilter(video_show, video_categories) {
   if (video_show != null) {
-    return "video_show:" + video_show;
+    return "video_show:" + video_show.id;
   }
 
   if (video_categories != null) {
