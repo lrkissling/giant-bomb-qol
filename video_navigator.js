@@ -8,24 +8,36 @@ var a1 = $.ajax({
             url: 'https://www.giantbomb.com/api/video/' + current_video_id + '/',
             dataType: 'json',
             data: { api_key: '5a510947131f62ca7c62a7ef136beccae13da2fd',
-                    field_list: 'id,video_show,video_categories',
+                    field_list: 'id,publish_date,video_show,video_categories',
                     format: 'json'
                   }
          }),
     a2 = a1.then(function(data) {
-            var video_show = data.results.video_show.id;
+            // narrows the search to within 3 months of current video.
+            var publish_date = moment(data.results.publish_date, 'YYYY-MM-DD hh:mm:ss');
+            var start_date   = publish_date.clone().subtract(3, 'months');
+            var end_date     = publish_date.clone().add(3, 'months');
+
+            var f1 = [
+                'publish_date:',
+                start_date.format('YYYY-MM-DD hh:mm:ss'),
+                '|',
+                end_date.format('YYYY-MM-DD hh:mm:ss')
+              ].join('');
+
+            // filters search by the video's show/category
+            var video_show       = data.results.video_show.id;
             var video_categories = data.results.video_categories;
+            var f2 = getVideoFilter(video_show, video_categories);
 
-            var filter = getVideoFilter(video_show, video_categories);
-
-            if (filter != null) {
+            if (f2 != null) {
               // second API call to get info on other videos of same show/category.
               return $.ajax({
                 url: 'https://www.giantbomb.com/api/videos/',
                 dataType: 'json',
                 data: { api_key: '5a510947131f62ca7c62a7ef136beccae13da2fd',
-                        field_list: 'image,name,site_detail_url',
-                        filter: filter,
+                        field_list: 'image,name,publish_date,site_detail_url',
+                        filter: f1 + ',' + f2,
                         format: 'json'
                       }
               });
@@ -68,20 +80,23 @@ a2.done(function(data) {
   parentElement.insertBefore(div, parentElement.firstChild);
 });
 
+/* Determines which show/category filter to use. Prioritizes show over category,
+   and selects the first category in the list if there are multiple.
+*/
 function getVideoFilter(video_show, video_categories) {
   if (video_show != null) {
     return "video_show:" + video_show;
   }
 
   if (video_categories != null) {
-    return "video_categories=" + video_categories[0].id
+    return "video_categories:" + video_categories[0].id
   }
 
   return null;
 }
 
 // TODO: only works for screen of a particular width. Need to find better solution.
-// Shortens the name and adds an ellipsis if it's too long
+// Shortens the name and adds an ellipsis if it's too long.
 function formatVideoName(name) {
   if (name.replace(' ','').length <= 40) return name;
   return name.substring(0,40) + '\u2026'; // unicode for ellipsis
