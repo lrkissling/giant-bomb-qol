@@ -39,7 +39,7 @@ var a1 = $.ajax({
                 url: 'https://www.giantbomb.com/api/videos/',
                 dataType: 'json',
                 data: { api_key: '5a510947131f62ca7c62a7ef136beccae13da2fd',
-                        field_list: 'image,name,publish_date,site_detail_url',
+                        field_list: 'id,image,name,publish_date,site_detail_url',
                         filter: f1 + ',' + f2,
                         format: 'json'
                       }
@@ -49,13 +49,33 @@ var a1 = $.ajax({
 
 // once API calls are completed, create and inject the HTML
 a2.done(function(data) {
-  var prev_video_image = data.results[0].image.thumb_url;
-  var prev_video_name  = formatVideoName(data.results[0].name);
-  var prev_video_url   = data.results[0].site_detail_url;
+  var indices = [];
 
-  var next_video_image = data.results[1].image.thumb_url;
-  var next_video_name  = formatVideoName(data.results[1].name);
-  var next_video_url   = data.results[1].site_detail_url;
+  // results come in reverse-chronological order, so i = 0 is latest video
+  for (var i = 0; i < data.results.length; i++) {
+    if (data.results[i].id != current_video_id.split('-')[1]) continue;
+
+    if (i == 0) {
+      indices[0] = 1;
+    }
+    else if (i == data.results.length - 1) {
+      indices[1] = i - 1;
+    }
+    else {
+      indices[0] = i + 1;
+      indices[1] = i - 1;
+    }
+    
+    break;
+  }
+
+  var prev_video_image = data.results[indices[0]].image.thumb_url;
+  var prev_video_name  = formatVideoName(data.results[indices[0]].name);
+  var prev_video_url   = data.results[indices[0]].site_detail_url;
+
+  var next_video_image = data.results[indices[1]].image.thumb_url;
+  var next_video_name  = formatVideoName(data.results[indices[1]].name);
+  var next_video_url   = data.results[indices[1]].site_detail_url;
 
   var prev_arrow       = browser.extension.getURL('img/prev.png');
   var next_arrow       = browser.extension.getURL("img/next.png");
