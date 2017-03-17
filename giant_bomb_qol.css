@@ -3,17 +3,13 @@
   border-top: 1px solid lightgrey;
 }
 
-#qol_video_navigator img {
-  vertical-align: top;
-  padding-bottom: 1px;
-}
-
 #qol_prev_vid, #qol_next_vid {
   width: 50%;
   display: inline-block;
-  transition: background .25s ease-in-out;
-   -moz-transition: background .25s ease-in-out;
-   -webkit-transition: background .25s ease-in-out;
+  -webkit-transition: background .25s ease-in-out;
+  -moz-transition:    background .25s ease-in-out;
+  transition:         background .25s ease-in-out;
+  vertical-align: top;
 }
 
 #qol_prev_vid:hover, #qol_next_vid:hover {
@@ -33,10 +29,6 @@
   padding-right: 5px;
 }
 
-#qol_prev_vid_thumb {
-  float: right;
-}
-
 #qol_prev_vid_link > span {
   text-align: right;
 }
@@ -45,8 +37,9 @@
   padding-left: 5px;
 }
 
-#qol_next_vid_arrow {
-  float: right;
+.qol_thumb {
+  height: 45px;
+  width: 85px;
 }
 
 .qol-vid-name {
@@ -54,8 +47,8 @@
   max-height: 40px;
   overflow: hidden;
   text-overflow: ellipsis;
-  width: -webkit-calc(100% - 117px);
-  width:    -moz-calc(100% - 117px);
-  width:         calc(100% - 117px);
+  width: -webkit-calc(100% - 112px);
+  width:    -moz-calc(100% - 112px);
+  width:         calc(100% - 112px);
   word-wrap: break-word;
 }

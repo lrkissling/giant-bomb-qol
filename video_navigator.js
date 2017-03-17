@@ -65,16 +65,16 @@ a2.done(function(data) {
       indices[0] = i + 1;
       indices[1] = i - 1;
     }
-    
+
     break;
   }
 
   var prev_video_image = data.results[indices[0]].image.thumb_url;
-  var prev_video_name  = formatVideoName(data.results[indices[0]].name);
+  var prev_video_name  = data.results[indices[0]].name;
   var prev_video_url   = data.results[indices[0]].site_detail_url;
 
   var next_video_image = data.results[indices[1]].image.thumb_url;
-  var next_video_name  = formatVideoName(data.results[indices[1]].name);
+  var next_video_name  = data.results[indices[1]].name;
   var next_video_url   = data.results[indices[1]].site_detail_url;
 
   var prev_arrow       = browser.extension.getURL('img/prev.png');
@@ -83,15 +83,15 @@ a2.done(function(data) {
   var html = [
       '<div id="qol_prev_vid">',
       '<a id="qol_prev_vid_link" href="' + prev_video_url + '">',
-      '<img src="' + prev_arrow + '"/>',
+      '<img id ="qol_prev_vid_arrow" src="' + prev_arrow + '"/>',
       '<span class="qol-vid-name">' + prev_video_name + '</span>',
-      '<img id = "qol_prev_vid_thumb" src="' + prev_video_image + '">',
+      '<img id="qol_prev_vid_thumb" class="qol_thumb" src="' + prev_video_image + '">',
       '</a></div>',
       '<div id="qol_next_vid">',
       '<a id="qol_next_vid_link" href="' + next_video_url + '">',
-      '<img src="' + next_video_image + '">',
+      '<img id="qol_next_vid_thumb" class="qol_thumb" src="' + next_video_image + '">',
       '<span class="qol-vid-name">' + next_video_name + '</span>',
-      '<img src="' + next_arrow + '"/></a></div>'
+      '<img id="qol_next_vid_arrow" src="' + next_arrow + '"/></a></div>'
     ].join('');
 
   var div = document.createElement('div');
@@ -116,11 +116,4 @@ function getVideoFilter(video_show, video_categories) {
   }
 
   return null;
-}
-
-// TODO: only works for screen of a particular width. Need to find better solution.
-// Shortens the name and adds an ellipsis if it's too long.
-function formatVideoName(name) {
-  if (name.replace(' ','').length <= 40) return name;
-  return name.substring(0,40) + '\u2026'; // unicode for ellipsis
 }
