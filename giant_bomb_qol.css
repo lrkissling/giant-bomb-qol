@@ -21,6 +21,14 @@
   width: 100%;
 }
 
+#qol_prev_vid_thumb, #qol_next_vid_arrow {
+  float: right;
+}
+
+#qol_prev_vid_arrow, #qol_next_vid_thumb {
+  float: left;
+}
+
 #qol_prev_vid {
   border-right: 1px solid lightgrey;
 }
