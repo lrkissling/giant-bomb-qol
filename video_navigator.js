@@ -69,30 +69,46 @@ a2.done(function(data) {
     break;
   }
 
-  var prev_video_image = data.results[indices[0]].image.thumb_url;
-  var prev_video_name  = data.results[indices[0]].name;
-  var prev_video_url   = data.results[indices[0]].site_detail_url;
+  if (indices.length == 0) return;
 
-  var next_video_image = data.results[indices[1]].image.thumb_url;
-  var next_video_name  = data.results[indices[1]].name;
-  var next_video_url   = data.results[indices[1]].site_detail_url;
+  // start building the actual html
+  var html = ['<div id="qol_prev_vid">'];
 
-  var prev_arrow       = browser.extension.getURL('img/prev.png');
-  var next_arrow       = browser.extension.getURL("img/next.png");
+  if (indices[0] != null) {
+    var prev_video_image = data.results[indices[0]].image.thumb_url;
+    var prev_video_name  = data.results[indices[0]].name;
+    var prev_video_url   = data.results[indices[0]].site_detail_url;
+    var prev_arrow       = browser.extension.getURL('img/prev.png');
 
-  var html = [
-      '<div id="qol_prev_vid">',
+    html.push(
       '<a id="qol_prev_vid_link" href="' + prev_video_url + '">',
       '<img id ="qol_prev_vid_arrow" src="' + prev_arrow + '"/>',
       '<span class="qol-vid-name">' + prev_video_name + '</span>',
-      '<img id="qol_prev_vid_thumb" class="qol_thumb" src="' + prev_video_image + '">',
-      '</a></div>',
-      '<div id="qol_next_vid">',
+      '<img id="qol_prev_vid_thumb" class="qol_thumb" src="' + prev_video_image + '"></a>'
+    );
+  }
+
+  html.push(
+    '</div>',
+    '<div id="qol_next_vid">'
+  );
+
+  if (indices[1] != null) {
+    var next_video_image = data.results[indices[1]].image.thumb_url;
+    var next_video_name  = data.results[indices[1]].name;
+    var next_video_url   = data.results[indices[1]].site_detail_url;
+    var next_arrow       = browser.extension.getURL("img/next.png");
+
+    html.push(
       '<a id="qol_next_vid_link" href="' + next_video_url + '">',
       '<img id="qol_next_vid_thumb" class="qol_thumb" src="' + next_video_image + '">',
       '<span class="qol-vid-name">' + next_video_name + '</span>',
-      '<img id="qol_next_vid_arrow" src="' + next_arrow + '"/></a></div>'
-    ].join('');
+      '<img id="qol_next_vid_arrow" src="' + next_arrow + '"/></a>'
+    );
+  }
+
+  html.push('</div>');
+  html = html.join('')
 
   var div = document.createElement('div');
   div.setAttribute("id", "qol_video_navigator")
