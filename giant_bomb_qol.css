@@ -4,21 +4,24 @@
 }
 
 #qol_prev_vid, #qol_next_vid {
-  width: 50%;
   display: inline-block;
-  -webkit-transition: background .25s ease-in-out;
-  -moz-transition:    background .25s ease-in-out;
-  transition:         background .25s ease-in-out;
+  height: 100%;
   vertical-align: top;
+  width: 50%;
 }
 
-#qol_prev_vid:hover, #qol_next_vid:hover {
-  background-color: lightgrey;
+#qol_prev_vid_link:hover, #qol_next_vid_link:hover {
+  background-color: #b31919;
+  color: white;
 }
 
 #qol_prev_vid_link, #qol_next_vid_link {
   display: inline-block;
   width: 100%;
+
+  -webkit-transition: .40s ease-in-out;
+  -moz-transition:    .40s ease-in-out;
+  transition:         .40s ease-in-out;
 }
 
 #qol_prev_vid_thumb, #qol_next_vid_arrow {
