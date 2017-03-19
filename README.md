@@ -5,5 +5,6 @@ This extension is a work in progress, and currently offers the following enhance
 
 Currently working on:
 - Bug fixes and refinements for Previous Video and Next Video buttons
+- User Options
 
 Created by Lowell Kissling.
