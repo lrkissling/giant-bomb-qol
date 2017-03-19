@@ -5,7 +5,7 @@ var a1 = $.ajax({
             url: 'https://www.giantbomb.com/api/video/' + getCurrentVideoId() + '/',
             dataType: 'json',
             data: { api_key: '5a510947131f62ca7c62a7ef136beccae13da2fd',
-                    field_list: 'id,publish_date,video_show,video_categories',
+                    field_list: 'publish_date,video_show,video_categories',
                     format: 'json'
                   }
          }),
@@ -14,15 +14,16 @@ var a1 = $.ajax({
                because some shows and categories have >100 videos, which is the
                upper limit of how many can be returned in a search.
             */
-            var publish_date = moment(data.results.publish_date, 'YYYY-MM-DD hh:mm:ss'),
+            var date_format  = 'YYYY-MM-DD hh:mm:ss';
+                publish_date = moment(data.results.publish_date, date_format),
                 start_date   = publish_date.clone().subtract(3, 'months'),
                 end_date     = publish_date.clone().add(3, 'months');
 
             var f1 = [
                 'publish_date:',
-                start_date.format('YYYY-MM-DD hh:mm:ss'),
+                start_date.format(date_format),
                 '|',
-                end_date.format('YYYY-MM-DD hh:mm:ss')
+                end_date.format(date_format)
               ].join('');
 
             // filters search by the video's show/category
@@ -30,7 +31,7 @@ var a1 = $.ajax({
                 video_categories = data.results.video_categories,
                 f2 = getVideoFilter(video_show, video_categories);
 
-            if (f2 != null) {
+            if (f2 !== null) {
               // second API call to get info on other videos of same show/category.
               return $.ajax({
                 url: 'https://www.giantbomb.com/api/videos/',
@@ -50,13 +51,13 @@ a2.done(function(data) {
       indices = [];
 
   // results come in reverse-chronological order, so i = 0 is latest video
-  for (var i = 0; i < data.results.length; i++) {
+  for (var i = 0, len = data.results.length; i < len; i++) {
     if (data.results[i].id != current_video_id) continue;
 
-    if (i == 0) {
+    if (i === 0) {
       indices[0] = 1;
     }
-    else if (i == data.results.length - 1) {
+    else if (i === len - 1) {
       indices[1] = i - 1;
     }
     else {
@@ -67,12 +68,12 @@ a2.done(function(data) {
     break;
   }
 
-  if (indices.length == 0) return;
+  if (indices.length === 0) return;
 
   // start building the actual html
   var html = ['<div id="qol_prev_vid">'];
 
-  if (indices[0] != null) {
+  if (indices[0] !== null) {
     var prev_video_image = data.results[indices[0]].image.thumb_url,
         prev_video_name  = data.results[indices[0]].name,
         prev_video_url   = data.results[indices[0]].site_detail_url,
@@ -91,7 +92,7 @@ a2.done(function(data) {
     '<div id="qol_next_vid">'
   );
 
-  if (indices[1] != null) {
+  if (indices[1] !== null) {
     var next_video_image = data.results[indices[1]].image.thumb_url,
         next_video_name  = data.results[indices[1]].name,
         next_video_url   = data.results[indices[1]].site_detail_url,
@@ -106,10 +107,10 @@ a2.done(function(data) {
   }
 
   html.push('</div>');
-  html = html.join('')
+  html = html.join('');
 
   var div = document.createElement('div');
-  div.setAttribute("id", "qol_video_navigator")
+  div.setAttribute("id", "qol_video_navigator");
   div.setAttribute('class', 'tab-pane');
   div.innerHTML = html;
 
@@ -129,12 +130,12 @@ function getCurrentVideoId() {
    and selects the first category in the list if there are multiple.
 */
 function getVideoFilter(video_show, video_categories) {
-  if (video_show != null) {
+  if (video_show !== null) {
     return "video_show:" + video_show.id;
   }
 
-  if (video_categories != null) {
-    return "video_categories:" + video_categories[0].id
+  if (video_categories !== null) {
+    return "video_categories:" + video_categories[0].id;
   }
 
   return null;
