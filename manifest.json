@@ -4,8 +4,15 @@
   "name": "Giant Bomb QOL",
   "version": "1.0",
 
+  "applications": {
+    "gecko": {
+      "id": "lrkissling+giant-bomb-qol@gmail.com",
+      "strict_min_version": "51.0"
+    }
+  },
+
   "permissions": [
-    "*://*.giantbomb.com/api/*"
+    "*://*.giantbomb.com/api/*", "storage"
   ],
 
   "content_scripts": [
@@ -16,5 +23,9 @@
     }
   ],
 
-  "web_accessible_resources": ["img/prev.png", "img/next.png"]
+  "web_accessible_resources": ["img/prev.png", "img/next.png"],
+
+  "options_ui": {
+    "page": "options/options.html"
+  }
 }

@@ -1,0 +1,28 @@
+body {
+  font-family: "Open Sans Light", sans-serif;
+  font-size: 0.9em;
+  font-weight: 300;
+}
+
+hr {
+  color: #C1C1C1;
+  border-color: #C1C1C1;
+  background-color: #C1C1C1;
+  height: 1px;
+  border: none;
+}
+
+input[type="checkbox"] {
+  height: 20px;
+  width: 20px;
+}
+
+.option-text {
+  display: inline-block;
+  width: 40%;
+}
+
+.centered {
+  display: inline-block;
+  text-align: center;
+}
