@@ -1,3 +1,5 @@
+console.log("giant-bomb-qol loading");
+
 // Have to trawl the web page for the video ID. Twitter link should be safe.
 var attr = document.getElementsByClassName('share-twitter')[0]
                     .getAttribute('data-event-tracking').split('|');
@@ -112,7 +114,7 @@ a2.done(function(data) {
 
   var div = document.createElement('div');
   div.setAttribute("id", "qol_video_navigator")
-  div.setAttribute('class', 'tab-pane active');
+  div.setAttribute('class', 'tab-pane');
   div.innerHTML = html;
 
   var parentElement = document.getElementsByClassName('tab-content')[0];

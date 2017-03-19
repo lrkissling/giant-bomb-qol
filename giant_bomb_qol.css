@@ -1,6 +1,7 @@
 #qol_video_navigator {
-  height: 46px;
+  display: block;
   border-top: 1px solid lightgrey;
+  height: 46px;
 }
 
 #qol_prev_vid, #qol_next_vid {
