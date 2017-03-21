@@ -6,7 +6,7 @@
 
   "applications": {
     "gecko": {
-      "id": "lrkissling+giant-bomb-qol@gmail.com",
+      "id": "giantbomb@qol.snake",
       "strict_min_version": "51.0"
     }
   },
