@@ -20,10 +20,15 @@
       "matches": ["*://www.giantbomb.com/videos/*"],
       "css": ["giant_bomb_qol.css"],
       "js": ["third_party/moment.min.js", "third_party/jquery-3.1.1.min.js", "video_navigator.js"]
+    },
+    {
+      "matches": ["*://www.giantbomb.com/videos/*"],
+      "css": ["giant_bomb_qol.css"],
+      "js": ["third_party/jquery-3.1.1.min.js", "live_show_qol.js"]
     }
   ],
 
-  "web_accessible_resources": ["img/prev.png", "img/next.png"],
+  "web_accessible_resources": ["img/*"],
 
   "options_ui": {
     "page": "options/options.html"

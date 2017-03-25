@@ -64,3 +64,10 @@
   width:         calc(100% - 112px);
   word-wrap: break-word;
 }
+
+
+/*  Live Show */
+
+#qol_show_emoji {
+  height: 40px;
+}
