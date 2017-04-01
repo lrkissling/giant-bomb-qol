@@ -73,7 +73,7 @@ a2.done(function(data) {
   // start building the actual html
   var html = ['<div id="qol_prev_vid">'];
 
-  if (indices[0] !== null) {
+  if (indices[0] !== undefined) {
     var prev_video_image = data.results[indices[0]].image.thumb_url,
         prev_video_name  = data.results[indices[0]].name,
         prev_video_url   = data.results[indices[0]].site_detail_url,
@@ -92,7 +92,7 @@ a2.done(function(data) {
     '<div id="qol_next_vid">'
   );
 
-  if (indices[1] !== null) {
+  if (indices[1] !== undefined) {
     var next_video_image = data.results[indices[1]].image.thumb_url,
         next_video_name  = data.results[indices[1]].name,
         next_video_url   = data.results[indices[1]].site_detail_url,
