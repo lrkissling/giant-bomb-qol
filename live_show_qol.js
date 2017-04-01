@@ -26,13 +26,13 @@ $("#qol_show_emoji").click(function() {
 // only works in chat
 $("#qol_blah").click(function() {
   $("#f_ChatInput").val($("#f_ChatInput").val() + this.value);
-})
+});
 
 // Close dropdown in user clicks outside of it.
 window.onclick = function(event) {
-  if (!event.target.matches("#qol_show_emoji")
-      && !event.target.matches(".qol-dropdown-content")
-      && !event.target.matches(".qol-emoji")) {
+  if (!event.target.matches("#qol_show_emoji")       &&
+      !event.target.matches(".qol-dropdown-content") &&
+      !event.target.matches(".qol-emoji")) {
     var dropdowns = document.getElementsByClassName("qol-dropdown-content");
     var i;
     for (i = 0; i < dropdowns.length; i++) {
@@ -42,4 +42,4 @@ window.onclick = function(event) {
       }
     }
   }
-}
+};
