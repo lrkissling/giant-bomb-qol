@@ -69,5 +69,28 @@
 /*  Live Show */
 
 #qol_show_emoji {
-  height: 40px;
+  height: 34px;
+}
+
+#qol_blah {
+  height: 30px;
+}
+
+.qol-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.qol-dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  min-height: 30px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.qol-show {
+  display: block;
 }
