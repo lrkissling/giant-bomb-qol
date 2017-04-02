@@ -69,7 +69,15 @@
 /*  Live Show */
 
 #qol_show_emoji {
-  height: 30px;
+  display: inline-block;
+
+  -webkit-transition: .40s ease-in-out;
+  -moz-transition:    .40s ease-in-out;
+  transition:         .40s ease-in-out;
+}
+
+#qol_show_emoji:hover {
+  background-color: #b31919;
 }
 
 #qol_blah {

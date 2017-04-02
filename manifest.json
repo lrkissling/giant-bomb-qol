@@ -22,7 +22,7 @@
       "js": ["third_party/moment.min.js", "third_party/jquery-3.1.1.min.js", "video_navigator.js"]
     },
     {
-      "matches": ["*://www.giantbomb.com/videos/*"],
+      "matches": ["*://www.giantbomb.com/chat/"],
       "css": ["giant_bomb_qol.css"],
       "js": ["third_party/jquery-3.1.1.min.js", "live_show_qol.js"]
     }
