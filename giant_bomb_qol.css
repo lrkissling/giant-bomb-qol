@@ -68,8 +68,11 @@
 
 /*  Live Show */
 
-#qol_show_emoji {
+#qol_show_emoji, #qol_blah {
   display: inline-block;
+  background: none;
+  background-color: none;
+  border: none;
   height: 30px;
 
   -webkit-transition: .30s ease-in-out;
@@ -77,13 +80,18 @@
   transition:         .30s ease-in-out;
 }
 
+#qol_blah {
+  border-left:  1px solid #2c3035;
+  border-right: 1px solid #2c3035;
+}
+
 #qol_show_emoji:hover {
   background-color: #b31919;
   background-image: none;
 }
 
-#qol_blah {
-  height: 30px;
+#qol_blah:hover {
+  background-color: #2c3035;
 }
 
 .qol-dropdown {
@@ -95,7 +103,6 @@
   display: none;
   position: absolute;
   background-color: #f9f9f9;
-  min-width: 160px;
   min-height: 30px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
