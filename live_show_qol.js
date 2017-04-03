@@ -2,7 +2,7 @@ console.log("live_show_qol loading");
 
 $(document).ready(function() {
   $("#qol_show_emoji").click(function() {
-    document.getElementById("qol_emojis").classList.toggle("show");
+    $("#qol_emojis").toggleClass("show");
   });
 
   $("#qol_blah").click(function() {
@@ -10,13 +10,13 @@ $(document).ready(function() {
   });
 });
 
-var anime_bomb = browser.extension.getURL("img/anime-bomb.png");
-var bye = browser.extension.getURL("img/bye.png");
-var html = [
+var anime_bomb = browser.extension.getURL("img/anime-bomb.png"),
+    bye = browser.extension.getURL("img/bye.png");
+    html = [
     "<div class='qol-dropdown'>",
-    "<a id='qol_show_emoji' title='Emojis'>",
+    "<button type='button' id='qol_show_emoji' title='Emojis'>",
     "<img id='qol_anime_bomb' src='" + anime_bomb + "'>",
-    "</a>",
+    "</button>",
     "<div id='qol_emojis' class='qol-dropdown-content'>",
     "<button id='qol_blah' class='qol-emoji' value=':bye'>",
     "<img src='" + bye + "' title=':bye '>",
@@ -38,8 +38,7 @@ window.onclick = function(event) {
       !event.target.matches(".qol-dropdown-content") &&
       !event.target.matches(".qol-emoji")) {
     var dropdowns = document.getElementsByClassName("qol-dropdown-content");
-    var i;
-    for (i = 0; i < dropdowns.length; i++) {
+    for (var i = 0, len = dropdowns.length; i < len; i++) {
       var openDropdown = dropdowns[i];
       if (openDropdown.classList.contains("show")) {
         openDropdown.classList.remove("show");

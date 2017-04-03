@@ -70,14 +70,16 @@
 
 #qol_show_emoji {
   display: inline-block;
+  height: 30px;
 
-  -webkit-transition: .40s ease-in-out;
-  -moz-transition:    .40s ease-in-out;
-  transition:         .40s ease-in-out;
+  -webkit-transition: .30s ease-in-out;
+  -moz-transition:    .30s ease-in-out;
+  transition:         .30s ease-in-out;
 }
 
 #qol_show_emoji:hover {
   background-color: #b31919;
+  background-image: none;
 }
 
 #qol_blah {
