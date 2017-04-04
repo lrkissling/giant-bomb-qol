@@ -4,6 +4,7 @@ This extension is a work in progress, and currently offers the following enhance
 - Previous Video and Next Video buttons for videos in playlists.
 
 Currently working on:
+- Emoji menu for the live show chat
 - Bug fixes and refinements for Previous Video and Next Video buttons
 - User Options
 
