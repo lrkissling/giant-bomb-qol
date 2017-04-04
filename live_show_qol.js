@@ -11,7 +11,7 @@ $(document).ready(function() {
 });
 
 var anime_bomb = browser.extension.getURL("img/anime-bomb.png"),
-    bye = browser.extension.getURL("img/bye.png");
+    bye = browser.extension.getURL("img/emojis/bye.png");
     html = [
     "<div class='qol-dropdown'>",
     "<button type='button' id='qol_show_emoji' title='Emojis'>",
