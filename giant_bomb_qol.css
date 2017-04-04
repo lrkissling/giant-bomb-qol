@@ -68,7 +68,10 @@
 
 /*  Live Show */
 
-#qol_show_emoji, #qol_blah {
+#qol_blah {
+  border-left:  1px solid #2c3035;
+  border-right: 1px solid #2c3035;
+
   display: inline-block;
   background: none;
   background-color: none;
@@ -80,18 +83,14 @@
   transition:         .30s ease-in-out;
 }
 
-#qol_blah {
-  border-left:  1px solid #2c3035;
-  border-right: 1px solid #2c3035;
-}
-
-#qol_show_emoji:hover {
-  background-color: #b31919;
-  background-image: none;
-}
-
 #qol_blah:hover {
   background-color: #2c3035;
+}
+
+#qol_anime_bomb {
+  display: inline-block;
+  height: 30px;
+  width: 30px;
 }
 
 .qol-dropdown {
@@ -106,6 +105,10 @@
   min-height: 30px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
+}
+
+.chat .qol-dropdown .chat-tabs__wrapper.qol-red-background {
+  background: #981b1d none repeat scroll 0 0;
 }
 
 .qol-show {

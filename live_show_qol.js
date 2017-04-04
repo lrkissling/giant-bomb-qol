@@ -2,7 +2,9 @@ console.log("live_show_qol loading");
 
 $(document).ready(function() {
   $("#qol_show_emoji").click(function() {
-    $("#qol_emojis").toggleClass("show");
+    $(this).toggleClass("qol-red-background");
+    $("#qol_emojis").toggleClass("qol-show");
+    return false;
   });
 
   $("#qol_blah").click(function() {
@@ -10,27 +12,28 @@ $(document).ready(function() {
   });
 });
 
-var anime_bomb = browser.extension.getURL("img/anime-bomb.png"),
-    bye = browser.extension.getURL("img/emojis/bye.png");
-    html = [
-    "<div class='qol-dropdown'>",
-    "<button type='button' id='qol_show_emoji' title='Emojis'>",
-    "<img id='qol_anime_bomb' src='" + anime_bomb + "'>",
-    "</button>",
-    "<div id='qol_emojis' class='qol-dropdown-content'>",
-    "<button id='qol_blah' class='qol-emoji' value=':bye'>",
-    "<img src='" + bye + "' title=':bye '>",
-    "</button></div></div>"
-].join("");
-
-var span = document.createElement("span");
-span.innerHTML = html;
+var hardcore = browser.extension.getURL("img/emojis/hardcore.png"),
+    bye      = browser.extension.getURL("img/emojis/bye.png");
+    html     = [
+      "<a id='qol_show_emoji' class='chat-tabs__wrapper' href='#' rel='nofollow'>",
+      "<span class='chat-tabs__label'>",
+      "<img id='qol_anime_bomb' class='icon' src='" + hardcore + "'/>",
+      "Emojis</span></a>",
+      "<div id='qol_emojis' class='qol-dropdown-content'>",
+      "<button id='qol_blah' class='qol-emoji' value=':bye'>",
+      "<img src='" + bye + "' title=':bye '>",
+      "</button></div>"
+    ].join("");
 
 // var parentElement = document.getElementsByClassName("toolbar")[0];
 // parentElement.insertBefore(span, parentElement.children[4]);
 
-var parentElement = $(".chat-panel__header")[0];
-parentElement.appendChild(span);
+var li = document.createElement("li");
+li.className = "qol-dropdown";
+li.innerHTML = html;
+
+var parentElement = $("#chatTabs")[0];
+parentElement.appendChild(li);
 
 // Close dropdown in user clicks outside of it.
 window.onclick = function(event) {
