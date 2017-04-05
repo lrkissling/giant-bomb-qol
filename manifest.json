@@ -24,10 +24,15 @@
         "third_party/moment.min.js",
         "video_navigator.js"
       ]
+    },
+    {
+      "matches": ["*://www.giantbomb.com/chat/"],
+      "css": ["giant_bomb_qol.css"],
+      "js": ["third_party/jquery-3.1.1.min.js", "live_show_qol.js"]
     }
   ],
 
-  "web_accessible_resources": ["img/prev.png", "img/next.png"],
+  "web_accessible_resources": ["img/*", "emojis.json"],
 
   "options_ui": {
     "page": "options/options.html"

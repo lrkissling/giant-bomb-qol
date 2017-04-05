@@ -1,3 +1,7 @@
+/*************************************************
+Previous & Next Videos
+*************************************************/
+
 #qol_video_navigator {
   display: block;
   border-top: 1px solid lightgrey;
@@ -63,4 +67,47 @@
   width:    -moz-calc(100% - 112px);
   width:         calc(100% - 112px);
   word-wrap: break-word;
+}
+
+/*************************************************
+Live Show
+*************************************************/
+
+#qol_emoji_icon {
+  display: inline-block;
+  height: 30px;
+  width: 30px;
+}
+
+#qol_conversation_emoji {
+  height: 40%;
+  overflow-y: auto;
+}
+
+.qol-emoji {
+  background: none;
+  border: none;
+  display: inline-block;
+  height: 30px;
+  margin-bottom: 10px;
+
+  -webkit-transition: .30s ease-in-out;
+  -moz-transition:    .30s ease-in-out;
+  transition:         .30s ease-in-out;
+}
+
+.qol-emoji:hover {
+  background-color: #981b1d;
+}
+
+.chat .qol-chat-tabs__emoji .chat-tabs__wrapper.qol-red-background {
+  background: #981b1d none repeat scroll 0 0;
+}
+
+.qol-show {
+  display: block;
+}
+
+.qol-height-60 {
+  height: 60% !important;
 }
