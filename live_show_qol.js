@@ -10,6 +10,7 @@ $(document).ready(function() {
   // populate the chat input with the emoji key
   $(".qol-emoji").click(function() {
     $("#f_ChatInput").val($("#f_ChatInput").val() + this.value);
+    $("#f_ChatInput").focus();
   });
 });
 
