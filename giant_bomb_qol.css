@@ -73,50 +73,41 @@ Previous & Next Videos
 Live Show
 *************************************************/
 
-#qol_blah {
-  border-left:  1px solid #2c3035;
-  border-right: 1px solid #2c3035;
-
+#qol_emoji_icon {
   display: inline-block;
-  background: none;
-  background-color: none;
-  border: none;
   height: 30px;
+  width: 30px;
+}
+
+#qol_conversation_emoji {
+  height: 40%;
+  overflow-y: auto;
+}
+
+.qol-emoji {
+  background: none;
+  border: none;
+  display: inline-block;
+  height: 30px;
+  margin-bottom: 10px;
 
   -webkit-transition: .30s ease-in-out;
   -moz-transition:    .30s ease-in-out;
   transition:         .30s ease-in-out;
 }
 
-#qol_blah:hover {
-  background-color: #2c3035;
+.qol-emoji:hover {
+  background-color: #981b1d;
 }
 
-#qol_anime_bomb {
-  display: inline-block;
-  height: 30px;
-  width: 30px;
-}
-
-.qol-dropdown {
-  position: relative;
-  display: inline-block;
-}
-
-.qol-dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-height: 30px;
-  width: 90px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-}
-
-.chat .qol-dropdown .chat-tabs__wrapper.qol-red-background {
+.chat .qol-chat-tabs__emoji .chat-tabs__wrapper.qol-red-background {
   background: #981b1d none repeat scroll 0 0;
 }
 
 .qol-show {
   display: block;
+}
+
+.qol-height-60 {
+  height: 60% !important;
 }
