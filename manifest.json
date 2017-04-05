@@ -28,7 +28,7 @@
     }
   ],
 
-  "web_accessible_resources": ["img/*"],
+  "web_accessible_resources": ["img/*", "emojis.json"],
 
   "options_ui": {
     "page": "options/options.html"

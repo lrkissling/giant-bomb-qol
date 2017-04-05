@@ -1,3 +1,7 @@
+/*************************************************
+Previous & Next Videos
+*************************************************/
+
 #qol_video_navigator {
   display: block;
   border-top: 1px solid lightgrey;
@@ -65,8 +69,9 @@
   word-wrap: break-word;
 }
 
-
-/*  Live Show */
+/*************************************************
+Live Show
+*************************************************/
 
 #qol_blah {
   border-left:  1px solid #2c3035;
@@ -103,6 +108,7 @@
   position: absolute;
   background-color: #f9f9f9;
   min-height: 30px;
+  width: 90px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
 }

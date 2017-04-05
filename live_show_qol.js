@@ -19,30 +19,42 @@ var hardcore = browser.extension.getURL("img/emojis/hardcore.png"),
       "<span class='chat-tabs__label'>",
       "<img id='qol_anime_bomb' class='icon' src='" + hardcore + "'/>",
       "Emojis</span></a>",
-      "<div id='qol_emojis' class='qol-dropdown-content'>",
-      "<button id='qol_blah' class='qol-emoji' value=':bye'>",
-      "<img src='" + bye + "' title=':bye '>",
-      "</button></div>"
-    ].join("");
+      "<div id='qol_emojis' class='qol-dropdown-content'>"
+    ];
+
+$.getJSON(browser.extension.getURL("emojis.json"), function(data) {
+  data.emojis.forEach(function(emoji) {
+    let src   = browser.extension.getURL(emoji.img),
+        name = emoji.name;
+
+    html.push(
+      "<button id='qol_blah' class='qol-emoji' value='" + name + " '>",
+      "<img src='" + src + "' title='" + name + "'/></button>",
+    );
+  });
+
+  html.push("</div>");
+  html = html.join("");
+
+  let li = document.createElement("li");
+  li.className = "qol-dropdown";
+  li.innerHTML = html;
+
+  let parentElement = $("#chatTabs")[0];
+  parentElement.appendChild(li);
+});
 
 // var parentElement = document.getElementsByClassName("toolbar")[0];
 // parentElement.insertBefore(span, parentElement.children[4]);
-
-var li = document.createElement("li");
-li.className = "qol-dropdown";
-li.innerHTML = html;
-
-var parentElement = $("#chatTabs")[0];
-parentElement.appendChild(li);
 
 // Close dropdown in user clicks outside of it.
 window.onclick = function(event) {
   if (!event.target.matches("#qol_show_emoji")       &&
       !event.target.matches(".qol-dropdown-content") &&
       !event.target.matches(".qol-emoji")) {
-    var dropdowns = document.getElementsByClassName("qol-dropdown-content");
+    let dropdowns = document.getElementsByClassName("qol-dropdown-content");
     for (var i = 0, len = dropdowns.length; i < len; i++) {
-      var openDropdown = dropdowns[i];
+      let openDropdown = dropdowns[i];
       if (openDropdown.classList.contains("show")) {
         openDropdown.classList.remove("show");
       }
