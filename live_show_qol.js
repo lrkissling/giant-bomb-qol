@@ -15,7 +15,7 @@ $(document).ready(function() {
 });
 
 // html for the Emojis tab
-var hardcore = browser.extension.getURL("img/emojis/hardcore.png"),
+var hardcore = chrome.extension.getURL("img/emojis/hardcore.png"),
     tab_html = [
       "<a id='qol_show_emoji' class='chat-tabs__wrapper' href='#' rel='nofollow'>",
       "<span class='chat-tabs__label'>",
@@ -31,11 +31,11 @@ var parentElement = $("#chatTabs")[0];
 parentElement.appendChild(li);
 
 // parse the emojis.json to create html for the emojis list
-$.getJSON(browser.extension.getURL("emojis.json"), function(data) {
+$.getJSON(chrome.extension.getURL("emojis.json"), function(data) {
   let emojis_html = [];
 
   data.emojis.forEach(function(emoji) {
-    let src  = browser.extension.getURL(emoji.img),
+    let src  = chrome.extension.getURL(emoji.img),
         name = emoji.name;
 
     emojis_html.push(

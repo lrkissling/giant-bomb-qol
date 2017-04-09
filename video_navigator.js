@@ -77,7 +77,7 @@ a2.done(function(data) {
     var prev_video_image = data.results[indices[0]].image.thumb_url,
         prev_video_name  = data.results[indices[0]].name,
         prev_video_url   = data.results[indices[0]].site_detail_url,
-        prev_arrow       = browser.extension.getURL("img/prev.png");
+        prev_arrow       = chrome.extension.getURL("img/prev.png");
 
     html.push(
       "<a id='qol_prev_vid_link' href='" + prev_video_url + "'>",
@@ -96,7 +96,7 @@ a2.done(function(data) {
     var next_video_image = data.results[indices[1]].image.thumb_url,
         next_video_name  = data.results[indices[1]].name,
         next_video_url   = data.results[indices[1]].site_detail_url,
-        next_arrow       = browser.extension.getURL("img/next.png");
+        next_arrow       = chrome.extension.getURL("img/next.png");
 
     html.push(
       "<a id='qol_next_vid_link' href='" + next_video_url + "'>",

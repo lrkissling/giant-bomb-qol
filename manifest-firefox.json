@@ -4,6 +4,13 @@
   "name": "Giant Bomb QOL",
   "version": "1.0",
 
+  "applications": {
+    "gecko": {
+      "id": "giantbomb@qol.snake",
+      "strict_min_version": "51.0"
+    }
+  },
+
   "permissions": [
     "*://*.giantbomb.com/api/*", "storage"
   ],
