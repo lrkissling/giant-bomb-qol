@@ -17,9 +17,31 @@ input[type="checkbox"] {
   width: 20px;
 }
 
+input[type="text"] {
+  width: 270px;
+  font-family: Inconsolata;
+  /*font-family: "Open Sans Light", sans-serif;*/
+  font-size: 0.9em;
+  font-weight: 300;
+}
+
 .option-text {
   display: inline-block;
   width: 40%;
+}
+
+.option-text img {
+  display: inline-block;
+  vertical-align: middle;
+
+  -webkit-transition: .20s ease-in-out;
+  -moz-transition:    .20s ease-in-out;
+  transition:         .20s ease-in-out;
+}
+
+.option-text img:hover {
+  cursor: pointer;
+  opacity: 0.5;
 }
 
 .centered {
