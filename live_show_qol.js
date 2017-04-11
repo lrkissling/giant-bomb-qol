@@ -38,10 +38,8 @@ $.getJSON(chrome.extension.getURL("emojis.json"), function(data) {
     let src  = chrome.extension.getURL(emoji.img),
         name = emoji.name;
 
-    emojis_html.push(
-      "<button class='qol-emoji' value='" + name + " '>",
-      "<img src='" + src + "' title='" + name + "'/></button>",
-    );
+    emojis_html.push("<button class='qol-emoji' value='" + name + " '>");
+    emojis_html.push("<img src='" + src + "' title='" + name + "'/></button>");
   });
 
   emojis_html = emojis_html.join("");

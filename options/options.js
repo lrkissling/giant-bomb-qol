@@ -44,7 +44,7 @@ function restoreOptions() {
   * Set the following checkboxes according to user option, default to checked if null
   */
   function setPrevNextVids(result) {
-    if (result.prev_next_vids != null) {
+    if (result.prev_next_vids !== null) {
       document.querySelector("#cbox_prev_next_vids").checked = result.prev_next_vids;
     } else {
       document.querySelector("#cbox_prev_next_vids").checked = true;
@@ -52,7 +52,7 @@ function restoreOptions() {
   }
 
   function setChatEmoji(result) {
-    if (result.chat_emoji != null) {
+    if (result.chat_emoji !== null) {
       document.querySelector("#cbox_chat_emoji").checked = result.chat_emoji;
     } else {
       document.querySelector("#cbox_chat_emoji").checked = true;
