@@ -25,6 +25,20 @@ input[type="text"] {
   font-weight: 300;
 }
 
+.option-infobutton-container {
+  display: inline-block;
+}
+
+.option-infobutton-text {
+  background-color: white;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  display: none;
+  font-size: 0.8em;
+  position: absolute;
+  width: 300px;
+  z-index: 1;
+}
+
 .option-text {
   display: inline-block;
   width: 40%;
@@ -32,6 +46,7 @@ input[type="text"] {
 
 .option-text img {
   display: inline-block;
+  position: relative;
   vertical-align: middle;
 
   -webkit-transition: .20s ease-in-out;

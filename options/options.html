@@ -8,10 +8,20 @@
     <hr>
     <div class="option-text">
       <label> API Key</label>
-      <img id="api_infobutton" src="infobutton.png"/>
+      <div class="option-infobutton-container">
+        <img src="infobutton.png"/>
+        <div class="option-infobutton-text">
+          This extension uses the Giant Bomb API. This API requires
+          the use of an API key, and the extension has a default key. However, the
+          API has usage rate limits per API key, so it is recommended that you provide
+          your own key for better reliability. You can find your key by logging in to
+          Giant Bomb and navigating to <a href="http://www.giantbomb.com/api" target="_blank">giantbomb.com/api</a>.
+          Your key will never be logged or shared by Giant Bomb QoL.
+        </div>
+      </div>
     </div>
     <div class="centered">
-      <input type="text" id="text_api_key"/><br>
+      <input type="text" id="text_api_key" placeholder="Default Key (Not Recommended)"/><br>
     </div>
     <hr>
     <div class="option-text"><label>Previous Video & Next Video Buttons</label></div>
@@ -19,9 +29,9 @@
       <input type="checkbox" id="cbox_prev_next_vids" checked="true"/><br>
     </div>
     <hr>
-    <div class="option-text"><label>Chat Emojis</label></div>
+    <div class="option-text"><label>Chat Emoji</label></div>
     <div class="centered">
-      <input type="checkbox" id="cbox_chat_emojis" checked="true"/><br>
+      <input type="checkbox" id="cbox_chat_emoji" checked="true"/><br>
     </div>
 
     <script src="options.js"></script>

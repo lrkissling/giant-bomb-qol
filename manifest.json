@@ -1,7 +1,7 @@
 {
-  "description": "Provides some simple quality-of-life enhancements to giantbomb.com.",
+  "description": "Provides some simple Quality-of-Life enhancements to giantbomb.com.",
   "manifest_version": 2,
-  "name": "Giant Bomb QOL",
+  "name": "Giant Bomb QoL",
   "version": "1.0",
 
   "permissions": [
