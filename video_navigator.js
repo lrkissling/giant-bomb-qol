@@ -1,10 +1,12 @@
 console.log("giant-bomb-qol loading");
 
-// Only load the buttons if the user option is true. Defaults to true.
+// options currently only work for Chrome
 if (navigator.userAgent.indexOf("Chrome") != -1) {
   chrome.storage.sync.get(["api_key","prev_next_vids"], handleOptions);
 }
+else showPrevAndNexVids("5a510947131f62ca7c62a7ef136beccae13da2fd");
 
+// Check that they want the prev and next vids, and use their API key if valid
 function handleOptions(item) {
   if (items.prev_next_vids === undefined || items.prev_next_vids) {
     let api_key = items.api_key;

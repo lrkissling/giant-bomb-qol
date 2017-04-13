@@ -1,9 +1,10 @@
-// Only load the buttons if the user option is true. Defaults to true.
+// options only currently work for Chrome
 if (navigator.userAgent.indexOf("Chrome") != -1) {
   chrome.storage.sync.get("chat_emoji", handleOptions);
 }
+else createEmojiMenu();
 
-// Check that they want the prev and next vids, and use their API key if valid.
+// Check that they want the emoji menu
 function handleOptions(item) {
   if (items.chat_emoji === undefined || items.chat_emoji) {
     createEmojiMenu();
