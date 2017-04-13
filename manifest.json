@@ -5,8 +5,12 @@
   "version": "1.0",
 
   "permissions": [
-    "*://*.giantbomb.com/api/*", "storage"
+    "*://*.giantbomb.com/api/*", "storage", "tabs", "webRequest"
   ],
+
+  "background": {
+    "scripts": ["background.js"]
+  },
 
   "content_scripts": [
     {
