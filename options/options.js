@@ -7,6 +7,7 @@ function saveOptions(e) {
   let options = {
     api_key: document.querySelector("#text_api_key").value.trim(),
     prev_next_vids: document.querySelector("#cbox_prev_next_vids").checked,
+    hide_titr_spoilers: document.querySelector("#cbox_hide_titr_spoilers").checked,
     chat_emoji: document.querySelector("#cbox_chat_emoji").checked
   };
 
@@ -23,6 +24,7 @@ function saveOptions(e) {
 // Invoke saveOptions whenever an option is changed
 document.querySelector("#text_api_key").addEventListener("change", saveOptions);
 document.querySelector("#cbox_prev_next_vids").addEventListener("change", saveOptions);
+document.querySelector("#cbox_hide_titr_spoilers").addEventListener("change", saveOptions);
 document.querySelector("#cbox_chat_emoji").addEventListener("change", saveOptions);
 
 
@@ -63,6 +65,15 @@ function restoreOptions() {
     }
   }
 
+  // Set the Hide TITR Spoilers checkbox according to user option, default to checked if null
+  function setHideTitrSpoilers(result) {
+    if (result.hide_titr_spoilers !== undefined) {
+      document.querySelector("#cbox_hide_titr_spoilers").checked = result.hide_titr_spoilers;
+    } else {
+      document.querySelector("#cbox_hide_titr_spoilers").checked = true;
+    }
+  }
+
   // Set the Chat Emoji checkbox according to user option, default to checked if null
   function setChatEmoji(result) {
     if (result.chat_emoji !== undefined) {
@@ -85,11 +96,15 @@ function restoreOptions() {
     getting = browser.storage.local.get("prev_next_vids");
     getting.then(setPrevNextVids, onError);
 
+    getting = browser.storage.local.get("hide_titr_spoilers");
+    getting.then(setHideTitrSpoilers, onError);
+
     getting = browser.storage.local.get("chat_emoji");
     getting.then(setChatEmoji, onError);
   } else {
     chrome.storage.sync.get("api_key", setApiKey);
     chrome.storage.sync.get("prev_next_vids", setPrevNextVids);
+    chrome.storage.sync.get("hide_titr_spoilers", setHideTitrSpoilers);
     chrome.storage.sync.get("chat_emoji", setChatEmoji);
   }
 }

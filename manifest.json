@@ -5,8 +5,12 @@
   "version": "1.0",
 
   "permissions": [
-    "*://*.giantbomb.com/api/*", "storage"
+    "*://*.giantbomb.com/api/*", "storage", "tabs", "webRequest"
   ],
+
+  "background": {
+    "scripts": ["background.js"]
+  },
 
   "content_scripts": [
     {
@@ -17,10 +21,6 @@
         "third_party/moment.min.js",
         "video_navigator.js"
       ]
-    },
-    {
-      "matches": ["*://www.giantbomb.com/videos/this-is-the-run*"],
-      "css": ["hide_titr_spoilers.css"]
     },
     {
       "matches": ["*://www.giantbomb.com/chat/"],
