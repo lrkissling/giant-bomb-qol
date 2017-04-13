@@ -7,7 +7,7 @@ if (navigator.userAgent.indexOf("Chrome") != -1) {
 else showPrevAndNexVids("5a510947131f62ca7c62a7ef136beccae13da2fd");
 
 // Check that they want the prev and next vids, and use their API key if valid
-function handleOptions(item) {
+function handleOptions(items) {
   if (items.prev_next_vids === undefined || items.prev_next_vids) {
     let api_key = items.api_key;
     if (api_key === undefined || api_key.length !== 40) {
