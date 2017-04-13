@@ -19,6 +19,10 @@
       ]
     },
     {
+      "matches": ["*://www.giantbomb.com/videos/this-is-the-run*"],
+      "css": ["hide_titr_spoilers.css"]
+    },
+    {
       "matches": ["*://www.giantbomb.com/chat/"],
       "css": ["giant_bomb_qol.css"],
       "js": ["third_party/jquery-3.1.1.min.js", "live_show_qol.js"]
