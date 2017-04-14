@@ -6,7 +6,7 @@ else createEmojiMenu();
 
 // Check that they want the emoji menu
 function handleOptions(item) {
-  if (items.chat_emoji === undefined || items.chat_emoji) {
+  if (item.chat_emoji === undefined || item.chat_emoji) {
     createEmojiMenu();
   }
 }
@@ -18,7 +18,7 @@ function createEmojiMenu() {
         "<a id='qol_show_emoji' class='chat-tabs__wrapper' href='#' rel='nofollow'>",
         "<span class='chat-tabs__label'>",
         "<img id='qol_emoji_icon' class='icon' src='" + hardcore + "'/>",
-        "Emoji</span></a>"
+        " Emoji</span></a>"
       ].join("");
 
   let li = document.createElement("li");
@@ -52,16 +52,18 @@ function createEmojiMenu() {
   });
 }
 
-// toggle classes to display emoji and show button as active
-$("#qol_show_emoji").click(function() {
-  $(this).toggleClass("qol-red-background");
-  $("#conversation-main").toggleClass("qol-height-60");
-  $("#qol_conversation_emoji").toggleClass("qol-show");
-  return false;
-});
+$(document).ready(function() {
+  // toggle classes to display emoji and show button as active
+  $("#qol_show_emoji").click(function() {
+    $(this).toggleClass("qol-red-background");
+    $("#conversation-main").toggleClass("qol-height-60");
+    $("#qol_conversation_emoji").toggleClass("qol-show");
+    return false;
+  });
 
-// populate the chat input with the emoji key
-$(".qol-emoji").click(function() {
-  $("#f_ChatInput").val($("#f_ChatInput").val() + this.value);
-  $("#f_ChatInput").focus();
+  // populate the chat input with the emoji key
+  $(".qol-emoji").click(function() {
+    $("#f_ChatInput").val($("#f_ChatInput").val() + this.value);
+    $("#f_ChatInput").focus();
+  });
 });
