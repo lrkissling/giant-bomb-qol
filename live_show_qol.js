@@ -12,13 +12,13 @@ function handleOptions(item) {
 }
 
 function createEmojiMenu() {
-  // html for the Emojis tab
-  let hardcore = chrome.extension.getURL("img/emojis/hardcore.png"),
+  // html for the Emoji tab
+  let hardcore = chrome.extension.getURL("img/emoji/hardcore.png"),
       tab_html = [
         "<a id='qol_show_emoji' class='chat-tabs__wrapper' href='#' rel='nofollow'>",
         "<span class='chat-tabs__label'>",
         "<img id='qol_emoji_icon' class='icon' src='" + hardcore + "'/>",
-        "Emojis</span></a>"
+        "Emoji</span></a>"
       ].join("");
 
   let li = document.createElement("li");
@@ -28,24 +28,24 @@ function createEmojiMenu() {
   let parentElement = $("#chatTabs")[0];
   parentElement.appendChild(li);
 
-  // parse the emojis.json to create html for the emojis list
-  $.getJSON(chrome.extension.getURL("emojis.json"), function(data) {
-    let emojis_html = [];
+  // parse the emoji.json to create html for the emoji list
+  $.getJSON(chrome.extension.getURL("emoji.json"), function(data) {
+    let emoji_html = [];
 
-    data.emojis.forEach(function(emoji) {
+    data.emoji.forEach(function(emoji) {
       let src  = chrome.extension.getURL(emoji.img),
           name = emoji.name;
 
-      emojis_html.push("<button class='qol-emoji' value='" + name + " '>");
-      emojis_html.push("<img src='" + src + "' title='" + name + "'/></button>");
+      emoji_html.push("<button class='qol-emoji' value='" + name + " '>");
+      emoji_html.push("<img src='" + src + "' title='" + name + "'/></button>");
     });
 
-    emojis_html = emojis_html.join("");
+    emoji_html = emoji_html.join("");
 
     let div = document.createElement("div");
     div.id = "qol_conversation_emoji";
     div.className = "chat-panel";
-    div.innerHTML = emojis_html;
+    div.innerHTML = emoji_html;
 
     let parentElement = $("#chat-canvas")[0];
     parentElement.appendChild(div);

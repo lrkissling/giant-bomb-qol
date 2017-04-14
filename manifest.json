@@ -29,7 +29,7 @@
     }
   ],
 
-  "web_accessible_resources": ["img/*", "emojis.json"],
+  "web_accessible_resources": ["img/*", "emoji.json"],
 
   "options_ui": {
     "page": "options/options.html"
