@@ -15,7 +15,10 @@ function hideSpoilers() {
   let div = document.getElementsByClassName("av-buffer")[0];
   div.classList.add("qol-hidden");
 
-  div = document.getElementsByClassName("js-vid-buffer")[0];
+  div = document.getElementsByClassName("js-vid-buffer av-buffer-wrap")[0];
+  div.classList.add("qol-hidden");
+
+  div = document.getElementsByClassName("js-vid-position av-position")[0];
   div.classList.add("qol-hidden");
 
   div = document.getElementsByClassName("av-time")[0];
