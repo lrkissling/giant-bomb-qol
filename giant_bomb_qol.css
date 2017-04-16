@@ -77,6 +77,14 @@ Hide Spoiler Elements
   visibility: hidden !important;
 }
 
+.qol-hidden-hover {
+  opacity: 0;
+}
+
+.qol-hidden-hover:hover {
+  opacity: 1;
+}
+
 /*************************************************
 Live Show
 *************************************************/

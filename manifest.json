@@ -20,8 +20,7 @@
       "js": [
         "third_party/jquery-3.1.1.min.js",
         "third_party/moment.min.js",
-        "video_navigator.js"
-      ]
+        "video_navigator.js"      ]
     },
     {
       "matches": ["*://www.giantbomb.com/videos/*this-is-the-run*"],

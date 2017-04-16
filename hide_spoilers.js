@@ -2,16 +2,18 @@
 if (navigator.userAgent.indexOf("Chrome") != -1) {
   chrome.storage.sync.get("hide_titr_spoilers", handleOptions);
 }
-else hideSpoilers();
+else {
+  hideSpoilerElements();
+}
 
 // Check that they want to hide spoilers
-function handleOptions(item) {
-  if (item.hide_titr_spoilers === undefined || item.hide_titr_spoilers) {
-    hideSpoilers();
+function handleOptions(items) {
+  if (items.hide_titr_spoilers === undefined || items.hide_titr_spoilers) {
+    hideSpoilerElements();
   }
 }
 
-function hideSpoilers() {
+function hideSpoilerElements() {
   let div = document.getElementsByClassName("av-buffer")[0];
   div.classList.add("qol-hidden");
 

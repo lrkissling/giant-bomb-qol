@@ -1,10 +1,12 @@
 console.log("giant-bomb-qol loading");
 
+
 // options currently only work for Chrome
 if (navigator.userAgent.indexOf("Chrome") != -1) {
-  chrome.storage.sync.get(["api_key","prev_next_vids"], handleOptions);
+  chrome.storage.sync.get(["api_key","prev_next_vids", "hide_titr_spoilers"], handleOptions);
 }
-else showPrevAndNexVids("5a510947131f62ca7c62a7ef136beccae13da2fd");
+else showPrevAndNexVids("5a510947131f62ca7c62a7ef136beccae13da2fd",
+                        document.location.href.indexOf("this-is-the-run") != -1);
 
 // Check that they want the prev and next vids, and use their API key if valid
 function handleOptions(items) {
@@ -14,11 +16,19 @@ function handleOptions(items) {
       // default api key
       api_key = "5a510947131f62ca7c62a7ef136beccae13da2fd";
     }
-    showPrevAndNexVids(api_key);
+
+    // want to hide the next video if watching TITR and option is true
+    let hide_titr = false;
+    if (document.location.href.indexOf("this-is-the-run") != -1 &&
+       (items.hide_titr_spoilers === undefined || items.hide_titr_spoilers)) {
+         hide_titr = true;
+    }
+
+    showPrevAndNexVids(api_key, hide_titr);
   }
 }
 
-function showPrevAndNexVids(api_key) {
+function showPrevAndNexVids(api_key, hide_titr) {
   // first API call to retrieve necessary information from current video
   let a1 = $.ajax({
               url: "https://www.giantbomb.com/api/video/" + getCurrentVideoId() + "/",
@@ -112,14 +122,20 @@ function showPrevAndNexVids(api_key) {
       "<div id='qol_next_vid'>"
     );
 
+
     if (indices[1] !== undefined) {
       let next_video_image = data.results[indices[1]].image.thumb_url,
           next_video_name  = data.results[indices[1]].name,
           next_video_url   = data.results[indices[1]].site_detail_url,
           next_arrow       = chrome.extension.getURL("img/next.png");
 
+      // hide the next vid if it's a TITR video
+      if (hide_titr) {
+        html.push("<a id='qol_next_vid_link' class='qol-hidden-hover' href='" + next_video_url + "'>");
+      }
+      else html.push("<a id='qol_next_vid_link' href='" + next_video_url + "'>");
+
       html.push(
-        "<a id='qol_next_vid_link' href='" + next_video_url + "'>",
         "<img id='qol_next_vid_thumb' class='qol_thumb' src='" + next_video_image + "'>",
         "<span class='qol-vid-name'>" + next_video_name + "</span>",
         "<img id='qol_next_vid_arrow' src='" + next_arrow + "'/></a>"
