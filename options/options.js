@@ -12,12 +12,12 @@ function saveOptions(e) {
   };
 
   // Firefox and Chrome handle storage get and set differently
-  if (navigator.userAgent.indexOf("Firefox") != -1) {
-    browser.storage.local.set(options);
-  } else {
+  if (navigator.userAgent.indexOf("Chrome") != -1) {
     chrome.storage.sync.set(options, function() {
       console.log("Saved: " + JSON.stringify(options));
     });
+  } else {
+    browser.storage.sync.set(options);
   }
 }
 
@@ -88,24 +88,23 @@ function restoreOptions() {
   }
 
   // Firefox and Chrome handle storage get and set differently
-  if (navigator.userAgent.indexOf("Firefox") != -1) {
-    // Retrieve promises of options from local storage and send to handler functions
-    let getting = browser.storage.local.get("api_key");
-    getting.then(setApiKey, onError);
-
-    getting = browser.storage.local.get("prev_next_vids");
-    getting.then(setPrevNextVids, onError);
-
-    getting = browser.storage.local.get("hide_titr_spoilers");
-    getting.then(setHideTitrSpoilers, onError);
-
-    getting = browser.storage.local.get("chat_emoji");
-    getting.then(setChatEmoji, onError);
-  } else {
+  if (navigator.userAgent.indexOf("Chrome") != -1) {
     chrome.storage.sync.get("api_key", setApiKey);
     chrome.storage.sync.get("prev_next_vids", setPrevNextVids);
     chrome.storage.sync.get("hide_titr_spoilers", setHideTitrSpoilers);
     chrome.storage.sync.get("chat_emoji", setChatEmoji);
+  } else {
+    let getting = browser.storage.sync.get("api_key");
+    getting.then(setApiKey, onError);
+
+    getting = browser.storage.sync.get("prev_next_vids");
+    getting.then(setPrevNextVids, onError);
+
+    getting = browser.storage.sync.get("hide_titr_spoilers");
+    getting.then(setHideTitrSpoilers, onError);
+
+    getting = browser.storage.sync.get("chat_emoji");
+    getting.then(setChatEmoji, onError);
   }
 }
 

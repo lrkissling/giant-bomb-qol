@@ -1,12 +1,11 @@
 console.log("giant-bomb-qol loading");
 
-
-// options currently only work for Chrome
 if (navigator.userAgent.indexOf("Chrome") != -1) {
   chrome.storage.sync.get(["api_key","prev_next_vids", "hide_titr_spoilers"], handleOptions);
+} else {
+  getting = browser.storage.sync.get(["api_key", "prev_next_vids", "hide_titr_spoilers"]);
+  getting.then(handleOptions, onError);
 }
-else showPrevAndNexVids("5a510947131f62ca7c62a7ef136beccae13da2fd",
-                        document.location.href.indexOf("this-is-the-run") != -1);
 
 // Check that they want the prev and next vids, and use their API key if valid
 function handleOptions(items) {
@@ -20,7 +19,6 @@ function handleOptions(items) {
     // some styling needs to change if website in dark mode
     let blackOrWhite = "white";
     if ($("html").css("background-color") === "rgb(36, 38, 40)") {
-                  // "#242628 url(/bundles/phoenixsite/images/core/loose/bg-body-dark-noise.png)") {
       blackOrWhite = "black";
     }
 
@@ -33,6 +31,10 @@ function handleOptions(items) {
 
     showPrevAndNexVids(api_key, blackOrWhite, hide_titr);
   }
+}
+
+function onError(error) {
+  console.log(`Error: ${error}`);
 }
 
 function showPrevAndNexVids(api_key, blackOrWhite, hide_titr) {
