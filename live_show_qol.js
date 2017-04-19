@@ -1,8 +1,10 @@
-// options only currently work for Chrome
 if (navigator.userAgent.indexOf("Chrome") != -1) {
   chrome.storage.sync.get("chat_emoji", handleOptions);
-}
-else createEmojiMenu();
+// } else {
+//   getting = browser.storage.sync.get("chat_emoji");
+//   getting.then(handleOptions, onError);
+// }
+} else createEmojiMenu();
 
 // Check that they want the emoji menu
 function handleOptions(item) {
@@ -10,6 +12,11 @@ function handleOptions(item) {
     createEmojiMenu();
   }
 }
+
+function onError(error) {
+  console.log(`Error: ${error}`);
+}
+
 
 function createEmojiMenu() {
   // html for the Emoji tab
@@ -62,7 +69,7 @@ $(document).ready(function() {
   });
 
   // populate the chat input with the emoji key
-  $(".qol-emoji").click(function() {
+  $("#f_ChatController").on("click", ".qol-emoji", function() {
     $("#f_ChatInput").val($("#f_ChatInput").val() + this.value);
     $("#f_ChatInput").focus();
   });
