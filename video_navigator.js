@@ -17,6 +17,13 @@ function handleOptions(items) {
       api_key = "5a510947131f62ca7c62a7ef136beccae13da2fd";
     }
 
+    // some styling needs to change if website in dark mode
+    let blackOrWhite = "white";
+    if ($("html").css("background-color") === "rgb(36, 38, 40)") {
+                  // "#242628 url(/bundles/phoenixsite/images/core/loose/bg-body-dark-noise.png)") {
+      blackOrWhite = "black";
+    }
+
     // want to hide the next video if watching TITR and option is true
     let hide_titr = false;
     if (document.location.href.indexOf("this-is-the-run") != -1 &&
@@ -24,11 +31,11 @@ function handleOptions(items) {
          hide_titr = true;
     }
 
-    showPrevAndNexVids(api_key, hide_titr);
+    showPrevAndNexVids(api_key, blackOrWhite, hide_titr);
   }
 }
 
-function showPrevAndNexVids(api_key, hide_titr) {
+function showPrevAndNexVids(api_key, blackOrWhite, hide_titr) {
   // first API call to retrieve necessary information from current video
   let a1 = $.ajax({
               url: "https://www.giantbomb.com/api/video/" + getCurrentVideoId() + "/",
@@ -101,7 +108,7 @@ function showPrevAndNexVids(api_key, hide_titr) {
     if (indices.length === 0) return;
 
     // start building the actual html
-    let html = ["<div id='qol_prev_vid'>"];
+    let html = ["<div id='qol_prev_vid' class='qol-prev-vid-" + blackOrWhite + "'>"];
 
     if (indices[0] !== undefined) {
       let prev_video_image = data.results[indices[0]].image.thumb_url,
@@ -147,7 +154,7 @@ function showPrevAndNexVids(api_key, hide_titr) {
 
     let div = document.createElement("div");
     div.setAttribute("id", "qol_video_navigator");
-    div.setAttribute("class", "tab-pane");
+    div.setAttribute("class", "tab-pane qol-vid-nav-" + blackOrWhite);
     div.innerHTML = html;
 
     let parentElement = document.getElementsByClassName("tab-content")[0];
