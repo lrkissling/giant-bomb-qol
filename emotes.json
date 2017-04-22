@@ -1,0 +1,376 @@
+{
+  "emotes": [
+    {
+      "img":  "img/emotes/bye.png",
+      "name": ":bye"
+    },
+    {
+      "img":  "img/emotes/blink.gif",
+      "name": ":blink"
+    },
+    {
+      "img":  "img/emotes/plur.gif",
+      "name": ":plur"
+    },
+    {
+      "img":  "img/emotes/fistpump.gif",
+      "name": ":fistpump"
+    },
+    {
+      "img":  "img/emotes/kishup.gif",
+      "name": ":kishup"
+    },
+    {
+      "img":  "img/emotes/rungfb.png",
+      "name": ":rungfb"
+    },
+    {
+      "img":  "img/emotes/tupac.png",
+      "name": ":tupac"
+    },
+    {
+      "img":  "img/emotes/biggie.png",
+      "name": ":biggie"
+    },
+    {
+      "img":  "img/emotes/jeff.png",
+      "name": ":jeff"
+    },
+    {
+      "img":  "img/emotes/ryan.png",
+      "name": ":ryan"
+    },
+    {
+      "img":  "img/emotes/brad.png",
+      "name": ":brad"
+    },
+    {
+      "img":  "img/emotes/vinny.png",
+      "name": ":vinny"
+    },
+    {
+      "img":  "img/emotes/alex.png",
+      "name": ":alex"
+    },
+    {
+      "img":  "img/emotes/rorie.png",
+      "name": ":rorie"
+    },
+    {
+      "img":  "img/emotes/drew.png",
+      "name": ":drew"
+    },
+    {
+      "img":  "img/emotes/austin.png",
+      "name": ":austin"
+    },
+    {
+      "img":  "img/emotes/patrick.png",
+      "name": ":patrick"
+    },
+    {
+      "img":  "img/emotes/dave.png",
+      "name": ":dave"
+    },
+    {
+      "img":  "img/emotes/alexis.png",
+      "name": ":alexis"
+    },
+    {
+      "img":  "img/emotes/langzone.gif",
+      "name": ":langzone"
+    },
+    {
+      "img":  "img/emotes/hardcore.png",
+      "name": ":hardcore"
+    },
+    {
+      "img":  "img/emotes/austintwo.jpeg",
+      "name": ":austintwo"
+    },
+    {
+      "img":  "img/emotes/belair.png",
+      "name": ":belair"
+    },
+    {
+      "img":  "img/emotes/bigknob.gif",
+      "name": ":bigknob"
+    },
+    {
+      "img":  "img/emotes/bopped.png",
+      "name": ":bopped"
+    },
+    {
+      "img":  "img/emotes/botcolony.png",
+      "name": ":botcolony"
+    },
+    {
+      "img":  "img/emotes/bufu.png",
+      "name": ":bufu"
+    },
+    {
+      "img":  "img/emotes/buzzclik.png",
+      "name": ":buzzclik"
+    },
+    {
+      "img":  "img/emotes/chaser.png",
+      "name": ":chaser"
+    },
+    {
+      "img":  "img/emotes/coolbaby.png",
+      "name": ":coolbaby"
+    },
+    {
+      "img":  "img/emotes/crispy.png",
+      "name": ":crispy"
+    },
+    {
+      "img":  "img/emotes/ctrl.png",
+      "name": ":ctrl"
+    },
+    {
+      "img":  "img/emotes/cyborgmatt.png",
+      "name": ":cyborgmatt"
+    },
+    {
+      "img":  "img/emotes/danny.png",
+      "name": ":danny"
+    },
+    {
+      "img":  "img/emotes/dota.png",
+      "name": ":dota"
+    },
+    {
+      "img":  "img/emotes/edgework.jpeg",
+      "name": ":edgework"
+    },
+    {
+      "img":  "img/emotes/facepalm.gif",
+      "name": ":facepalm"
+    },
+    {
+      "img":  "img/emotes/finaldasa.png",
+      "name": ":finaldasa"
+    },
+    {
+      "img":  "img/emotes/fobwashed.png",
+      "name": ":fobwashed"
+    },
+    {
+      "img":  "img/emotes/gamebomb.png",
+      "name": ":gamebomb"
+    },
+    {
+      "img":  "img/emotes/gamer.png",
+      "name": ":gamer"
+    },
+    {
+      "img":  "img/emotes/gamespot.png",
+      "name": ":gamespot"
+    },
+    {
+      "img":  "img/emotes/henry.jpeg",
+      "name": ":henry"
+    },
+    {
+      "img":  "img/emotes/hype.gif",
+      "name": ":hype"
+    },
+    {
+      "img":  "img/emotes/ian.png",
+      "name": ":ian"
+    },
+    {
+      "img":  "img/emotes/imscared.png",
+      "name": ":imscared"
+    },
+    {
+      "img":  "img/emotes/itsalockdown.png",
+      "name": ":itsalockdown"
+    },
+    {
+      "img":  "img/emotes/jadegl.png",
+      "name": ":jadegl"
+    },
+    {
+      "img":  "img/emotes/jason.jpeg",
+      "name": ":jason"
+    },
+    {
+      "img":  "img/emotes/jawdrop.gif",
+      "name": ":jawdrop"
+    },
+    {
+      "img":  "img/emotes/jeffu.png",
+      "name": ":jeffu"
+    },
+    {
+      "img":  "img/emotes/laika.jpeg",
+      "name": ":laika"
+    },
+    {
+      "img":  "img/emotes/luchadeer.png",
+      "name": ":luchadeer"
+    },
+    {
+      "img":  "img/emotes/manthechat.png",
+      "name": ":manthechat"
+    },
+    {
+      "img":  "img/emotes/marino.png",
+      "name": ":marino"
+    },
+    {
+      "img":  "img/emotes/masterrace.gif",
+      "name": ":masterrace"
+    },
+    {
+      "img":  "img/emotes/mattyftm.png",
+      "name": ":mattyftm"
+    },
+    {
+      "img":  "img/emotes/mb.jpeg",
+      "name": ":mb"
+    },
+    {
+      "img":  "img/emotes/mento.png",
+      "name": ":mento"
+    },
+    {
+      "img":  "img/emotes/mooseymcman.png",
+      "name": ":mooseymcman"
+    },
+    {
+      "img":  "img/emotes/mracoon.png",
+      "name": ":mracoon"
+    },
+    {
+      "img":  "img/emotes/mrpibb.jpeg",
+      "name": ":mrpibb"
+    },
+    {
+      "img":  "img/emotes/muir.png",
+      "name": ":muir"
+    },
+    {
+      "img":  "img/emotes/never.jpeg",
+      "name": ":never"
+    },
+    {
+      "img":  "img/emotes/nintendrone.gif",
+      "name": ":nintendrone"
+    },
+    {
+      "img":  "img/emotes/notblack.png",
+      "name": ":notblack"
+    },
+    {
+      "img":  "img/emotes/notlikethis.png",
+      "name": ":notlikethis"
+    },
+    {
+      "img":  "img/emotes/parappa.gif",
+      "name": ":parappa"
+    },
+    {
+      "img":  "img/emotes/partytime.gif",
+      "name": ":partytime"
+    },
+    {
+      "img":  "img/emotes/pax.png",
+      "name": ":pax"
+    },
+    {
+      "img":  "img/emotes/polls.gif",
+      "name": ":polls"
+    },
+    {
+      "img":  "img/emotes/pryckert.jpeg",
+      "name": ":pryckert"
+    },
+    {
+      "img":  "img/emotes/pseg.png",
+      "name": ":pseg"
+    },
+    {
+      "img":  "img/emotes/rawiswaluigi.jpeg",
+      "name": ":rawiswaluigi"
+    },
+    {
+      "img":  "img/emotes/refleksy.png",
+      "name": ":refleksy"
+    },
+    {
+      "img":  "img/emotes/rekt.png",
+      "name": ":rekt"
+    },
+    {
+      "img":  "img/emotes/ryckert.jpeg",
+      "name": ":ryckert"
+    },
+    {
+      "img":  "img/emotes/salty.gif",
+      "name": ":salty"
+    },
+    {
+      "img":  "img/emotes/shock.gif",
+      "name": ":shock"
+    },
+    {
+      "img":  "img/emotes/sitesdown.png",
+      "name": ":sitesdown"
+    },
+    {
+      "img":  "img/emotes/sonypony.gif",
+      "name": ":sonypony"
+    },
+    {
+      "img":  "img/emotes/sparklykiss.png",
+      "name": ":sparklykiss"
+    },
+    {
+      "img":  "img/emotes/sparkybuzzsaw.png",
+      "name": ":sparkybuzzsaw"
+    },
+    {
+      "img":  "img/emotes/spooked.gif",
+      "name": ":spooked"
+    },
+    {
+      "img":  "img/emotes/sweep.png",
+      "name": ":sweep"
+    },
+    {
+      "img":  "img/emotes/takenking.png",
+      "name": ":takenking"
+    },
+    {
+      "img":  "img/emotes/thatpinguino.png",
+      "name": ":thatpinguino"
+    },
+    {
+      "img":  "img/emotes/trianglechips.png",
+      "name": ":trianglechips"
+    },
+    {
+      "img":  "img/emotes/vibrimote.gif",
+      "name": ":vibrimote"
+    },
+    {
+      "img":  "img/emotes/vrooom.png",
+      "name": ":vrooom"
+    },
+    {
+      "img":  "img/emotes/wafflestomp.png",
+      "name": ":wafflestomp"
+    },
+    {
+      "img":  "img/emotes/xbot.gif",
+      "name": ":xbot"
+    },
+    {
+      "img":  "img/emotes/zombiepie.jpeg",
+      "name": ":zombiepie"
+    }
+  ]
+}

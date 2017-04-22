@@ -1,14 +1,14 @@
 if (navigator.userAgent.indexOf("Chrome") != -1) {
-  chrome.storage.sync.get("chat_emoji", handleOptions);
+  chrome.storage.sync.get("chat_emotes", handleOptions);
 } else {
-  getting = browser.storage.sync.get("chat_emoji");
+  getting = browser.storage.sync.get("chat_emotes");
   getting.then(handleOptions, onError);
 }
 
-// Check that they want the emoji menu
+// Check that they want the Emotes Menu
 function handleOptions(item) {
-  if (item.chat_emoji === undefined || item.chat_emoji) {
-    createEmojiMenu();
+  if (item.chat_emotes === undefined || item.chat_emotes) {
+    createEmotesMenu();
   }
 }
 
@@ -17,41 +17,41 @@ function onError(error) {
 }
 
 
-function createEmojiMenu() {
-  // html for the Emoji tab
-  let hardcore = chrome.extension.getURL("img/emoji/hardcore.png"),
+function createEmotesMenu() {
+  // html for the Emotes tab
+  let hardcore = chrome.extension.getURL("img/emotes/hardcore.png"),
       tab_html = [
-        "<a id='qol_show_emoji' class='chat-tabs__wrapper' href='#' rel='nofollow'>",
+        "<a id='qol_show_emotes' class='chat-tabs__wrapper' href='#' rel='nofollow'>",
         "<span class='chat-tabs__label'>",
-        "<img id='qol_emoji_icon' class='icon' src='" + hardcore + "'/>",
-        " Emoji</span></a>"
+        "<img id='qol_emotes_icon' class='icon' src='" + hardcore + "'/>",
+        "Emotes</span></a>"
       ].join("");
 
   let li = document.createElement("li");
-  li.className = "qol-chat-tabs__emoji";
+  li.className = "qol-chat-tabs__emotes";
   li.innerHTML = tab_html;
 
   let parentElement = $("#chatTabs")[0];
   parentElement.appendChild(li);
 
-  // parse the emoji.json to create html for the emoji list
-  $.getJSON(chrome.extension.getURL("emoji.json"), function(data) {
-    let emoji_html = [];
+  // parse the emotes.json to create html for the emotes list
+  $.getJSON(chrome.extension.getURL("emotes.json"), function(data) {
+    let emotes_html = [];
 
-    data.emoji.forEach(function(emoji) {
-      let src  = chrome.extension.getURL(emoji.img),
-          name = emoji.name;
+    data.emotes.forEach(function(emote) {
+      let src  = chrome.extension.getURL(emote.img),
+          name = emote.name;
 
-      emoji_html.push("<button class='qol-emoji' value='" + name + " '>");
-      emoji_html.push("<img src='" + src + "' title='" + name + "'/></button>");
+      emotes_html.push("<button class='qol-emote' value='" + name + " '>");
+      emotes_html.push("<img src='" + src + "' title='" + name + "'/></button>");
     });
 
-    emoji_html = emoji_html.join("");
+    emotes_html = emotes_html.join("");
 
     let div = document.createElement("div");
-    div.id = "qol_conversation_emoji";
+    div.id = "qol_conversation_emotes";
     div.className = "chat-panel";
-    div.innerHTML = emoji_html;
+    div.innerHTML = emotes_html;
 
     let parentElement = $("#chat-canvas")[0];
     parentElement.appendChild(div);
@@ -59,16 +59,16 @@ function createEmojiMenu() {
 }
 
 $(document).ready(function() {
-  // toggle classes to display emoji and show button as active
-  $("#qol_show_emoji").click(function() {
+  // toggle classes to display emotes and show button as active
+  $("#qol_show_emotes").click(function() {
     $(this).toggleClass("qol-red-background");
     $("#conversation-main").toggleClass("qol-height-60");
-    $("#qol_conversation_emoji").toggleClass("qol-show");
+    $("#qol_conversation_emotes").toggleClass("qol-show");
     return false;
   });
 
-  // populate the chat input with the emoji key
-  $("#f_ChatController").on("click", ".qol-emoji", function() {
+  // populate the chat input with the emote key
+  $("#f_ChatController").on("click", ".qol-emote", function() {
     $("#f_ChatInput").val($("#f_ChatInput").val() + this.value);
     $("#f_ChatInput").focus();
   });

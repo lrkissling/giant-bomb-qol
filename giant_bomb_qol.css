@@ -100,18 +100,18 @@ Hide Spoiler Elements
 Live Show
 *************************************************/
 
-#qol_emoji_icon {
+#qol_emotes_icon {
   display: inline-block;
   height: 30px;
   width: 30px;
 }
 
-#qol_conversation_emoji {
+#qol_conversation_emotes {
   height: 40%;
   overflow-y: auto;
 }
 
-.qol-emoji {
+.qol-emote {
   background: none;
   border: none;
   display: inline-block;
@@ -123,11 +123,11 @@ Live Show
   transition:         .30s ease-in-out;
 }
 
-.qol-emoji:hover {
+.qol-emote:hover {
   background-color: #981b1d;
 }
 
-.chat .qol-chat-tabs__emoji .chat-tabs__wrapper.qol-red-background {
+.chat .qol-chat-tabs__emotes .chat-tabs__wrapper.qol-red-background {
   background: #981b1d none repeat scroll 0 0;
 }
 

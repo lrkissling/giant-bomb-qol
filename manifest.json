@@ -1,4 +1,4 @@
-{
+emotes{
   "description": "Provides some simple Quality-of-Life enhancements to giantbomb.com.",
   "manifest_version": 2,
   "name": "Giant Bomb QoL",
@@ -34,7 +34,7 @@
     }
   ],
 
-  "web_accessible_resources": ["img/*", "emoji.json"],
+  "web_accessible_resources": ["img/*", "emotes.json"],
 
   "options_ui": {
     "page": "options/options.html"
