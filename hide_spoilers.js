@@ -9,8 +9,19 @@ if (navigator.userAgent.indexOf("Chrome") != -1) {
 // Check that they want to hide spoilers
 function handleOptions(items) {
   if (items.hide_titr_spoilers === undefined || items.hide_titr_spoilers) {
-    hideSpoilerElements();
+    if (!isMainPage(window.location.href) ||
+        document.querySelector("h2").innerHTML.includes("This Is The Run")) {
+      hideSpoilerElements();
+    }
   }
+}
+
+function isMainPage(url) {
+  if (url === "https://www.giantbomb.com/" ||
+      url === "http://www.giantbomb.com/") {
+    return true;
+  }
+  return false;
 }
 
 function onError(error) {
