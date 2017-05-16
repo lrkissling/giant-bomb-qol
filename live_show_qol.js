@@ -36,7 +36,12 @@ function createEmotesMenu() {
 
   // parse the emotes.json to create html for the emotes list
   $.getJSON(chrome.extension.getURL("emotes.json"), function(data) {
-    let emotes_html = [];
+    let emotes_html = [
+      "<div class='chat-panel__header'>",
+      "<strong class='chat-panel__title'>Emotes</strong>",
+      "</div>",
+      "<div class='chat-panel__container'><div class='qol-scroll-hold'>"
+    ];
 
     data.emotes.forEach(function(emote) {
       let src  = chrome.extension.getURL(emote.img),
@@ -46,6 +51,7 @@ function createEmotesMenu() {
       emotes_html.push("<img src='" + src + "' title='" + name + "'/></button>");
     });
 
+    emotes_html.push("</div></div>");
     emotes_html = emotes_html.join("");
 
     let div = document.createElement("div");

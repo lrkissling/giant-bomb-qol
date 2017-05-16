@@ -109,7 +109,10 @@ Live Show
 
 #qol_conversation_emotes {
   height: 40%;
-  overflow-y: auto;
+}
+
+#qol_conversation_emotes .chat-panel__container {
+  padding-top: 2.25rem;
 }
 
 .qol-chat-tabs__emotes {
@@ -137,6 +140,12 @@ Live Show
 .chat .qol-chat-tabs__emotes .chat-tabs__wrapper.qol-red-background,
 .chat .qol-chat-tabs__emotes .chat-tabs__wrapper.qol-red-background:hover {
   background: #981b1d none repeat scroll 0 0;
+}
+
+.qol-scroll-hold {
+  background: #1b1c1d;
+  height: 100%;
+  overflow-y: auto;
 }
 
 .qol-show {
