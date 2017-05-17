@@ -126,7 +126,8 @@ Live Show
   border: none;
   display: inline-block;
   height: 30px;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
+  margin-top: 5px;
 
   -webkit-transition: .30s ease-in-out;
   -moz-transition:    .30s ease-in-out;
@@ -143,7 +144,7 @@ Live Show
 }
 
 .qol-scroll-hold {
-  background: #1b1c1d;
+  background: #232425;
   height: 100%;
   overflow-y: auto;
 }
