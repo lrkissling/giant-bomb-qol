@@ -237,6 +237,14 @@
       "name": ":mento"
     },
     {
+      "img":  "img/emotes/metul.png",
+      "name": ":metul"
+    },
+    {
+      "img":  "img/emotes/metull.png",
+      "name": ":metull"
+    },
+    {
       "img":  "img/emotes/mooseymcman.png",
       "name": ":mooseymcman"
     },
