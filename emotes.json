@@ -77,6 +77,18 @@
       "name": ":alexis"
     },
     {
+      "img":  "img/emotes/ryckert.jpeg",
+      "name": ":ryckert"
+    },
+    {
+      "img":  "img/emotes/jason.jpeg",
+      "name": ":jason"
+    },
+    {
+      "img":  "img/emotes/jeffu.png",
+      "name": ":jeffu"
+    },
+    {
       "img":  "img/emotes/langzone.gif",
       "name": ":langzone"
     },
@@ -141,10 +153,6 @@
       "name": ":dota"
     },
     {
-      "img":  "img/emotes/edgework.jpeg",
-      "name": ":edgework"
-    },
-    {
       "img":  "img/emotes/facepalm.gif",
       "name": ":facepalm"
     },
@@ -193,16 +201,8 @@
       "name": ":jadegl"
     },
     {
-      "img":  "img/emotes/jason.jpeg",
-      "name": ":jason"
-    },
-    {
       "img":  "img/emotes/jawdrop.gif",
       "name": ":jawdrop"
-    },
-    {
-      "img":  "img/emotes/jeffu.png",
-      "name": ":jeffu"
     },
     {
       "img":  "img/emotes/laika.jpeg",
@@ -301,6 +301,10 @@
       "name": ":pseg"
     },
     {
+      "img":  "img/emotes/pushwarren.png",
+      "name": ":pushwarren"
+    },
+    {
       "img":  "img/emotes/rawiswaluigi.jpeg",
       "name": ":rawiswaluigi"
     },
@@ -313,8 +317,8 @@
       "name": ":rekt"
     },
     {
-      "img":  "img/emotes/ryckert.jpeg",
-      "name": ":ryckert"
+      "img":  "img/emotes/rick.jpeg",
+      "name": ":rick"
     },
     {
       "img":  "img/emotes/salty.gif",
@@ -371,6 +375,10 @@
     {
       "img":  "img/emotes/wafflestomp.png",
       "name": ":wafflestomp"
+    },
+    {
+      "img":  "img/emotes/wallmeat.png",
+      "name": ":wallmeat"
     },
     {
       "img":  "img/emotes/xbot.gif",
