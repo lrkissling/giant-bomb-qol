@@ -30,14 +30,16 @@ function hideVideoSpoilers() {
 
 // Hides timestamps from video thumbnails
 function hideThumbnailSpoilers() {
-  // if it's the TITR show page, hide every thumbnail timestamp
+  // if it's the TITR show page, hide every thumbnail timestamp and comments count
   if (window.location.href.includes("giantbomb.com/shows/this-is-the-run/")) {
+    $(".overlay-stats i:first-child").css("display", "none");
     $(".overlay-stats i:last-child").css("display", "none");
   }
-  // otherwise, only hide timestamps from thumbnails for TITR videos
+  // otherwise, only hide timestamps and comments counts from thumbnails for TITR videos
   else {
     $("#video-block li a").each(function() {
       if (this.href.includes("this-is-the-run")) {
+        $(this).find(".overlay-stats i:first-child").css("display", "none");
         $(this).find(".overlay-stats i:last-child").css("display", "none");
       }
     });
