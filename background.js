@@ -1,6 +1,12 @@
-var isLive = false;
+var isLive = false,
+    chatURL = "https://www.giantbomb.com/chat/";
 
-browser.browserAction.onClicked.addListener(toggleButton);
+setInterval(checkForLiveShow, 10 * 1000);
+
+function checkForLiveShow() {
+  isLive = !isLive;
+  updateIcon();
+}
 
 function updateIcon() {
   if (isLive) {
@@ -21,7 +27,8 @@ function updateIcon() {
   }
 }
 
-function toggleButton() {
-  isLive = !isLive;
-  updateIcon();
+browser.browserAction.onClicked.addListener(navigateIfLive);
+
+function navigateIfLive() {
+  if (isLive) browser.tabs.create({ url: chatURL });
 }
