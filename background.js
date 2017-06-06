@@ -5,11 +5,11 @@ if (navigator.userAgent.indexOf("Chrome") != -1) {
 getOptions();
 setInterval(getOptions, 5 * 60 * 1000);
 
-function getOptions() {}
+function getOptions() {
   if (navigator.userAgent.indexOf("Chrome") != -1) {
-    chrome.storage.sync.get("api_key", "stream_notifications", handleOptions);
+    chrome.storage.sync.get(["api_key", "stream_notifications"], handleOptions);
   } else {
-    getting = browser.storage.sync.get("api_key", "stream_notifications");
+    getting = browser.storage.sync.get(["api_key", "stream_notifications"]);
     getting.then(handleOptions, onError);
   }
 }
@@ -18,11 +18,11 @@ function handleOptions(options) {
   if (options.api_key !== undefined &&
       options.api_key.length === 40 &&
       (options.stream_notifications === undefined || options.stream_notifications)) {
-    checkForLiveShow();
+    checkForLiveShow(options.api_key);
   }
 }
 
-function checkForLiveShow() {
+function checkForLiveShow(api_key) {
   $.ajax({
     url: "https://www.giantbomb.com/api/chats/",
     dataType: "json",
@@ -51,7 +51,7 @@ function updateStreamStatus(isLive, results) {
     });
 
     options.stream_title = results[0].title;
-    options.stream_image = results[0].small_url;
+    options.stream_image = results[0].image.small_url;
   }
   else {
     browser.browserAction.setIcon({
@@ -61,8 +61,8 @@ function updateStreamStatus(isLive, results) {
       title: "Giant Bomb is off-air."
     });
 
-    options.stream_title = "Big Trouble on Murder Island [LIVE!]";
-    options.stream_image = "https://www.giantbomb.com/api/image/scale_small/2934819-murderisland.jpg";
+    // options.stream_title = "Big Trouble on Murder Island [LIVE!]";
+    // options.stream_image = "https://www.giantbomb.com/api/image/scale_small/2934819-murderisland.jpg";
   }
 
   if (navigator.userAgent.indexOf("Chrome") != -1) {

@@ -6,12 +6,12 @@ body {
 
 h2 {
   background: rgba(0, 0, 0, 0.7);
+  bottom: 50px;
   color: white;
   font-family: "GlyddonBold",Georgia,Times,"Times New Roman",serif;
   left: 0;
   padding: 2px 5px;
   position: absolute;
-  top: 150px;
 }
 
 #check_options {

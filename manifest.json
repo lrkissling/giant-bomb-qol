@@ -2,7 +2,7 @@
   "description": "Provides some simple Quality-of-Life enhancements to giantbomb.com.",
   "manifest_version": 2,
   "name": "Giant Bomb QoL",
-  "version": "1.4",
+  "version": "1.5",
 
   "permissions": [
     "*://*.giantbomb.com/api/*", "storage"
@@ -16,8 +16,7 @@
   "browser_action": {
     "browser_style": true,
     "default_popup": "popup/popup.html",
-    "default_icon": "img/gb-offair.png",
-    "default_title": "Giant Bomb is off-air."
+    "default_icon": "img/gb-offair.png"
   },
 
   "background": {

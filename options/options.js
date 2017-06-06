@@ -50,6 +50,16 @@ function saveOptions(e) {
   } else {
     browser.storage.sync.set(options);
   }
+
+  // Ensure that the user sees the correct browserAction icon
+  if (options.api_key.length !== 40 || !options.stream_notifications) {
+    browser.browserAction.setIcon({
+      path: { 38: "../img/gb-offair.png" }
+    });
+    browser.browserAction.setTitle({
+      title: ""
+    });
+  }
 }
 
 /**
