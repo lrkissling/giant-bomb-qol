@@ -14,12 +14,14 @@
   },
 
   "browser_action": {
+    "browser_style": true,
+    "default_popup": "popup/popup.html",
     "default_icon": "img/gb-offair.png",
     "default_title": "Giant Bomb is off-air."
   },
 
   "background": {
-    "scripts": ["background.js"]
+    "scripts": ["third_party/jquery-3.1.1.min.js", "background.js"]
   },
 
   "content_scripts": [

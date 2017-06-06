@@ -1,0 +1,89 @@
+body {
+  background-color: #232425;
+  margin:0px !important;
+  max-width: 420px;
+}
+
+h2 {
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  font-family: "GlyddonBold",Georgia,Times,"Times New Roman",serif;
+  left: 0;
+  padding: 2px 5px;
+  position: absolute;
+  top: 150px;
+}
+
+#check_options {
+  width: 420px;
+}
+
+#no_stream {
+  width: 270px;
+}
+
+#live_stream_info {
+  display: none;
+  position: relative;
+  border-bottom: 1px solid #3a3c3c;
+  padding: 8px 0px;
+}
+
+#options_link {
+  color: white;
+  cursor: pointer;
+  display: inline-block;
+  float: left;
+  font-family: "GlyddonBold",Georgia,Times,"Times New Roman",serif;
+  font-size: 14px;
+  height: 100%;
+  padding-top: 12px;
+  text-align: center;
+  text-decoration: none;
+  width: 80px;
+
+  -webkit-box-sizing: border-box;
+}
+
+#popup_bottom_row {
+  display: block;
+  height: 60px;
+}
+
+#store_page {
+  display: inline-block;
+  height: 100%;
+}
+
+#store_page, .stream-link {
+  cursor: pointer;
+}
+
+#stream_image {
+  width: 400px;
+}
+
+#wrapper {
+  overflow: hidden;
+}
+
+.popup-buttons {
+  -webkit-transition: .40s ease-in-out;
+  -moz-transition:    .40s ease-in-out;
+  transition:         .40s ease-in-out;
+}
+
+.popup-buttons:hover {
+  background-color: #b31919;
+}
+
+.popup-info {
+  border-bottom: 1px solid #3a3c3c;
+  color: white;
+  display: none;
+  font-family: "GlyddonBold",Georgia,Times,"Times New Roman",serif;
+  padding: 12px 12px;
+  text-align: center;
+
+  -webkit-box-sizing: border-box;
+}
