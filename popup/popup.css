@@ -7,8 +7,6 @@ body {
 h2 {
   background: rgba(0, 0, 0, 0.7);
   bottom: 50px;
-  color: white;
-  font-family: "GlyddonBold",Georgia,Times,"Times New Roman",serif;
   left: 0;
   padding: 2px 5px;
   position: absolute;
@@ -30,13 +28,8 @@ h2 {
 }
 
 #options_link {
-  color: white;
-  cursor: pointer;
-  display: inline-block;
-  float: left;
-  font-family: "GlyddonBold",Georgia,Times,"Times New Roman",serif;
+  border-right: 1px solid #3a3c3c;
   font-size: 14px;
-  height: 100%;
   padding-top: 12px;
   text-align: center;
   text-decoration: none;
@@ -46,25 +39,21 @@ h2 {
 }
 
 #popup_bottom_row {
-  display: block;
+  display: flex;
   height: 60px;
+  justify-content: space-between;
 }
 
-#store_page {
-  display: inline-block;
+#popup_bottom_row > * {
   height: 100%;
 }
 
-#store_page, .stream-link {
+#options_link, #store_page, .stream-link {
   cursor: pointer;
 }
 
 #stream_image {
   width: 400px;
-}
-
-#wrapper {
-  overflow: hidden;
 }
 
 .popup-buttons {
@@ -77,11 +66,14 @@ h2 {
   background-color: #b31919;
 }
 
+.popup-font {
+  color: white;
+  font-family: "GlyddonBold",Georgia,Times,"Times New Roman",serif;
+}
+
 .popup-info {
   border-bottom: 1px solid #3a3c3c;
-  color: white;
   display: none;
-  font-family: "GlyddonBold",Georgia,Times,"Times New Roman",serif;
   padding: 12px 12px;
   text-align: center;
 

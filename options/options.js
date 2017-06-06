@@ -1,6 +1,10 @@
 // Populate the options page with stored settings after page has loaded
 $(document).ready(restoreOptions);
 
+if (navigator.userAgent.indexOf("Chrome") != -1) {
+  browser = chrome;
+}
+
 var apiKey              = document.querySelector("#text_api_key"),
     streamNotifications = document.querySelector("#cbox_stream_notifications"),
     prevNextVids        = document.querySelector("#cbox_prev_next_vids"),
