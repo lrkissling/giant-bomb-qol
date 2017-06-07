@@ -1,8 +1,10 @@
+// Opens the stream page and closes the pop-up.
 $(".stream-link").click(function() {
   window.open("https://www.giantbomb.com/chat/");
   window.close();
 });
 
+// Opens the options page and closes the pop-up.
 $("#options_link").click(function() {
   if (navigator.userAgent.indexOf("Chrome") != -1) {
     chrome.runtime.openOptionsPage();
@@ -13,6 +15,7 @@ $("#options_link").click(function() {
   window.close();
 });
 
+// Opens the appropriate store page and closes the pop-up.
 $("#store_page").click(function() {
   if (navigator.userAgent.indexOf("Chrome") != -1) {
     window.open("https://chrome.google.com/webstore/detail/giant-bomb-qol/ciipbadfpnjpnnjchpeaiilodeeeekam");
@@ -31,6 +34,7 @@ var optionNames = [
   "stream_image"
 ];
 
+// Gets necessary user options. Handled differently by Chrome/Firefox.
 if (navigator.userAgent.indexOf("Chrome") != -1) {
   chrome.storage.sync.get(optionNames, handleOptions);
 } else {
@@ -38,6 +42,9 @@ if (navigator.userAgent.indexOf("Chrome") != -1) {
   getting.then(handleOptions, onError);
 }
 
+/**
+* Display appropriate html in pop-up depending on info stored in options.
+*/
 function handleOptions(options) {
   if (options.api_key !== undefined &&
       options.api_key.length === 40 &&

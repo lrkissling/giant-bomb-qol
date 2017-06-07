@@ -1,10 +1,15 @@
+// Handles most Chrome/Firefox incompatibilities.
 if (navigator.userAgent.indexOf("Chrome") != -1) {
   browser = chrome;
 }
 
+// Call on initial load and then set on a five minute schedule
 getOptions();
 setInterval(getOptions, 5 * 60 * 1000);
 
+/**
+* Retrieve user options. Chrome and Firefox handle this differently.
+*/
 function getOptions() {
   if (navigator.userAgent.indexOf("Chrome") != -1) {
     chrome.storage.sync.get(["api_key", "stream_notifications"], handleOptions);
@@ -14,6 +19,9 @@ function getOptions() {
   }
 }
 
+/**
+* Check for Live Show when user has provided API key and has option turned on.
+*/
 function handleOptions(options) {
   if (options.api_key !== undefined &&
       options.api_key.length === 40 &&
@@ -22,6 +30,9 @@ function handleOptions(options) {
   }
 }
 
+/**
+* Make live show API call and send results to updateStreamStatus.
+*/
 function checkForLiveShow(api_key) {
   $.ajax({
     url: "https://www.giantbomb.com/api/chats/",
@@ -30,19 +41,21 @@ function checkForLiveShow(api_key) {
             format: "json"
           },
     success: function(data) {
-      let isLive = data.results.length > 0 ? true : false;
-      updateStreamStatus(isLive, data.results);
+      updateStreamStatus(data.results);
     }
   });
 }
 
-function updateStreamStatus(isLive, results) {
+/**
+* Parse results of API calls to determine browserAction icon appearance and
+* store necessary information for retrieval by the popup.
+*/
+function updateStreamStatus(results) {
   let options = {
-    is_streaming : isLive
-    // is_streaming : true
+    is_streaming : results.length > 0 ? true : false
   };
 
-  if (isLive) {
+  if (options.is_streaming) {
     browser.browserAction.setIcon({
       path: { 38: "img/gb-live.png" }
     });
@@ -65,14 +78,7 @@ function updateStreamStatus(isLive, results) {
     // options.stream_image = "https://www.giantbomb.com/api/image/scale_small/2934819-murderisland.jpg";
   }
 
-  if (navigator.userAgent.indexOf("Chrome") != -1) {
-    chrome.storage.sync.set(options, function() {
-      console.log("Saved: " + JSON.stringify(options));
-    });
-  }
-  else {
-    browser.storage.sync.set(options);
-  }
+  browser.storage.sync.set(options);
 }
 
 function onError(error) {

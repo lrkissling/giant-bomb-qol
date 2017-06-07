@@ -46,14 +46,7 @@ function saveOptions(e) {
     chat_emotes: chatEmotes.checked
   };
 
-  // Firefox and Chrome handle storage get and set differently
-  if (navigator.userAgent.indexOf("Chrome") != -1) {
-    chrome.storage.sync.set(options, function() {
-      console.log("Saved: " + JSON.stringify(options));
-    });
-  } else {
-    browser.storage.sync.set(options);
-  }
+  browser.storage.sync.set(options);
 
   // Ensure that the user sees the correct browserAction icon
   if (options.api_key.length !== 40 || !options.stream_notifications) {
