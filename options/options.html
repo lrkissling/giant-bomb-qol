@@ -14,7 +14,7 @@
           This extension uses the Giant Bomb API. This API requires
           the use of an API key, and the extension has a default key. However, the
           API has usage rate limits per API key, so it is recommended that you provide
-          your own key for better reliability. You can find your key by logging in to
+          your own for better reliability. You can find your key by logging in to
           Giant Bomb and navigating to <a href="http://www.giantbomb.com/api" target="_blank">giantbomb.com/api</a>.
           Your key will never be logged or shared by Giant Bomb QoL.
         </div>
@@ -22,6 +22,21 @@
     </div>
     <div class="centered">
       <input type="text" id="text_api_key" placeholder="Default Key (Not Recommended)"/><br>
+    </div>
+    <hr>
+    <div class="option-text">
+      <label>Live Stream Notifications</label>
+      <div class="option-infobutton-container">
+        <img src="infobutton.png"/>
+        <div class="option-infobutton-text">
+          Notifies you via the toolbar button when Giant Bomb is live streaming.
+          Because of this feature's frequent API usage, you must provide your own
+          API key above.
+        </div>
+      </div>
+    </div>
+    <div class="centered">
+      <input type="checkbox" id="cbox_stream_notifications" disabled="true"/><br>
     </div>
     <hr>
     <div class="option-text"><label>Previous Video & Next Video Buttons</label></div>
@@ -48,6 +63,7 @@
       <input type="checkbox" id="cbox_chat_emotes" checked="true"/><br>
     </div>
 
+    <script src="../third_party/jquery-3.1.1.min.js"></script>
     <script src="options.js"></script>
 
   </body>

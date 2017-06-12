@@ -1,0 +1,81 @@
+body {
+  background-color: #232425;
+  margin:0px !important;
+  max-width: 420px;
+}
+
+h2 {
+  background: rgba(0, 0, 0, 0.7);
+  bottom: 50px;
+  left: 0;
+  padding: 2px 5px;
+  position: absolute;
+}
+
+#check_options {
+  width: 420px;
+}
+
+#no_stream {
+  width: 270px;
+}
+
+#live_stream_info {
+  display: none;
+  position: relative;
+  border-bottom: 1px solid #3a3c3c;
+  padding: 8px 0px;
+}
+
+#options_link {
+  border-right: 1px solid #3a3c3c;
+  font-size: 14px;
+  padding-top: 12px;
+  text-align: center;
+  text-decoration: none;
+  width: 80px;
+
+  -webkit-box-sizing: border-box;
+}
+
+#popup_bottom_row {
+  display: flex;
+  height: 60px;
+  justify-content: space-between;
+}
+
+#popup_bottom_row > * {
+  height: 100%;
+}
+
+#options_link, #store_page, .stream-link {
+  cursor: pointer;
+}
+
+#stream_image {
+  width: 400px;
+}
+
+.popup-buttons {
+  -webkit-transition: .40s ease-in-out;
+  -moz-transition:    .40s ease-in-out;
+  transition:         .40s ease-in-out;
+}
+
+.popup-buttons:hover {
+  background-color: #b31919;
+}
+
+.popup-font {
+  color: white;
+  font-family: "GlyddonBold",Georgia,Times,"Times New Roman",serif;
+}
+
+.popup-info {
+  border-bottom: 1px solid #3a3c3c;
+  display: none;
+  padding: 12px 12px;
+  text-align: center;
+
+  -webkit-box-sizing: border-box;
+}
