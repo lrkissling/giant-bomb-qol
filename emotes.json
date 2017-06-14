@@ -61,10 +61,6 @@
       "name": ":drew"
     },
     {
-      "img":  "img/emotes/austin.png",
-      "name": ":austin"
-    },
-    {
       "img":  "img/emotes/patrick.png",
       "name": ":patrick"
     },
@@ -73,16 +69,24 @@
       "name": ":dave"
     },
     {
-      "img":  "img/emotes/alexis.png",
-      "name": ":alexis"
-    },
-    {
       "img":  "img/emotes/ryckert.jpeg",
       "name": ":ryckert"
     },
     {
       "img":  "img/emotes/jason.jpeg",
       "name": ":jason"
+    },
+    {
+      "img":  "img/emotes/ben.png",
+      "name": ":ben"
+    },
+    {
+      "img":  "img/emotes/austin.png",
+      "name": ":austin"
+    },
+    {
+      "img":  "img/emotes/alexis.png",
+      "name": ":alexis"
     },
     {
       "img":  "img/emotes/jeffu.png",
