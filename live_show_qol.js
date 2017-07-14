@@ -69,6 +69,7 @@ $(document).ready(function() {
   $("#chatTabs").on("click", "#qol_show_emotes", function() {
     $(this).toggleClass("qol-red-background");
     $("#conversation-main").toggleClass("qol-height-60");
+    $("#js-main-chat").toggleClass("qol-height-60");
     $("#qol_conversation_emotes").toggleClass("qol-show");
     return false;
   });
