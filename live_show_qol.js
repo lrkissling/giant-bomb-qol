@@ -75,12 +75,6 @@ $(document).ready(function() {
   });
 
   // populate the chat input with the emote key
-  $("#f_ChatController").on("click", ".qol-emote", function() {
-    $("#f_ChatInput").val($("#f_ChatInput").val() + this.value);
-    $("#f_ChatInput").focus();
-  });
-
-  // populate the chat input with the emote key
   $("#chat-canvas").on("click", ".qol-emote", function() {
     $("#f_ChatInput").val($("#f_ChatInput").val() + this.value);
     $("#f_ChatInput").focus();
