@@ -37,6 +37,10 @@
       "name": ":biggie"
     },
     {
+      "img":  "img/emotes/spicy.png",
+      "name": ":spicy"
+    },
+    {
       "img":  "img/emotes/jeff.png",
       "name": ":jeff"
     },
