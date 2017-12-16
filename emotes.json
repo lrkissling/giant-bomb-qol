@@ -37,10 +37,6 @@
       "name": ":biggie"
     },
     {
-      "img":  "img/emotes/spicy.png",
-      "name": ":spicy"
-    },
-    {
       "img":  "img/emotes/jeff.png",
       "name": ":jeff"
     },
@@ -175,6 +171,10 @@
     {
       "img":  "img/emotes/fobwashed.png",
       "name": ":fobwashed"
+    },
+    {
+      "img":  "img/emotes/forthekids.png",
+      "name": ":forthekids"
     },
     {
       "img":  "img/emotes/gamebomb.png",
@@ -357,6 +357,10 @@
       "name": ":sparkybuzzsaw"
     },
     {
+      "img":  "img/emotes/spicy.png",
+      "name": ":spicy"
+    },
+    {
       "img":  "img/emotes/spooked.gif",
       "name": ":spooked"
     },
@@ -381,8 +385,8 @@
       "name": ":vibrimote"
     },
     {
-      "img":  "img/emotes/vrooom.png",
-      "name": ":vrooom"
+      "img":  "img/emotes/vroom.png",
+      "name": ":vroom"
     },
     {
       "img":  "img/emotes/wafflestomp.png",
