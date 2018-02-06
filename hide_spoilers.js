@@ -37,10 +37,9 @@ function hideThumbnailSpoilers() {
   }
   // otherwise, only hide timestamps and comments counts from thumbnails for TITR videos
   else {
-    $("#video-block li a").each(function() {
+    $(".primary-content li a").each(function() {
       if (this.href.includes("this-is-the-run")) {
-        $(this).find(".overlay-stats i:first-child").css("display", "none");
-        $(this).find(".overlay-stats i:last-child").css("display", "none");
+        $(this).find(".editorial-stats .icon-comments").css("display", "none");
       }
     });
   }
