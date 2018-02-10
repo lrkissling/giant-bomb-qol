@@ -24,6 +24,7 @@ function handleOptions(items) {
 function hideVideoSpoilers() {
   $(".av-buffer").first().addClass("qol-hidden");
   $(".js-vid-buffer.av-buffer-wrap").first().addClass("qol-hidden");
+  $(".js-vid-loaded.av-loaded").first().addClass("qol-hidden");
   $(".js-vid-position.av-position").first().addClass("qol-hidden");
   $(".av-time").first().addClass("qol-hidden");
 }
