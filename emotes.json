@@ -85,6 +85,10 @@
       "name": ":ben"
     },
     {
+      "img":  "img/emotes/jan.png",
+      "name": ":jan"
+    },
+    {
       "img":  "img/emotes/austin.png",
       "name": ":austin"
     },
@@ -96,6 +100,10 @@
       "img":  "img/emotes/jeffu.png",
       "name": ":jeffu"
     },
+    {
+      "img": "img/emotes/gerstfield.png",
+      "name": ":gerstfield"
+    }
     {
       "img":  "img/emotes/langzone.gif",
       "name": ":langzone"
@@ -167,6 +175,10 @@
     {
       "img":  "img/emotes/finaldasa.png",
       "name": ":finaldasa"
+    },
+    {
+      "img":  "img/emotes/fine.png",
+      "name": ":fine"
     },
     {
       "img":  "img/emotes/fobwashed.png",
