@@ -1,5 +1,3 @@
-console.log("giant-bomb-qol loading");
-
 if (navigator.userAgent.indexOf("Chrome") != -1) {
   chrome.storage.sync.get(["api_key","prev_next_vids", "hide_titr_spoilers"], handleOptions);
 } else {
@@ -17,9 +15,9 @@ function handleOptions(items) {
     }
 
     // some styling needs to change if website in dark mode
-    let blackOrWhite = "white";
+    let black_white = "white";
     if ($("html").css("background-color") === "rgb(36, 38, 40)") {
-      blackOrWhite = "black";
+      black_white = "black";
     }
 
     // want to hide the next video if watching TITR and option is true
@@ -29,7 +27,7 @@ function handleOptions(items) {
          hide_titr = true;
     }
 
-    showPrevAndNexVids(api_key, blackOrWhite, hide_titr);
+    showPrevAndNexVids(api_key, black_white, hide_titr);
   }
 }
 
@@ -37,7 +35,7 @@ function onError(error) {
   console.log(`Error: ${error}`);
 }
 
-function showPrevAndNexVids(api_key, blackOrWhite, hide_titr) {
+function showPrevAndNexVids(api_key, black_white, hide_titr) {
   // first API call to retrieve necessary information from current video
   let a1 = $.ajax({
               url: "https://www.giantbomb.com/api/video/" + getCurrentVideoId() + "/",
@@ -48,22 +46,10 @@ function showPrevAndNexVids(api_key, blackOrWhite, hide_titr) {
                     }
            }),
       a2 = a1.then(function(data) {
-              /*
-                 Narrows the search to within 3 months of current video. Necessary
-                 because some shows and categories have >100 videos, which is the
-                 upper limit of how many can be returned in a search.
-              */
+              // filters search to within 3 months of current video.
               let date_format  = "YYYY-MM-DD hh:mm:ss",
                   publish_date = moment(data.results.publish_date, date_format),
-                  start_date   = publish_date.clone().subtract(3, "months"),
-                  end_date     = publish_date.clone().add(3, "months");
-
-              let f1 = [
-                  "publish_date:",
-                  start_date.format(date_format),
-                  "|",
-                  end_date.format(date_format)
-                ].join("");
+                  f1 = getDateFilter(publish_date, date_format);
 
               // filters search by the video's show/category
               let video_show       = data.results.video_show,
@@ -110,7 +96,7 @@ function showPrevAndNexVids(api_key, blackOrWhite, hide_titr) {
     if (indices.length === 0) return;
 
     // start building the actual html
-    let html = ["<div id='qol_prev_vid' class='qol-prev-vid-" + blackOrWhite + "'>"];
+    let html = ["<div id='qol_prev_vid' class='qol-prev-vid-" + black_white + "'>"];
 
     if (indices[0] !== undefined) {
       let prev_video_image = data.results[indices[0]].image.thumb_url,
@@ -130,7 +116,6 @@ function showPrevAndNexVids(api_key, blackOrWhite, hide_titr) {
       "</div>",
       "<div id='qol_next_vid'>"
     );
-
 
     if (indices[1] !== undefined) {
       let next_video_image = data.results[indices[1]].image.thumb_url,
@@ -156,11 +141,11 @@ function showPrevAndNexVids(api_key, blackOrWhite, hide_titr) {
 
     let div = document.createElement("div");
     div.setAttribute("id", "qol_video_navigator");
-    div.setAttribute("class", "tab-pane qol-vid-nav-" + blackOrWhite);
+    div.setAttribute("class", "tab-pane qol-vid-nav-" + black_white);
     div.innerHTML = html;
 
-    let parentElement = document.getElementsByClassName("tab-content")[0];
-    parentElement.insertBefore(div, parentElement.firstChild);
+    let parent_elem = document.getElementsByClassName("tab-content")[0];
+    parent_elem.insertBefore(div, parent_elem.firstChild);
   });
 }
 
@@ -169,6 +154,22 @@ function getCurrentVideoId() {
   let attr = document.getElementsByClassName("share-twitter")[0]
                      .getAttribute("data-event-tracking").split("|");
   return attr[attr.length - 1];
+}
+
+/* Narrows the search to within 3 months of current video. Necessary
+   because some shows and categories have >100 videos, which is the
+   upper limit of how many can be returned in a search.
+*/
+function getDateFilter(publish_date, date_format) {
+  let start_date   = publish_date.clone().subtract(3, "months"),
+      end_date     = publish_date.clone().add(3, "months");
+
+  return [
+    "publish_date:",
+    start_date.format(date_format),
+    "|",
+    end_date.format(date_format)
+  ].join("");
 }
 
 /* Determines which show/category filter to use. Prioritizes show over category,
