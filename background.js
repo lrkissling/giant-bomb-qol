@@ -51,8 +51,20 @@ function checkForLiveShow(api_key) {
 * store necessary information for retrieval by the popup.
 */
 function updateStreamStatus(results) {
+  let is_streaming = false,
+      stream_info = null;
+  for (var key in results) {
+    stream_info = results[key];
+    if (stream_info.title != "Giant Bomb TV") {
+      is_streaming = true;
+      break;
+    }
+  }
+
   let options = {
-    is_streaming : results.length > 0 ? true : false
+    is_streaming : is_streaming,
+    stream_title : stream_info.title,
+    stream_image : stream_info.image.small_url
   };
 
   if (options.is_streaming) {
@@ -62,9 +74,6 @@ function updateStreamStatus(results) {
     browser.browserAction.setTitle({
       title: "Giant Bomb is Live!"
     });
-
-    options.stream_title = results[0].title;
-    options.stream_image = results[0].image.small_url;
   }
   else {
     browser.browserAction.setIcon({
@@ -73,9 +82,6 @@ function updateStreamStatus(results) {
     browser.browserAction.setTitle({
       title: "Giant Bomb is off-air."
     });
-
-    // options.stream_title = "Big Trouble on Murder Island [LIVE!]";
-    // options.stream_image = "https://www.giantbomb.com/api/image/scale_small/2934819-murderisland.jpg";
   }
 
   browser.storage.sync.set(options);
