@@ -1,5 +1,5 @@
 // Opens the chat page and closes the pop-up.
-$(".chat").on("click", ".chat", function() {
+$(document).on("click", ".chat", function() {
   window.open("https://www.giantbomb.com/chat/");
   window.close();
 });
