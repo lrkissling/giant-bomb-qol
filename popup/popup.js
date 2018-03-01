@@ -41,6 +41,8 @@ var optionNames = [
   "stream_image"
 ];
 
+console.log("made it here.");
+
 // Gets necessary user options. Handled differently by Chrome/Firefox.
 if (navigator.userAgent.indexOf("Chrome") != -1) {
   chrome.storage.sync.get(optionNames, handleOptions);
@@ -53,14 +55,17 @@ if (navigator.userAgent.indexOf("Chrome") != -1) {
 * Display appropriate html in pop-up depending on info stored in options.
 */
 function handleOptions(options) {
+  console.log("made it to start of handleOptions");
   if (options.api_key !== undefined &&
       options.api_key.length === 40 &&
       (options.stream_notifications === undefined || options.stream_notifications)) {
     if (options.is_live_streaming || options.on_tv) {
+      console.log("made it to inside if statement");
       $("#stream_title").html(options.stream_title);
       $("#stream_image").attr("src", options.stream_image);
       $("#stream_image").addClass(options.is_live_streaming ? "chat" : "tv");
       $("#live_stream_info").css("display", "block");
+      console.log(options);
     } else {
       $("#no_stream").css("display", "block");
     }

@@ -71,7 +71,7 @@ function updateStreamStatus(results) {
 
   if (is_live_streaming || on_tv) {
     options.stream_title = stream_info.title;
-    options.stream_iamge = stream_info.image.small_url;
+    options.stream_image = stream_info.image.small_url;
   }
 
   browser.storage.sync.set(options);
@@ -80,7 +80,7 @@ function updateStreamStatus(results) {
     path: { 38: is_live_streaming ? "img/gb-live.png" : "img/gb-offair.png" }
   });
   browser.browserAction.setTitle({
-    title: is_live_streaming ? "Giant Bomb is Live!" : null
+    title: is_live_streaming ? "Giant Bomb is Live!" : "Giant Bomb QoL"
   });
 }
 
