@@ -1,6 +1,12 @@
-// Opens the stream page and closes the pop-up.
-$(".stream-link").click(function() {
+// Opens the chat page and closes the pop-up.
+$(".chat").on("click", ".chat", function() {
   window.open("https://www.giantbomb.com/chat/");
+  window.close();
+});
+
+// Opens the tv page and closes the pop-up.
+$(document).on("click", ".tv", function() {
+  window.open("https://www.giantbomb.com/tv/");
   window.close();
 });
 
@@ -29,7 +35,8 @@ $("#store_page").click(function() {
 var optionNames = [
   "api_key",
   "stream_notifications",
-  "is_streaming",
+  "is_live_streaming",
+  "on_tv",
   "stream_title",
   "stream_image"
 ];
@@ -49,9 +56,10 @@ function handleOptions(options) {
   if (options.api_key !== undefined &&
       options.api_key.length === 40 &&
       (options.stream_notifications === undefined || options.stream_notifications)) {
-    if (options.is_streaming) {
+    if (options.is_live_streaming || options.on_tv) {
       $("#stream_title").html(options.stream_title);
       $("#stream_image").attr("src", options.stream_image);
+      $("#stream_image").addClass(options.is_live_streaming ? "chat" : "tv");
       $("#live_stream_info").css("display", "block");
     } else {
       $("#no_stream").css("display", "block");

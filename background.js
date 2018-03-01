@@ -51,40 +51,37 @@ function checkForLiveShow(api_key) {
 * store necessary information for retrieval by the popup.
 */
 function updateStreamStatus(results) {
-  let is_streaming = false,
+  let is_live_streaming = false,
+      on_tv = false,
       stream_info = null;
   for (var key in results) {
     stream_info = results[key];
     if (stream_info.title != "Giant Bomb TV") {
-      is_streaming = true;
+      is_live_streaming = true;
       break;
+    } else {
+      on_tv = true;
     }
   }
 
   let options = {
-    is_streaming : is_streaming,
-    stream_title : stream_info.title,
-    stream_image : stream_info.image.small_url
+    is_live_streaming : is_live_streaming,
+    on_tv : on_tv
   };
 
-  if (options.is_streaming) {
-    browser.browserAction.setIcon({
-      path: { 38: "img/gb-live.png" }
-    });
-    browser.browserAction.setTitle({
-      title: "Giant Bomb is Live!"
-    });
-  }
-  else {
-    browser.browserAction.setIcon({
-      path: { 38: "img/gb-offair.png" }
-    });
-    browser.browserAction.setTitle({
-      title: "Giant Bomb is off-air."
-    });
+  if (is_live_streaming || on_tv) {
+    options.stream_title = stream_info.title;
+    options.stream_iamge = stream_info.image.small_url;
   }
 
   browser.storage.sync.set(options);
+
+  browser.browserAction.setIcon({
+    path: { 38: is_live_streaming ? "img/gb-live.png" : "img/gb-offair.png" }
+  });
+  browser.browserAction.setTitle({
+    title: is_live_streaming ? "Giant Bomb is Live!" : null
+  });
 }
 
 function onError(error) {
