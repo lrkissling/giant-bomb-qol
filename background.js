@@ -52,24 +52,24 @@ function checkForLiveShow(api_key) {
 */
 function updateStreamStatus(results) {
   let is_live_streaming = false,
-      on_tv = false,
+      is_infinite = false,
       stream_info = null;
   for (var key in results) {
     stream_info = results[key];
-    if (stream_info.title != "Giant Bomb TV") {
+    if (stream_info.title != "Giant Bomb Infinite") {
       is_live_streaming = true;
       break;
     } else {
-      on_tv = true;
+      is_infinite = true;
     }
   }
 
   let options = {
     is_live_streaming : is_live_streaming,
-    on_tv : on_tv
+    is_infinite : is_infinite
   };
 
-  if (is_live_streaming || on_tv) {
+  if (is_live_streaming || is_infinite) {
     options.stream_title = stream_info.title;
     options.stream_image = stream_info.image.small_url;
   }
