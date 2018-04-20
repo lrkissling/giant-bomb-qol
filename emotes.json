@@ -317,6 +317,10 @@
       "name": ":polls"
     },
     {
+      "img":  "img/emotes/promoves.png",
+      "name": ":promoves"
+    },
+    {
       "img":  "img/emotes/pryckert.jpeg",
       "name": ":pryckert"
     },
