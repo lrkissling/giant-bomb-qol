@@ -189,6 +189,10 @@
       "name": ":forthekids"
     },
     {
+      "img":  "img/emotes/france.gif",
+      "name": ":france"
+    },
+    {
       "img":  "img/emotes/gamebomb.png",
       "name": ":gamebomb"
     },
@@ -219,6 +223,10 @@
     {
       "img":  "img/emotes/itsalockdown.png",
       "name": ":itsalockdown"
+    },
+    {
+      "img":  "img/emotes/itsinthegame.gif",
+      "name": ":itsinthegame"
     },
     {
       "img":  "img/emotes/jadegl.png",
