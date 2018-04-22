@@ -401,6 +401,10 @@
       "name": ":thatpinguino"
     },
     {
+      "img":  "img/emotes/tracksuit.png",
+      "name": ":tracksuit"
+    },
+    {
       "img":  "img/emotes/trianglechips.png",
       "name": ":trianglechips"
     },
@@ -419,6 +423,10 @@
     {
       "img":  "img/emotes/wallmeat.png",
       "name": ":wallmeat"
+    },
+    {
+      "img":  "img/emotes/weed3.png",
+      "name": ":weed3"
     },
     {
       "img":  "img/emotes/xbot.gif",
