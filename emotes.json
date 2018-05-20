@@ -101,6 +101,10 @@
       "name": ":jeffu"
     },
     {
+      "img":  "img/emotes/jtruth.gif",
+      "name": ":jtruth"
+    },
+    {
       "img": "img/emotes/gerstfield.png",
       "name": ":gerstfield"
     },
@@ -427,6 +431,10 @@
     {
       "img":  "img/emotes/weedthree.png",
       "name": ":weedthree"
+    },
+    {
+      "img":  "img/emotes/wefeastin.gif",
+      "name": ":wefeastin"
     },
     {
       "img":  "img/emotes/xbot.gif",
