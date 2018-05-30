@@ -145,6 +145,10 @@
       "name": ":bopped"
     },
     {
+      "img":  "img/emotes/bosslight.gif",
+      "name": ":bosslight"
+    },
+    {
       "img":  "img/emotes/botcolony.png",
       "name": ":botcolony"
     },
@@ -171,6 +175,14 @@
     {
       "img":  "img/emotes/ctrl.png",
       "name": ":ctrl"
+    },
+    {
+      "img":  "img/emotes/vroom.png",
+      "name": ":vroom"
+    },
+    {
+      "img":  "img/emotes/sitesdown.png",
+      "name": ":sitesdown"
     },
     {
       "img":  "img/emotes/cyborgmatt.png",
@@ -393,10 +405,6 @@
       "name": ":shock"
     },
     {
-      "img":  "img/emotes/sitesdown.png",
-      "name": ":sitesdown"
-    },
-    {
       "img":  "img/emotes/sparklykiss.png",
       "name": ":sparklykiss"
     },
@@ -431,10 +439,6 @@
     {
       "img":  "img/emotes/vibrimote.gif",
       "name": ":vibrimote"
-    },
-    {
-      "img":  "img/emotes/vroom.png",
-      "name": ":vroom"
     },
     {
       "img":  "img/emotes/wafflestomp.png",
