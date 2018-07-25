@@ -133,6 +133,10 @@
       "name": ":austintwo"
     },
     {
+      "img": "img/emotes/bakalar.png",
+      "name": ":bakalar"
+    },
+    {
       "img":  "img/emotes/belair.png",
       "name": ":belair"
     },
@@ -279,6 +283,10 @@
     {
       "img":  "img/emotes/itsalockdown.png",
       "name": ":itsalockdown"
+    },
+    {
+      "img": "img/emotes/jackyt.png",
+      "name": ":jackyt"
     },
     {
       "img":  "img/emotes/jadegl.png",
