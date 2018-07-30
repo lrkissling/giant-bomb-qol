@@ -21,6 +21,16 @@ $("#options_link").click(function() {
   window.close();
 });
 
+// Handle mouseover of all infobuttons
+$(".option-infobutton-container").on("mouseover", function() {
+  $(this).find(".option-infobutton-text").css("display", "block");
+});
+
+// Handle mouseout of all infobuttons
+$(".option-infobutton-container").on("mouseout", function() {
+  $(this).find(".option-infobutton-text").css("display", "none");
+});
+
 // Opens the appropriate store page and closes the pop-up.
 $("#store_page").click(function() {
   if (navigator.userAgent.indexOf("Chrome") != -1) {
@@ -40,6 +50,22 @@ var optionNames = [
   "stream_title",
   "stream_image"
 ];
+
+// Capture api key input from the popup box
+var apiKey = document.querySelector("#text_api_key");
+$(apiKey).on("input", saveKey);
+
+// Save the api key to synced storage
+function saveKey(e){
+  e.preventDefault();
+
+  var newKey = apiKey.value.trim();
+  
+  // Only save if the key is the proper length
+  if(newKey.length === 40){
+    browser.storage.sync.set({"api_key": newKey});
+  }
+}
 
 console.log("made it here.");
 
