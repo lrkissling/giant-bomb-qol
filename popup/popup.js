@@ -63,7 +63,14 @@ function saveKey(e){
   
   // Only save if the key is the proper length
   if(newKey.length === 40){
-    browser.storage.sync.set({"api_key": newKey});
+    // Store the key based on browser, then redraw the panel upon reopen
+    // Note, there is a more elegant way to do this, which I will iterate upon next
+    if (navigator.userAgent.indexOf("Chrome") != -1){
+      chrome.storage.sync.set({"api_key": newKey}, handleOptions);
+    }
+    else{
+      browser.storage.sync.set({"api_key": newKey}, handleOptions);
+    }
   }
 }
 
