@@ -53,7 +53,9 @@ var optionNames = [
 
 // Capture api key input from the popup box
 var apiKey = document.querySelector("#text_api_key");
-$(apiKey).on("input", saveKey);
+// This button fires off the saveKey function
+var activateButton = document.querySelector("#submit_key");
+activateButton.addEventListener("click", saveKey);
 
 // Save the api key to synced storage
 function saveKey(e){
@@ -63,14 +65,18 @@ function saveKey(e){
   
   // Only save if the key is the proper length
   if(newKey.length === 40){
+    // Change the border color to green to indicate correct length
+    document.getElementById("text_api_key").style.borderColor = "green";
     // Store the key based on browser, then redraw the panel upon reopen
-    // Note, there is a more elegant way to do this, which I will iterate upon next
     if (navigator.userAgent.indexOf("Chrome") != -1){
       chrome.storage.sync.set({"api_key": newKey}, handleOptions);
     }
     else{
       browser.storage.sync.set({"api_key": newKey}, handleOptions);
     }
+  }
+  else{
+    document.getElementById("text_api_key").style.borderColor = "red";
   }
 }
 
