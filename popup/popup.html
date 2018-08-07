@@ -11,6 +11,26 @@
     <div id="check_options" class="popup-font popup-info">
       To get live stream notifications, enter your API key and turn on the Live
       Stream Notifications option in the Add-On Options page.
+      <div class="option-text">
+        <label> API Key</label>
+        <div class="option-infobutton-container">
+          <img src="../options/infobutton.png"/>
+          <div class="option-infobutton-text">
+            This extension uses the Giant Bomb API. This API requires
+            the use of an API key, and the extension has a default key. However, the
+            API has usage rate limits per API key, so it is recommended that you provide
+            your own for better reliability. You can find your key by logging in to
+            Giant Bomb and navigating to <a href="http://www.giantbomb.com/api" target="_blank">giantbomb.com/api</a>.
+            Your key will never be logged or shared by Giant Bomb QoL.
+          </div>
+        </div>
+      </div>
+      <div class="centered">
+        <input type="text" id="text_api_key" placeholder="Default Key (Not Recommended)"/><button type="button" id="submit_key">Activate</button><br>
+      </div>
+    </div>
+    <div id="notifications_disabled" class="popup-font popup-info">
+      Stream notifications are currently disabled.
     </div>
     <div id="live_stream_info" class="popup-buttons">
       <img id="stream_image" class="stream-link">
@@ -18,6 +38,7 @@
     </div>
     <div id="popup_bottom_row">
       <div id="options_link" class="popup-buttons popup-font" href="#">Add-On<br>Options</div>
+      <div id="stream_notifications" class="popup-buttons popup-font" href="#">Stream<br>Notifications</div>
       <img id="store_page" src="../img/logo-94x60.png" title="Store Page">
     </div>
 
