@@ -80,7 +80,46 @@ function saveKey(e){
   }
 }
 
-console.log("made it here.");
+// Toggle stream notifications
+ $("#stream_notifications").click(function(){
+
+  // Pull up user options for stream notifications based on browser
+  if(navigator.userAgent.indexOf("Chrome") != -1){
+    chrome.storage.sync.get(optionNames,function(ops){
+      // Toggle the setting
+      if(ops.stream_notifications){
+        ops.stream_notifications = false;
+        chrome.storage.sync.set(ops);
+        // Run the new options through handleOptions
+        handleOptions(ops);
+      }
+      else{
+        ops.stream_notifications = true;
+        chrome.storage.sync.set(ops);
+        // Run the new options through handleOptions
+        handleOptions(ops);
+      }
+    });
+  }
+  else{
+    browser.storage.sync.get(optionNames).then(function(ops){
+      // Toggle the setting
+      if(ops.notificationsEnabled){
+        ops.stream_notifications = false;
+        browser.storage.sync.set(ops);
+        // Run the new options through handleOptions
+        handleOptions(ops);
+      }
+      else{
+        ops.stream_notifications = true;
+        browser.storage.sync.set(ops);
+        // Run the new options through handleOptions
+        handleOptions(ops);
+      }
+    },onError);
+  }
+
+});
 
 // Gets necessary user options. Handled differently by Chrome/Firefox.
 if (navigator.userAgent.indexOf("Chrome") != -1) {
@@ -90,25 +129,40 @@ if (navigator.userAgent.indexOf("Chrome") != -1) {
   getting.then(handleOptions, onError);
 }
 
-/**
-* Display appropriate html in pop-up depending on info stored in options.
-*/
 function handleOptions(options) {
-  console.log("made it to start of handleOptions");
-  if (options.api_key !== undefined &&
-      options.api_key.length === 40 &&
-      (options.stream_notifications === undefined || options.stream_notifications)) {
-    if (options.is_live_streaming || options.is_infinite) {
-      console.log("made it to inside if statement");
-      $("#stream_title").html(options.stream_title);
-      $("#stream_image").attr("src", options.stream_image);
-      $("#stream_image").addClass(options.is_live_streaming ? "chat" : "infinite");
-      $("#live_stream_info").css("display", "block");
-      console.log(options);
-    } else {
-      $("#no_stream").css("display", "block");
-    }
-  } else {
+  // Check api key validity
+  if(options.api_key !== undefined &&
+     options.api_key.length === 40){
+      // Display proper html depending on whether or not there is a livestream
+      if(options.stream_notifications === undefined || options.stream_notifications) {
+        // If notifications are enabled, display the stream notification html
+        if(options.is_live_streaming || options.is_infinite){
+          $("#stream_title").html(options.stream_title);
+          $("#stream_image").attr("src", options.stream_image);
+          $("#stream_image").addClass(options.is_live_streaming ? "chat" : "infinite");
+          // Light up the notifications button to show that notifications are on
+          $("#stream_notifications").css("backgroundColor", "green");
+          // If the stream image was previously hidden, show it and hide the disabled message
+          $("#live_stream_info").css("display", "block");
+          $("#stream_image").css("display","block");
+          $("#notifications_disabled").css("display", "none");
+        }
+        // If there's no stream, inform the user
+        else{
+          $("no_stream").css("display", "block");
+        }
+      }
+      // Otherwise, dim the notifications button and inform the user that notifications are disabled
+      else{
+        $("#stream_notifications").css("backgroundColor", "#3a3c3c");
+        // Disable the stream info on the fly
+        $("#stream_image").css("display","none");
+        $("#live_stream_info").css("display","none");
+        $("#notifications_disabled").css("display", "block");
+      }
+  }
+  // Otherwise, API key was not valid, inform user
+  else{
     $("#check_options").css("display", "block");
   }
 }

@@ -12,12 +12,12 @@ h2 {
   position: absolute;
 }
 
-#check_options {
-  width: 420px;
+#check_options, #notifications_disabled {
+  width: 400px;
 }
 
 #no_stream {
-  width: 270px;
+  width: 400px;
 }
 
 #live_stream_info {
@@ -27,13 +27,14 @@ h2 {
   padding: 8px 0px;
 }
 
-#options_link {
+#options_link, #stream_notifications {
   border-right: 1px solid #3a3c3c;
+  border-left: 1px solid #3a3c3c;
   font-size: 14px;
   padding-top: 12px;
   text-align: center;
   text-decoration: none;
-  width: 80px;
+  width: 90px;
 
   -webkit-box-sizing: border-box;
 }
@@ -48,7 +49,7 @@ h2 {
   height: 100%;
 }
 
-#options_link, #store_page, .stream-link {
+#options_link, #store_page, #stream_notificaitons .stream-link {
   cursor: pointer;
 }
 
