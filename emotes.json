@@ -141,6 +141,10 @@
       "name": ":belair"
     },
     {
+      "img":  "img/emotes/animal.gif",
+      "name": ":animal"
+    },
+    {
       "img":  "img/emotes/bigknob.gif",
       "name": ":bigknob"
     },
@@ -171,6 +175,10 @@
     {
       "img":  "img/emotes/coolbaby.png",
       "name": ":coolbaby"
+    },
+    {
+      "img":  "img/emotes/cools.png",
+      "name": ":cools"
     },
     {
       "img":  "img/emotes/crispy.png",
@@ -373,6 +381,10 @@
       "name": ":pax"
     },
     {
+      "img":  "img/emotes/peepin.png",
+      "name": ":peepin"
+    },
+    {
       "img":  "img/emotes/polls.gif",
       "name": ":polls"
     },
@@ -407,6 +419,10 @@
     {
       "img":  "img/emotes/salty.gif",
       "name": ":salty"
+    },
+    {
+      "img":  "img/emotes/secrettape.png",
+      "name": ":secrettape"
     },
     {
       "img":  "img/emotes/shock.gif",
