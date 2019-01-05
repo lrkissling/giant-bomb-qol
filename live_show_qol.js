@@ -43,13 +43,23 @@ function createEmotesMenu() {
       "<div class='chat-panel__container'><div class='qol-scroll-hold'>"
     ];
 
-    data.emotes.forEach(function(emote) {
-      let src  = chrome.extension.getURL(emote.img),
-          name = emote.name;
+    for (const [category, emotes] of Object.entries(data)) {
+      emotes_html.push(`<div class='qol-emote-category'>${category}</div>`);
+      
+      for (const emote of Object.values(emotes)) {
+        let src  = chrome.extension.getURL(emote.img),
+            name = emote.name;
 
-      emotes_html.push("<button class='qol-emote' value='" + name + " '>");
-      emotes_html.push("<img src='" + src + "' title='" + name + "'/></button>");
-    });
+        // have to account for the monstrosity
+        if (name == ":wigg") {
+          emotes_html.push(`<button id='qol-emote-wigg' class='qol-emote' value='${name} '>`);
+        } else {
+          emotes_html.push(`<button class='qol-emote' value='${name} '>`);
+        }
+
+        emotes_html.push(`<img src='${src}' title='${name}'/></button>`);
+      }
+    }
 
     emotes_html.push("</div></div>");
     emotes_html = emotes_html.join("");

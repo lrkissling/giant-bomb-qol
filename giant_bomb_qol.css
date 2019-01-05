@@ -1,86 +1,4 @@
 /*************************************************
-Previous & Next Videos
-*************************************************/
-
-#qol_video_navigator {
-  display: block;
-  height: 46px;
-}
-
-#qol_prev_vid, #qol_next_vid {
-  display: inline-block;
-  height: 100%;
-  vertical-align: top;
-  width: 50%;
-}
-
-#qol_prev_vid_link:hover, #qol_next_vid_link:hover {
-  background-color: #b31919;
-  color: white;
-}
-
-#qol_prev_vid_link, #qol_next_vid_link {
-  display: inline-block;
-  width: 100%;
-
-  -webkit-transition: .40s ease-in-out;
-  -moz-transition:    .40s ease-in-out;
-  transition:         .40s ease-in-out;
-}
-
-#qol_prev_vid_thumb, #qol_next_vid_arrow {
-  float: right;
-}
-
-#qol_prev_vid_arrow, #qol_next_vid_thumb {
-  float: left;
-}
-
-#qol_prev_vid_link > * {
-  padding-right: 5px;
-}
-
-#qol_prev_vid_link > span {
-  text-align: right;
-}
-
-#qol_next_vid_link > * {
-  padding-left: 5px;
-}
-
-.qol-vid-nav-black {
-  border-top: 1px solid #3a3c3c;
-}
-
-.qol-vid-nav-white {
-  border-top: 1px solid lightgrey;
-}
-
-.qol-prev-vid-black {
-  border-right: 1px solid #3a3c3c;
-}
-
-.qol-prev-vid-white {
-  border-right: 1px solid lightgrey;
-}
-
-.qol_thumb {
-  height: 45px;
-  width: 85px;
-}
-
-.qol-vid-name {
-  display: inline-block;
-  max-height: 40px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  width: -webkit-calc(100% - 112px);
-  width:    -moz-calc(100% - 112px);
-  width:         calc(100% - 112px);
-  word-wrap: break-word;
-}
-
-/*************************************************
 Hide Spoiler Elements
 *************************************************/
 
@@ -121,21 +39,41 @@ Live Show
   width: 100%;
 }
 
+.qol-emote-category {
+  border-top: 1px solid #555555;
+  color: #ababab;
+  font-weight: bold;
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 4px 0px;
+  text-align: center;
+  width: 80%;
+}
+
+.qol-emote-category:first-of-type {
+  border-top: none;
+  width: 100%;
+  margin: auto;
+}
+
 .qol-emote {
   background: none;
   border: none;
   display: inline-block;
-  height: 30px;
+  height: 32px;
   margin-bottom: 5px;
   margin-top: 5px;
-
-  -webkit-transition: .30s ease-in-out;
-  -moz-transition:    .30s ease-in-out;
-  transition:         .30s ease-in-out;
+  width: 48px;
 }
 
 .qol-emote:hover {
   background-color: #981b1d;
+}
+
+#qol-emote-wigg {
+  height: 63px;
+  width: 100%;
 }
 
 .chat .qol-chat-tabs__emotes .chat-tabs__wrapper.qol-red-background,
