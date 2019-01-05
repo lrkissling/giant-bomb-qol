@@ -35,7 +35,7 @@ function createEmotesMenu() {
   parentElement.appendChild(li);
 
   // parse the emotes.json to create html for the emotes list
-  $.getJSON(chrome.extension.getURL("emotes.json"), function(data) {
+  $.getJSON(chrome.extension.getURL("emotes0.json"), function(data) {
     let emotes_html = [
       "<div class='chat-panel__header'>",
       "<strong class='chat-panel__title'>Emotes</strong>",
@@ -43,13 +43,24 @@ function createEmotesMenu() {
       "<div class='chat-panel__container'><div class='qol-scroll-hold'>"
     ];
 
-    data.emotes.forEach(function(emote) {
-      let src  = chrome.extension.getURL(emote.img),
-          name = emote.name;
+    for (const [category, emotes] of Object.entries(data)) {
+      console.log(category);
+      console.log(emotes);
 
-      emotes_html.push("<button class='qol-emote' value='" + name + " '>");
-      emotes_html.push("<img src='" + src + "' title='" + name + "'/></button>");
-    });
+      emotes_html.push(`<div class='qol-emote-category'>${category}</div>`);
+      for (const emote of Object.values(emotes)) {
+        console.log(emote);
+        let src  = chrome.extension.getURL(emote.img),
+            name = emote.name;
+
+        if (name == ":wigg") {
+          emotes_html.push(`<button id='qol-emote-wigg' class='qol-emote' value='${name} '>`);
+        } else {
+          emotes_html.push(`<button class='qol-emote' value='${name} '>`);
+        }
+        emotes_html.push(`<img src='${src}' title='${name}'/></button>`);
+      }
+    }
 
     emotes_html.push("</div></div>");
     emotes_html = emotes_html.join("");

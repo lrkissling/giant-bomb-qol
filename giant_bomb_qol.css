@@ -121,21 +121,41 @@ Live Show
   width: 100%;
 }
 
+.qol-emote-category {
+  border-top: 1px solid #555555;
+  color: #ababab;
+  font-weight: bold;
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 4px 0px;
+  text-align: center;
+  width: 80%;
+}
+
+.qol-emote-category:first-of-type {
+  border-top: none;
+  width: 100%;
+  margin: auto;
+}
+
 .qol-emote {
   background: none;
   border: none;
   display: inline-block;
-  height: 30px;
+  height: 32px;
   margin-bottom: 5px;
   margin-top: 5px;
-
-  -webkit-transition: .30s ease-in-out;
-  -moz-transition:    .30s ease-in-out;
-  transition:         .30s ease-in-out;
+  width: 48px;
 }
 
 .qol-emote:hover {
   background-color: #981b1d;
+}
+
+#qol-emote-wigg {
+  height: 63px;
+  width: 100%;
 }
 
 .chat .qol-chat-tabs__emotes .chat-tabs__wrapper.qol-red-background,
