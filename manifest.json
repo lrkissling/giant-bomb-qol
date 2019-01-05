@@ -25,15 +25,6 @@
 
   "content_scripts": [
     {
-      "matches": ["*://www.giantbomb.com/videos/*"],
-      "css": ["giant_bomb_qol.css"],
-      "js": [
-        "third_party/jquery-3.1.1.min.js",
-        "third_party/moment.min.js",
-        "video_navigator.js"
-      ]
-    },
-    {
       "matches": [
         "*://www.giantbomb.com/videos/*this-is-the-run*",
         "*://www.giantbomb.com/shows/this-is-the-run/*",
