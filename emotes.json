@@ -197,8 +197,20 @@
       "name": ":langzone"
     },
     {
-      "img":  "img/emotes/rungfb.png",
-      "name": ":rungfb"
+      "img":  "img/emotes/facepalm.gif",
+      "name": ":facepalm"
+    },
+    {
+      "img":  "img/emotes/jawdrop.gif",
+      "name": ":jawdrop"
+    },
+    {
+      "img":  "img/emotes/peepin.png",
+      "name": ":peepin"
+    },
+    {
+      "img":  "img/emotes/shock.gif",
+      "name": ":shock"
     },
     {
       "img":  "img/emotes/austintwo.jpeg",
@@ -273,10 +285,6 @@
     {
       "img":  "img/emotes/dota.png",
       "name": ":dota"
-    },
-    {
-      "img":  "img/emotes/facepalm.gif",
-      "name": ":facepalm"
     },
     {
       "img":  "img/emotes/finaldasa.png",
@@ -363,10 +371,6 @@
       "name": ":jadegl"
     },
     {
-      "img":  "img/emotes/jawdrop.gif",
-      "name": ":jawdrop"
-    },
-    {
       "img":  "img/emotes/laika.jpeg",
       "name": ":laika"
     },
@@ -423,10 +427,6 @@
       "name": ":pax"
     },
     {
-      "img":  "img/emotes/peepin.png",
-      "name": ":peepin"
-    },
-    {
       "img":  "img/emotes/pseg.png",
       "name": ":pseg"
     },
@@ -451,12 +451,12 @@
       "name": ":rick"
     },
     {
-      "img":  "img/emotes/secrettape.png",
-      "name": ":secrettape"
+      "img":  "img/emotes/rungfb.png",
+      "name": ":rungfb"
     },
     {
-      "img":  "img/emotes/shock.gif",
-      "name": ":shock"
+      "img":  "img/emotes/secrettape.png",
+      "name": ":secrettape"
     },
     {
       "img":  "img/emotes/sparklykiss.png",
