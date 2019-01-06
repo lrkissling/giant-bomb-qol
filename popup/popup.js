@@ -53,30 +53,48 @@ var optionNames = [
 
 // Capture api key input from the popup box
 var apiKey = document.querySelector("#text_api_key");
-// This button fires off the saveKey function
-var activateButton = document.querySelector("#submit_key");
-activateButton.addEventListener("click", saveKey);
+
+// Whenever the key length hits 40, verify the key and save
+$("#text_api_key").on("change", function() {
+  if(apiKey.value.trim().length === 40){
+    testKey(apiKey.value.trim());
+  }
+})
+
+// Hit the chats endpoint to see if the key works, 100 means invalid key
+async function testKey(api_key){
+  $.ajax({
+    url: "https://www.giantbomb.com/api/chats/",
+    dataType: "json",
+    data: { api_key: api_key,
+            format: "json"
+          },
+    success: function(data) {
+      if(data.status_code === 100){
+        console.log("Invalid api key! " + api_key);
+        document.getElementById("text_api_key").style.borderColor = "red";
+      }
+      else{
+        console.log("Success!");
+        saveKey(api_key);
+      }
+    }
+  });
+}
 
 // Save the api key to synced storage
-function saveKey(e){
-  e.preventDefault();
-
-  var newKey = apiKey.value.trim();
-  
-  // Only save if the key is the proper length
-  if(newKey.length === 40){
-    // Change the border color to green to indicate correct length
-    document.getElementById("text_api_key").style.borderColor = "green";
-    // Store the key based on browser, then redraw the panel upon reopen
-    if (navigator.userAgent.indexOf("Chrome") != -1){
-      chrome.storage.sync.set({"api_key": newKey}, handleOptions);
-    }
-    else{
-      browser.storage.sync.set({"api_key": newKey}, handleOptions);
-    }
+function saveKey(api_key){
+  console.log("Saving key");
+  // Change the border color to green to indicate correct length
+  document.getElementById("text_api_key").style.borderColor = "green";
+  // Store the key based on browser, then redraw the panel upon reopen
+  if (navigator.userAgent.indexOf("Chrome") != -1){
+    chrome.storage.sync.set({"api_key": api_key});
+    chrome.storage.sync.get(optionNames, handleOptions);
   }
   else{
-    document.getElementById("text_api_key").style.borderColor = "red";
+    browser.storage.sync.set({"api_key": api_key});
+    browser.storage.sync.get(optionNames, handleOptions);
   }
 }
 
