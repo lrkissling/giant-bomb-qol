@@ -75,25 +75,25 @@ async function testKey(api_key){
         document.getElementById("text_api_key").style.borderColor = "red";
       }
       else{
-        console.log("Success!");
-        saveKey(api_key);
+        saveKey(api_key, data.results);
       }
     }
   });
 }
 
 // Save the api key to synced storage
-function saveKey(api_key){
-  console.log("Saving key");
+function saveKey(api_key, results){
   // Change the border color to green to indicate correct length
   document.getElementById("text_api_key").style.borderColor = "green";
   // Store the key based on browser, then redraw the panel upon reopen
   if (navigator.userAgent.indexOf("Chrome") != -1){
     chrome.storage.sync.set({"api_key": api_key});
+    updateStreamStatus(results);
     chrome.storage.sync.get(optionNames, handleOptions);
   }
   else{
     browser.storage.sync.set({"api_key": api_key});
+    updateStreamStatus(results);
     browser.storage.sync.get(optionNames, handleOptions);
   }
 }
@@ -103,37 +103,21 @@ function saveKey(api_key){
 
   // Pull up user options for stream notifications based on browser
   if(navigator.userAgent.indexOf("Chrome") != -1){
+    // Grab the stream notifications value from storage, flip it, save it, then handle options
     chrome.storage.sync.get(optionNames,function(ops){
-      // Toggle the setting
-      if(ops.stream_notifications){
-        ops.stream_notifications = false;
-        chrome.storage.sync.set(ops);
-        // Run the new options through handleOptions
-        handleOptions(ops);
-      }
-      else{
-        ops.stream_notifications = true;
-        chrome.storage.sync.set(ops);
-        // Run the new options through handleOptions
-        handleOptions(ops);
-      }
+      chrome.storage.sync.set({"stream_notifications": !ops.stream_notifications}, function(){
+        chrome.storage.sync.get(optionNames, function(ops){
+          console.log(ops);
+          handleOptions(ops);
+        });
+      });
     });
   }
   else{
-    browser.storage.sync.get(optionNames).then(function(ops){
-      // Toggle the setting
-      if(ops.notificationsEnabled){
-        ops.stream_notifications = false;
-        browser.storage.sync.set(ops);
-        // Run the new options through handleOptions
-        handleOptions(ops);
-      }
-      else{
-        ops.stream_notifications = true;
-        browser.storage.sync.set(ops);
-        // Run the new options through handleOptions
-        handleOptions(ops);
-      }
+    browser.storage.sync.get(optionNames,function(ops){
+      browser.storage.sync.set({"stream_notifications": !ops.stream_notifications}, function(){
+        browser.storage.sync.get(optionNames, handleOptions, onError);
+      });
     },onError);
   }
 
@@ -183,6 +167,56 @@ function handleOptions(options) {
   else{
     $("#check_options").css("display", "block");
   }
+}
+
+// TODO: Refactor this function and the one in background to an exterior file
+/**
+* Parse results of API calls to determine browserAction icon appearance and
+* store necessary information for retrieval by the popup.
+*/
+function updateStreamStatus(results) {
+  let is_live_streaming = false,
+      is_infinite = false,
+      stream_info = null;
+  for (var key in results) {
+    stream_info = results[key];
+    if (stream_info.title != "Giant Bomb Infinite") {
+      is_live_streaming = true;
+      break;
+    } else {
+      is_infinite = true;
+    }
+  }
+
+  let options = {
+    is_live_streaming : is_live_streaming,
+    is_infinite : is_infinite
+  };
+
+  if (is_live_streaming || is_infinite) {
+    options.stream_title = stream_info.title;
+    options.stream_image = stream_info.image.small_url;
+  }
+
+  if (navigator.userAgent.indexOf("Chrome") != -1) {
+    chrome.storage.sync.set(options);
+    chrome.browserAction.setIcon({
+      path: { 38: is_live_streaming ? "img/gb-live.png" : "img/gb-offair.png" }
+    });
+    chrome.browserAction.setTitle({
+      title: is_live_streaming ? "Giant Bomb is Live!" : "Giant Bomb QoL"
+    });
+  }
+  else{
+    browser.storage.sync.set(options);
+    browser.browserAction.setIcon({
+      path: { 38: is_live_streaming ? "img/gb-live.png" : "img/gb-offair.png" }
+    });
+    browser.browserAction.setTitle({
+      title: is_live_streaming ? "Giant Bomb is Live!" : "Giant Bomb QoL"
+    });
+  }
+
 }
 
 function onError(error) {
