@@ -57,6 +57,10 @@
       "name": ":parappa"
     },
     {
+      "img":  "img/emotes/fridayyy.gif",
+      "name": ":fridayyy"
+    },
+    {
       "img":  "img/emotes/friday.gif",
       "name": ":friday"
     },
@@ -205,6 +209,10 @@
       "name": ":jawdrop"
     },
     {
+      "img":  "img/emotes/buttshot.gif",
+      "name": ":buttshot"
+    },
+    {
       "img":  "img/emotes/peepin.png",
       "name": ":peepin"
     },
@@ -261,6 +269,10 @@
     {
       "img":  "img/emotes/coolbaby.png",
       "name": ":coolbaby"
+    },
+    {
+      "img":  "img/emotes/creeper.gif",
+      "name": ":creeper"
     },
     {
       "img":  "img/emotes/crispy.png",
@@ -481,6 +493,10 @@
     {
       "img":  "img/emotes/thatpinguino.png",
       "name": ":thatpinguino"
+    },
+    {
+      "img":  "img/emotes/toasty.gif",
+      "name": ":toasty"
     },
     {
       "img":  "img/emotes/trianglechips.png",

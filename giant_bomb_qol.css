@@ -26,7 +26,7 @@ Live Show
 }
 
 #qol_conversation_emotes {
-  height: 40%;
+  height: 50%;
 }
 
 #qol_conversation_emotes .chat-panel__container {
@@ -92,5 +92,5 @@ Live Show
 }
 
 .qol-height-60 {
-  height: 60% !important;
+  height: 50% !important;
 }
