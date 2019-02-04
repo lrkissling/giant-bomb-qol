@@ -12,36 +12,23 @@ function onError(error) {
 function handleOptions(items) {
   if (items.hide_titr_spoilers === undefined || items.hide_titr_spoilers) {
     // Ensure that the video is a TITR video
-    if ($("#site-main h2").first().text().toUpperCase().includes("THIS IS THE RUN")) {
+    if ($("p.episode-show-name").first().text().toUpperCase().includes("THIS IS THE RUN")) {
       hideVideoSpoilers();
+      hideThumbnailSpoilers();
     }
-
-    hideThumbnailSpoilers();
   }
 }
 
 // Hides the timestamp and progress buffer of the video.
 function hideVideoSpoilers() {
   $(".av-buffer").first().addClass("qol-hidden");
-  $(".js-vid-buffer.av-buffer-wrap").first().addClass("qol-hidden");
-  $(".js-vid-loaded.av-loaded").first().addClass("qol-hidden");
-  $(".js-vid-position.av-position").first().addClass("qol-hidden");
+  $(".js-progress-buffer.av-buffer-wrap").first().addClass("qol-hidden");
+  $(".js-progress-loaded.av-loaded").first().addClass("qol-hidden");
+  $(".js-progress-position.av-position").first().addClass("qol-hidden");
   $(".av-time").first().addClass("qol-hidden");
 }
 
 // Hides timestamps from video thumbnails
 function hideThumbnailSpoilers() {
-  // if it's the TITR show page, hide every thumbnail timestamp and comments count
-  if (window.location.href.includes("giantbomb.com/shows/this-is-the-run/")) {
-    $(".overlay-stats i:first-child").css("display", "none");
-    $(".overlay-stats i:last-child").css("display", "none");
-  }
-  // otherwise, only hide timestamps and comments counts from thumbnails for TITR videos
-  else {
-    $(".primary-content li a").each(function() {
-      if (this.href.includes("this-is-the-run")) {
-        $(this).find(".editorial-stats .icon-comments").css("display", "none");
-      }
-    });
-  }
+  $("span.bottom-left-card span.horizontal-spacing").css("display", "none");
 }

@@ -251,6 +251,10 @@
   ],
   "The Rest": [
     {
+      "img":  "img/emotes/berk.png",
+      "name": ":berk"
+    },
+    {
       "img":  "img/emotes/botcolony.png",
       "name": ":botcolony"
     },

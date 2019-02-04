@@ -2,7 +2,7 @@
   "description": "Provides some simple Quality-of-Life enhancements to giantbomb.com.",
   "manifest_version": 2,
   "name": "Giant Bomb QoL",
-  "version": "2.1",
+  "version": "2.2",
 
   "permissions": [
     "*://*.giantbomb.com/api/*", "storage"
@@ -26,13 +26,7 @@
   "content_scripts": [
     {
       "matches": [
-        "*://www.giantbomb.com/videos/*this-is-the-run*",
-        "*://www.giantbomb.com/shows/this-is-the-run/*",
-        "*://www.giantbomb.com/videos/",
-        "*://www.giantbomb.com/videos/?page=*",
-        "*://www.giantbomb.com/videos/popular/*",
-        "*://www.giantbomb.com/videos/latest/*",
-        "*://www.giantbomb.com/"
+        "*://www.giantbomb.com/shows/*"
       ],
       "css": ["giant_bomb_qol.css"],
       "js": ["third_party/jquery-3.1.1.min.js", "hide_spoilers.js"]
