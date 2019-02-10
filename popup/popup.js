@@ -21,16 +21,6 @@ $("#options_link").click(function() {
   window.close();
 });
 
-// Handle mouseover of all infobuttons
-$(".option-infobutton-container").on("mouseover", function() {
-  $(this).find(".option-infobutton-text").css("display", "block");
-});
-
-// Handle mouseout of all infobuttons
-$(".option-infobutton-container").on("mouseout", function() {
-  $(this).find(".option-infobutton-text").css("display", "none");
-});
-
 // Opens the appropriate store page and closes the pop-up.
 $("#store_page").click(function() {
   if (navigator.userAgent.indexOf("Chrome") != -1) {
@@ -55,7 +45,7 @@ var optionNames = [
 var apiKey = document.querySelector("#text_api_key");
 
 // Whenever the key length hits 40, verify the key and save
-$("#text_api_key").on("change", function() {
+$("#text_api_key").on("input", function() {
   if(apiKey.value.trim().length === 40){
     testKey(apiKey.value.trim());
   }
@@ -98,6 +88,7 @@ function saveKey(api_key, results){
   }
 }
 
+/*
 // Toggle stream notifications
  $("#stream_notifications").click(function(){
 
@@ -122,6 +113,7 @@ function saveKey(api_key, results){
   }
 
 });
+*/
 
 // Gets necessary user options. Handled differently by Chrome/Firefox.
 if (navigator.userAgent.indexOf("Chrome") != -1) {
@@ -143,7 +135,7 @@ function handleOptions(options) {
           $("#stream_image").attr("src", options.stream_image);
           $("#stream_image").addClass(options.is_live_streaming ? "chat" : "infinite");
           // Light up the notifications button to show that notifications are on
-          $("#stream_notifications").css("backgroundColor", "green");
+          //$("#stream_notifications").css("backgroundColor", "green");
           // If the stream image was previously hidden, show it and hide the disabled message
           $("#live_stream_info").css("display", "block");
           $("#stream_image").css("display","block");
@@ -156,7 +148,7 @@ function handleOptions(options) {
       }
       // Otherwise, dim the notifications button and inform the user that notifications are disabled
       else{
-        $("#stream_notifications").css("backgroundColor", "#3a3c3c");
+        //$("#stream_notifications").css("backgroundColor", "#3a3c3c");
         // Disable the stream info on the fly
         $("#stream_image").css("display","none");
         $("#live_stream_info").css("display","none");
