@@ -1,3 +1,19 @@
+a:link {
+  color: red;
+}
+
+a:visited {
+  color: red;
+}
+
+a:hover {
+  color: white;
+}
+
+a:active {
+  color: white;
+}
+
 body {
   background-color: #232425;
   margin:0px !important;
