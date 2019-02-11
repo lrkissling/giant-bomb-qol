@@ -11,11 +11,16 @@ function onError(error) {
 // Check that they want to hide spoilers
 function handleOptions(items) {
   if (items.hide_titr_spoilers === undefined || items.hide_titr_spoilers) {
-    // Ensure that the video is a TITR video
+    // Ensure that the video is a TITR video, then hide appropriate elements.
     if ($("p.episode-show-name").first().text().toUpperCase().includes("THIS IS THE RUN")) {
       hideVideoSpoilers();
       hideThumbnailSpoilers();
     }
+
+    // look for video cards for TITR videos and hide timestamp.
+    $("div.card-byline:contains('This Is the Run')").each(function() {
+      $(this).siblings().first().find("span.bottom-left-card").first().addClass("qol-hidden");
+    });
   }
 }
 

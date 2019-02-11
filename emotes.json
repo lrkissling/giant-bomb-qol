@@ -37,6 +37,10 @@
       "name": ":cools"
     },
     {
+      "img":  "img/emotes/jeffu.png",
+      "name": ":jeffu"
+    },
+    {
       "img":  "img/emotes/jtruth.gif",
       "name": ":jtruth"
     },
@@ -99,10 +103,6 @@
     {
       "img":  "img/emotes/spooked.gif",
       "name": ":spooked"
-    },
-    {
-      "img":  "img/emotes/vibrimote.gif",
-      "name": ":vibrimote"
     }
   ],
   "This Monstrosity": [
@@ -169,16 +169,20 @@
       "name": ":jan"
     },
     {
+      "img":  "img/emotes/bde.png",
+      "name": ":bde"
+    },
+    {
+      "img":  "img/emotes/bde2.png",
+      "name": ":bde2"
+    },
+    {
       "img":  "img/emotes/austin.png",
       "name": ":austin"
     },
     {
       "img":  "img/emotes/alexis.png",
       "name": ":alexis"
-    },
-    {
-      "img":  "img/emotes/jeffu.png",
-      "name": ":jeffu"
     },
     {
       "img": "img/emotes/gerstfield.png",
@@ -219,6 +223,10 @@
     {
       "img":  "img/emotes/shock.gif",
       "name": ":shock"
+    },
+    {
+      "img":  "img/emotes/alexxx.png",
+      "name": ":alexxx"
     },
     {
       "img":  "img/emotes/austintwo.jpeg",
@@ -301,6 +309,10 @@
     {
       "img":  "img/emotes/dota.png",
       "name": ":dota"
+    },
+    {
+      "img":  "img/emotes/excitebike.gif",
+      "name": ":excitebike"
     },
     {
       "img":  "img/emotes/finaldasa.png",
@@ -505,6 +517,10 @@
     {
       "img":  "img/emotes/trianglechips.png",
       "name": ":trianglechips"
+    },
+    {
+      "img":  "img/emotes/vibrimote.gif",
+      "name": ":vibrimote"
     },
     {
       "img":  "img/emotes/wafflestomp.png",
