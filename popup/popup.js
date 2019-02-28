@@ -1,3 +1,24 @@
+if (navigator.userAgent.indexOf("Chrome") != -1) {
+  browser = chrome;
+}
+
+const OPTIONS = [
+  "api_key",
+  "stream_notifications",
+  "is_live_streaming",
+  "is_infinite",
+  "stream_title",
+  "stream_image"
+];
+
+// Gets necessary user options. Handled differently by Chrome/Firefox.
+if (browser == chrome) {
+  browser.storage.sync.get(OPTIONS, handleOptions);
+} else {
+  getting = browser.storage.sync.get(OPTIONS);
+  getting.then(handleOptions, onError);
+}
+
 // Opens the chat page and closes the pop-up.
 $(document).on("click", ".chat", function() {
   window.open("https://www.giantbomb.com/chat/");
@@ -12,18 +33,13 @@ $(document).on("click", ".infinite", function() {
 
 // Opens the options page and closes the pop-up.
 $("#options_link").click(function() {
-  if (navigator.userAgent.indexOf("Chrome") != -1) {
-    chrome.runtime.openOptionsPage();
-  } else {
-    browser.runtime.openOptionsPage();
-  }
-
+  browser.runtime.openOptionsPage();
   window.close();
 });
 
 // Opens the appropriate store page and closes the pop-up.
 $("#store_page").click(function() {
-  if (navigator.userAgent.indexOf("Chrome") != -1) {
+  if (browser == chrome) {
     window.open("https://chrome.google.com/webstore/detail/giant-bomb-qol/ciipbadfpnjpnnjchpeaiilodeeeekam");
   } else {
     window.open("https://addons.mozilla.org/en-US/firefox/addon/giant-bomb-qol/");
@@ -32,27 +48,15 @@ $("#store_page").click(function() {
   window.close();
 });
 
-var optionNames = [
-  "api_key",
-  "stream_notifications",
-  "is_live_streaming",
-  "is_infinite",
-  "stream_title",
-  "stream_image"
-];
-
-// Capture api key input from the popup box
-var apiKey = document.querySelector("#text_api_key");
-
-// Whenever the key length hits 40, verify the key and save
+// Whenever the API key length hits 40, verify the key and save
 $("#text_api_key").on("input", function() {
-  if(apiKey.value.trim().length === 40){
-    testKey(apiKey.value.trim());
+  if (this.value.trim().length === 40) {
+    testKey(this.value.trim());
   }
-})
+});
 
 // Hit the chats endpoint to see if the key works, 100 means invalid key
-async function testKey(api_key){
+async function testKey(api_key) {
   $.ajax({
     url: "https://www.giantbomb.com/api/chats/",
     dataType: "json",
@@ -60,31 +64,31 @@ async function testKey(api_key){
             format: "json"
           },
     success: function(data) {
-      if(data.status_code === 100){
-        console.log("Invalid api key! " + api_key);
-        document.getElementById("text_api_key").style.borderColor = "red";
-      }
-      else{
         saveKey(api_key, data.results);
+        updateStreamStatus(results);
+    },
+    error: function(data) {
+      if (data.status_code == 100) {
+        console.log("Invalid api key! " + api_key);
+        $("#text_api_key").addClass("invalid");
+      } else {
+        console.log("Unknown error!");
+        $("#text_api_key").addClass("invalid");
       }
     }
   });
 }
 
 // Save the api key to synced storage
-function saveKey(api_key, results){
-  // Change the border color to green to indicate correct length
-  document.getElementById("text_api_key").style.borderColor = "green";
-  // Store the key based on browser, then redraw the panel upon reopen
-  if (navigator.userAgent.indexOf("Chrome") != -1){
-    chrome.storage.sync.set({"api_key": api_key});
-    updateStreamStatus(results);
-    chrome.storage.sync.get(optionNames, handleOptions);
-  }
-  else{
-    browser.storage.sync.set({"api_key": api_key});
-    updateStreamStatus(results);
-    browser.storage.sync.get(optionNames, handleOptions);
+function saveKey(api_key){
+  browser.storage.sync.set({"api_key": api_key});
+  browser.storage.sync.set({"stream_notifications": true});
+
+  if (browser == chrome) {
+    browser.storage.sync.get(OPTIONS, handleOptions);
+  } else {
+    getting = browser.storage.sync.get(OPTIONS);
+    getting.then(handleOptions, onError);
   }
 }
 
@@ -95,9 +99,9 @@ function saveKey(api_key, results){
   // Pull up user options for stream notifications based on browser
   if(navigator.userAgent.indexOf("Chrome") != -1){
     // Grab the stream notifications value from storage, flip it, save it, then handle options
-    chrome.storage.sync.get(optionNames,function(ops){
+    chrome.storage.sync.get(OPTIONS,function(ops){
       chrome.storage.sync.set({"stream_notifications": !ops.stream_notifications}, function(){
-        chrome.storage.sync.get(optionNames, function(ops){
+        chrome.storage.sync.get(OPTIONS, function(ops){
           console.log(ops);
           handleOptions(ops);
         });
@@ -105,9 +109,9 @@ function saveKey(api_key, results){
     });
   }
   else{
-    browser.storage.sync.get(optionNames,function(ops){
+    browser.storage.sync.get(OPTIONS,function(ops){
       browser.storage.sync.set({"stream_notifications": !ops.stream_notifications}, function(){
-        browser.storage.sync.get(optionNames, handleOptions, onError);
+        browser.storage.sync.get(OPTIONS, handleOptions, onError);
       });
     },onError);
   }
@@ -115,22 +119,14 @@ function saveKey(api_key, results){
 });
 */
 
-// Gets necessary user options. Handled differently by Chrome/Firefox.
-if (navigator.userAgent.indexOf("Chrome") != -1) {
-  chrome.storage.sync.get(optionNames, handleOptions);
-} else {
-  getting = browser.storage.sync.get(optionNames);
-  getting.then(handleOptions, onError);
-}
-
 function handleOptions(options) {
   // Check api key validity
-  if(options.api_key !== undefined &&
-     options.api_key.length === 40){
+  if (options.api_key !== undefined &&
+     options.api_key.length === 40) {
       // Display proper html depending on whether or not there is a livestream
-      if(options.stream_notifications === undefined || options.stream_notifications) {
+      if (options.stream_notifications === undefined || options.stream_notifications) {
         // If notifications are enabled, display the stream notification html
-        if(options.is_live_streaming || options.is_infinite){
+        if (options.is_live_streaming || options.is_infinite) {
           $("#stream_title").html(options.stream_title);
           $("#stream_image").attr("src", options.stream_image);
           $("#stream_image").addClass(options.is_live_streaming ? "chat" : "infinite");
@@ -140,14 +136,15 @@ function handleOptions(options) {
           $("#live_stream_info").css("display", "block");
           $("#stream_image").css("display","block");
           $("#notifications_disabled").css("display", "none");
+          $("#check_options").css("display", "none");
         }
         // If there's no stream, inform the user
-        else{
+        else {
           $("no_stream").css("display", "block");
         }
       }
       // Otherwise, dim the notifications button and inform the user that notifications are disabled
-      else{
+      else {
         //$("#stream_notifications").css("backgroundColor", "#3a3c3c");
         // Disable the stream info on the fly
         $("#stream_image").css("display","none");
@@ -156,7 +153,7 @@ function handleOptions(options) {
       }
   }
   // Otherwise, API key was not valid, inform user
-  else{
+  else {
     $("#check_options").css("display", "block");
   }
 }
@@ -190,24 +187,13 @@ function updateStreamStatus(results) {
     options.stream_image = stream_info.image.small_url;
   }
 
-  if (navigator.userAgent.indexOf("Chrome") != -1) {
-    chrome.storage.sync.set(options);
-    chrome.browserAction.setIcon({
-      path: { 38: is_live_streaming ? "img/gb-live.png" : "img/gb-offair.png" }
-    });
-    chrome.browserAction.setTitle({
-      title: is_live_streaming ? "Giant Bomb is Live!" : "Giant Bomb QoL"
-    });
-  }
-  else{
-    browser.storage.sync.set(options);
-    browser.browserAction.setIcon({
-      path: { 38: is_live_streaming ? "img/gb-live.png" : "img/gb-offair.png" }
-    });
-    browser.browserAction.setTitle({
-      title: is_live_streaming ? "Giant Bomb is Live!" : "Giant Bomb QoL"
-    });
-  }
+  browser.storage.sync.set(options);
+  browser.browserAction.setIcon({
+    path: { 38: is_live_streaming ? "img/gb-live.png" : "img/gb-offair.png" }
+  });
+  browser.browserAction.setTitle({
+    title: is_live_streaming ? "Giant Bomb is Live!" : "Giant Bomb QoL"
+  });
 
 }
 
