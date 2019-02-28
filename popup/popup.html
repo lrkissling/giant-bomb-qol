@@ -9,8 +9,14 @@
       There is no live stream currently running.
     </div>
     <div id="check_options" class="popup-font popup-info">
-      To get live stream notifications, enter your API key and turn on the Live
-      Stream Notifications option in the Add-On Options page.
+      <span>To use the live stream indicator and quick nav, enter your </span>
+      <a href="https://www.giantbomb.com/api" target="_blank">API key:</a>
+      <div class="centered">
+        <input type="text" id="text_api_key" placeholder="API Key"/><br>
+      </div>
+    </div>
+    <div id="notifications_disabled" class="popup-font popup-info">
+      Stream notifications are currently disabled.
     </div>
     <div id="live_stream_info" class="popup-buttons">
       <img id="stream_image" class="stream-link">
@@ -18,6 +24,7 @@
     </div>
     <div id="popup_bottom_row">
       <div id="options_link" class="popup-buttons popup-font" href="#">Add-On<br>Options</div>
+      <!-- <div id="stream_notifications" class="popup-buttons popup-font" href="#">Stream<br>Notifications</div> -->
       <img id="store_page" src="../img/logo-94x60.png" title="Store Page">
     </div>
 
