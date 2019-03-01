@@ -38,8 +38,9 @@ h2 {
 }
 
 #text_api_key.invalid {
-  border-color: red;
-  border-width: medium;
+  background-color: #ffbdba;
+  /* border-color: red; */
+  /* border-width: medium; */
 }
 
 #no_stream {

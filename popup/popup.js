@@ -52,6 +52,8 @@ $("#store_page").click(function() {
 $("#text_api_key").on("input", function() {
   if (this.value.trim().length === 40) {
     testKey(this.value.trim());
+  } else {
+    $("#text_api_key").removeClass("invalid");
   }
 });
 
@@ -65,24 +67,24 @@ async function testKey(api_key) {
           },
     success: function(data) {
         saveKey(api_key, data.results);
-        updateStreamStatus(results);
     },
     error: function(data) {
+      $("#text_api_key").addClass("invalid");
       if (data.status_code == 100) {
         console.log("Invalid api key! " + api_key);
-        $("#text_api_key").addClass("invalid");
       } else {
-        console.log("Unknown error!");
-        $("#text_api_key").addClass("invalid");
+        onError(data);
       }
     }
   });
 }
 
 // Save the api key to synced storage
-function saveKey(api_key){
+function saveKey(api_key, results){
   browser.storage.sync.set({"api_key": api_key});
   browser.storage.sync.set({"stream_notifications": true});
+
+  updateStreamStatus(results);
 
   if (browser == chrome) {
     browser.storage.sync.get(OPTIONS, handleOptions);
@@ -141,6 +143,7 @@ function handleOptions(options) {
         // If there's no stream, inform the user
         else {
           $("no_stream").css("display", "block");
+          $("#notifications_disabled").css("display", "none");
         }
       }
       // Otherwise, dim the notifications button and inform the user that notifications are disabled
@@ -189,7 +192,7 @@ function updateStreamStatus(results) {
 
   browser.storage.sync.set(options);
   browser.browserAction.setIcon({
-    path: { 38: is_live_streaming ? "img/gb-live.png" : "img/gb-offair.png" }
+    path: { 38: is_live_streaming ? "../img/gb-live.png" : "../img/gb-offair.png" }
   });
   browser.browserAction.setTitle({
     title: is_live_streaming ? "Giant Bomb is Live!" : "Giant Bomb QoL"
