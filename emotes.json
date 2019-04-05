@@ -13,6 +13,10 @@
       "name": ":plur"
     },
     {
+      "img":  "img/emotes/inca.gif",
+      "name": ":inca"
+    },
+    {
       "img":  "img/emotes/fistpump.gif",
       "name": ":fistpump"
     },
@@ -67,6 +71,10 @@
     {
       "img":  "img/emotes/friday.gif",
       "name": ":friday"
+    },
+    {
+      "img":  "img/emotes/fadetoblack.gif",
+      "name": ":fadetoblack"
     },
     {
       "img":  "img/emotes/tupac.png",
@@ -241,6 +249,10 @@
       "name": ":alexxx"
     },
     {
+      "img":  "img/emotes/valex.gif",
+      "name": ":valex"
+    },
+    {
       "img":  "img/emotes/austintwo.jpeg",
       "name": ":austintwo"
     },
@@ -387,6 +399,10 @@
       "name": ":gamespot"
     },
     {
+      "img":  "img/emotes/ghosty.png",
+      "name": ":ghosty"
+    },
+    {
       "img":  "img/emotes/henry.jpeg",
       "name": ":henry"
     },
@@ -479,6 +495,10 @@
       "name": ":pseg"
     },
     {
+      "img":  "img/emotes/puggy.png",
+      "name": ":puggy"
+    },
+    {
       "img":  "img/emotes/pushwarren.png",
       "name": ":pushwarren"
     },
@@ -517,6 +537,10 @@
     {
       "img":  "img/emotes/spicy.png",
       "name": ":spicy"
+    },
+    {
+      "img":  "img/emotes/srs.png",
+      "name": ":srs"
     },
     {
       "img":  "img/emotes/sweep.png",
