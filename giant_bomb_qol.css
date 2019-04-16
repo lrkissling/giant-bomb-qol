@@ -1,4 +1,43 @@
 /*************************************************
+Playback Rate Control
+*************************************************/
+
+.qol-playback-rate-menu-show {
+  left: 50% !important;
+}
+
+.qol-playback-rate-input {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.qol-playback-rate-slider {
+  width: 90%;
+  height: 4px;
+  min-height: 4px;
+  line-height: 4px;
+  background: #d4d4d4;
+  padding: 0px;
+  margin: 10px 0 10px 0;
+}
+
+.qol-playback-rate-slider::-moz-range-thumb {
+  width: 12px;
+  height: 12px;
+  background: black;
+  border: 2px solid #fff;
+  border-radius: 100%;
+}
+
+.qol-playback-rate-slider::-webkit-slider-thumb {
+  width: 12px;
+  height: 12px;
+  background: black;
+  border: 2px solid #fff;
+  border-radius: 100%;
+}
+
+/*************************************************
 Hide Spoiler Elements
 *************************************************/
 
