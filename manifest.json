@@ -30,7 +30,7 @@
         "*://www.giantbomb.com/shows/*"
       ],
       "css": ["giant_bomb_qol.css"],
-      "js": ["third_party/jquery-3.1.1.min.js", "hide_spoilers.js"]
+      "js": ["third_party/jquery-3.1.1.min.js", "hide_spoilers.js", "add_playback_rate.js"]
     },
     {
       "matches": [
