@@ -11,6 +11,10 @@ Playback Rate Control
   margin-bottom: 10px;
 }
 
+.qol-playback-rate-button {
+  font-size: 16px;
+}
+
 .qol-playback-rate-slider {
   width: 90%;
   height: 4px;
