@@ -34,6 +34,13 @@
     },
     {
       "matches": [
+        "*://www.giantbomb.com/videos/*"
+      ],
+      "css": ["giant_bomb_qol.css"],
+      "js": ["third_party/jquery-3.1.1.min.js", "add_playback_rate.js"]
+    },
+    {
+      "matches": [
         "*://www.giantbomb.com/chat/*",
         "*://www.giantbomb.com/infinite/*"
       ],

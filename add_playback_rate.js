@@ -36,17 +36,19 @@ function playbackRateMenuFragment() {
 }
 
 $(document).ready(function() {
-  addPlaybackRateControl();
+  if ($('.js-vid-player-chrome')[0]) {
+    addPlaybackRateControl();
 
-  // Add interactivity to new playback rate control
-  $('.qol-playback-rate-slider').on('change mousemove', function() {
-    let newPlaybackRate = $(this).val() / 100.0;
-    $('.qol-playback-rate-label').html(newPlaybackRate.toFixed(2));
-    $('video').get(0).playbackRate = newPlaybackRate;
-  });
+    // Add interactivity to new playback rate control
+    $('.qol-playback-rate-slider').on('change mousemove', function() {
+      let newPlaybackRate = $(this).val() / 100.0;
+      $('.qol-playback-rate-label').html(newPlaybackRate.toFixed(2));
+      $('video').get(0).playbackRate = newPlaybackRate;
+    });
 
-  // Enable show/hide of playback control menu
-  $('.qol-playback-rate-button').on('click', function() {
-    $('.qol-playback-rate-menu').toggleClass('qol-playback-rate-menu-show');
-  });
+    // Enable show/hide of playback control menu
+    $('.qol-playback-rate-button').on('click', function() {
+      $('.qol-playback-rate-menu').toggleClass('qol-playback-rate-menu-show');
+    });
+  }
 });
