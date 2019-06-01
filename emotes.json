@@ -111,6 +111,10 @@
     {
       "img":  "img/emotes/spooked.gif",
       "name": ":spooked"
+    },
+    {
+      "img":  "img/emotes/whygod.png",
+      "name": ":whygod"
     }
   ],
   "This Monstrosity": [
@@ -183,6 +187,10 @@
     {
       "img":  "img/emotes/bde2.png",
       "name": ":bde2"
+    },
+    {
+      "img":  "img/emotes/wcarle.png",
+      "name": ":wcarle"
     },
     {
       "img":  "img/emotes/austin.png",
@@ -423,6 +431,10 @@
       "name": ":itsalockdown"
     },
     {
+      "img": "img/emotes/jackie.png",
+      "name": ":jackie"
+    },
+    {
       "img": "img/emotes/jackyt.png",
       "name": ":jackyt"
     },
@@ -481,6 +493,10 @@
     {
       "img":  "img/emotes/notlikethis.png",
       "name": ":notlikethis"
+    },
+    {
+      "img":  "img/emotes/ohbehave.png",
+      "name": ":ohbehave"
     },
     {
       "img":  "img/emotes/pax.png",
