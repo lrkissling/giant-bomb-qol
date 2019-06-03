@@ -133,7 +133,7 @@ Live Show
 }
 
 .chat-scroll-hold, .player {
-  scrollbar-color: grey #232425;
+  scrollbar-color: #1b1c1d #232425;
   scrollbar-width: thin;
 }
 
@@ -149,6 +149,6 @@ Live Show
   border: 2px solid #981b1d;
   border-radius: 1em;
   font-weight: bold;
-  margin-left: 5px;
+  margin-left: 8px;
   padding: 0 7px;
 }
