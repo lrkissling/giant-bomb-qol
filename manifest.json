@@ -4,6 +4,13 @@
   "name": "Giant Bomb QoL",
   "version": "3",
 
+  "applications": {
+    "gecko": {
+      "id": "giantbomb@qol.snake",
+      "strict_min_version": "53.0"
+    }
+  },
+
   "permissions": [
     "*://*.giantbomb.com/api/*", "storage"
   ],
@@ -29,27 +36,37 @@
         "*://www.giantbomb.com/",
         "*://www.giantbomb.com/shows/*"
       ],
-      "css": ["giant_bomb_qol.css"],
-      "js": ["third_party/jquery-3.1.1.min.js", "hide_spoilers.js", "add_playback_rate.js"]
+      "css": ["resources/giant_bomb_qol.css"],
+      "js": [
+        "third_party/jquery-3.1.1.min.js",
+        "content_scripts/hide_spoilers.js",
+        "content_scripts/add_playback_rate.js"
+      ]
     },
     {
       "matches": [
         "*://www.giantbomb.com/videos/*"
       ],
-      "css": ["giant_bomb_qol.css"],
-      "js": ["third_party/jquery-3.1.1.min.js", "add_playback_rate.js"]
+      "css": ["resources/giant_bomb_qol.css"],
+      "js": [
+        "third_party/jquery-3.1.1.min.js",
+        "content_scripts/add_playback_rate.js"
+       ]
     },
     {
       "matches": [
         "*://www.giantbomb.com/chat/*",
         "*://www.giantbomb.com/infinite/*"
       ],
-      "css": ["giant_bomb_qol.css"],
-      "js": ["third_party/jquery-3.1.1.min.js", "live_show_qol.js"]
+      "css": ["resources/giant_bomb_qol.css"],
+      "js": [
+        "third_party/jquery-3.1.1.min.js",
+        "content_scripts/live_show_qol.js"
+      ]
     }
   ],
 
-  "web_accessible_resources": ["img/*", "emotes.json"],
+  "web_accessible_resources": ["img/*", "resources/emotes.json"],
 
   "options_ui": {
     "page": "options/options.html"
