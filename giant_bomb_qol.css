@@ -152,3 +152,7 @@ Live Show
   margin-left: 8px;
   padding: 0 7px;
 }
+
+.poll-choices__item.qol-without-after::after{
+  content: "";
+}

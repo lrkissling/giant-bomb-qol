@@ -116,4 +116,14 @@ $(document).ready(function() {
   $("#js-poll-answer-container").on("click", ".qol-infobutton", function(event) {
     event.stopImmediatePropagation();
   });
+
+  // // Don't show check mark when hovering over infobutton
+  $("#js-poll-answer-container").on({
+    mouseenter: function() {
+      $(this).closest("li").addClass("qol-without-after");
+    },
+    mouseleave: function() {
+      $(this).closest("li").removeClass("qol-without-after");
+    }
+  }, ".qol-infobutton");
 });
