@@ -35,7 +35,7 @@ function createEmotesMenu() {
   parentElement.appendChild(li);
 
   // parse the emotes.json to create html for the emotes list
-  $.getJSON(chrome.extension.getURL("emotes.json"), function(data) {
+  $.getJSON(chrome.extension.getURL("resources/emotes.json"), function(data) {
     let emotes_html = [
       "<div class='chat-panel__header'>",
       "<strong class='chat-panel__title'>Emotes</strong>",

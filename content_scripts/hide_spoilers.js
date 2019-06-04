@@ -12,7 +12,7 @@ function onError(error) {
 function handleOptions(items) {
   if (items.hide_titr_spoilers === undefined || items.hide_titr_spoilers) {
     // Ensure that the video is a TITR video, then hide appropriate elements.
-    if ($("p.episode-show-name").first().text().toUpperCase().includes("THIS IS THE RUN")) {
+    if ($("h2.topslot-show-title").text().toUpperCase().includes("THIS IS THE RUN")) {
       hideVideoSpoilers();
       hideThumbnailSpoilers();
     }
