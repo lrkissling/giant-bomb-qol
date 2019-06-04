@@ -77,7 +77,7 @@ function createEmotesMenu() {
 // Adds an infobutton linking to the video on QL Crew
 function addInfobuttons() {
   // For each poll option that doesn't already have an infobutton, and isn't the Mystery Box
-  $.each($(".poll-choices__label:not(:has(a)):not(:contains('Mystery Box!'))"), function(index, value) {
+  $.each($(".poll-choices__item > span:not(:has(a)):not(:contains('Mystery Box!'))"), function(index, value) {
     // build query string
     let choice = $(value);
     const text = choice.text();
@@ -111,4 +111,9 @@ $(document).ready(function() {
   if (window.location.href.indexOf("infinite") > -1) {
     $("#js-chat-tab-poll").on("click", addInfobuttons);
   }
+
+  // have to stop propagation of click event because it counts as poll answer.
+  $("#js-poll-answer-container").on("click", ".qol-infobutton", function(event) {
+    event.stopImmediatePropagation();
+  });
 });
