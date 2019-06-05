@@ -8,13 +8,15 @@ if (navigator.userAgent.indexOf("Chrome") != -1) {
 var apiKey              = document.querySelector("#text_api_key"),
     streamNotifications = document.querySelector("#cbox_stream_notifications"),
     hideTitrSpoilers    = document.querySelector("#cbox_hide_titr_spoilers"),
-    chatEmotes          = document.querySelector("#cbox_chat_emotes");
+    chatEmotes          = document.querySelector("#cbox_chat_emotes"),
+    infiniteInfobuttons = document.querySelector("#cbox_infinite_infobuttons");
 
 // Invoke saveOptions whenever an option is changed
 $(apiKey).on("input", saveOptions);
 $(streamNotifications).on("change", saveOptions);
 $(hideTitrSpoilers).on("change", saveOptions);
 $(chatEmotes).on("change", saveOptions);
+$(infiniteInfobuttons).on("change", saveOptions);
 
 // Handle mouseover of all infobuttons
 $(".option-infobutton-container").on("mouseover", function() {
@@ -40,7 +42,8 @@ function saveOptions(e) {
     api_key: apiKey.value.trim(),
     stream_notifications: streamNotifications.checked,
     hide_titr_spoilers: hideTitrSpoilers.checked,
-    chat_emotes: chatEmotes.checked
+    chat_emotes: chatEmotes.checked,
+    infinite_infobuttons: infiniteInfobuttons.checked
   };
 
   browser.storage.sync.set(options);
@@ -88,7 +91,6 @@ function restoreOptions() {
     streamNotifications.disabled = !hasValidKey();
   }
 
-  // Set the Hide TITR Spoilers checkbox according to user option, default to checked if null
   function setHideTitrSpoilers(result) {
     if (result.hide_titr_spoilers !== undefined) {
       hideTitrSpoilers.checked = result.hide_titr_spoilers;
@@ -97,12 +99,19 @@ function restoreOptions() {
     }
   }
 
-  // Set the Chat Emotes checkbox according to user option, default to checked if null
   function setChatEmotes(result) {
     if (result.chat_emotes !== undefined) {
       chatEmotes.checked = result.chat_emotes;
     } else {
       chatEmotes.checked = true;
+    }
+  }
+
+  function setInfiniteInfobuttons(result) {
+    if (result.infinite_infobuttons !== undefined) {
+      infiniteInfobuttons.checked = result.infinite_infobuttons;
+    } else {
+      infiniteInfobuttons.checked = true;
     }
   }
 
@@ -112,11 +121,13 @@ function restoreOptions() {
     chrome.storage.sync.get("stream_notifications", setStreamNotifications);
     chrome.storage.sync.get("hide_titr_spoilers", setHideTitrSpoilers);
     chrome.storage.sync.get("chat_emotes", setChatEmotes);
+    chrome.storage.sync.get("infinite_infobuttons", setInfiniteInfobuttons);
   } else {
     browser.storage.sync.get("api_key").then(setApiKey, onError);
     browser.storage.sync.get("stream_notifications").then(setStreamNotifications, onError);
     browser.storage.sync.get("hide_titr_spoilers").then(setHideTitrSpoilers, onError);
     browser.storage.sync.get("chat_emotes").then(setChatEmotes, onError);
+    browser.storage.sync.get("infinite_infobuttons").then(setInfiniteInfobuttons, onError);
   }
 
   function onError(error) {

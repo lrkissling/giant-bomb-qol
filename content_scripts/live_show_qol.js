@@ -1,7 +1,9 @@
+var show_infobuttons = false;
+
 if (navigator.userAgent.indexOf("Chrome") != -1) {
-  chrome.storage.sync.get("chat_emotes", handleOptions);
+  chrome.storage.sync.get(["chat_emotes", "infinite_infobuttons"], handleOptions);
 } else {
-  getting = browser.storage.sync.get("chat_emotes");
+  getting = browser.storage.sync.get(["chat_emotes", "infinite_infobuttons"]);
   getting.then(handleOptions, onError);
 }
 
@@ -9,6 +11,12 @@ if (navigator.userAgent.indexOf("Chrome") != -1) {
 function handleOptions(item) {
   if (item.chat_emotes === undefined || item.chat_emotes) {
     createEmotesMenu();
+  }
+
+  if (item.infinite_infobuttons === undefined || item.infinite_infobuttons) {
+    show_infobuttons = true;
+  } else {
+    show_infobuttons = false;
   }
 }
 
@@ -108,22 +116,23 @@ $(document).ready(function() {
     $("#f_ChatInput").focus();
   });
 
-  if (window.location.href.indexOf("infinite") > -1) {
+  // set up infobutton handling for GB Infinite polls
+  if (show_infobuttons && window.location.href.indexOf("infinite") > -1) {
     $("#js-chat-tab-poll").on("click", addInfobuttons);
+
+    // have to stop propagation of click event because it counts as poll answer.
+    $("#js-poll-answer-container").on("click", ".qol-infobutton", function(event) {
+      event.stopImmediatePropagation();
+    });
+
+    // Don't show check mark when hovering over infobutton
+    $("#js-poll-answer-container").on({
+      mouseenter: function() {
+        $(this).closest("li").addClass("qol-without-after");
+      },
+      mouseleave: function() {
+        $(this).closest("li").removeClass("qol-without-after");
+      }
+    }, ".qol-infobutton");
   }
-
-  // have to stop propagation of click event because it counts as poll answer.
-  $("#js-poll-answer-container").on("click", ".qol-infobutton", function(event) {
-    event.stopImmediatePropagation();
-  });
-
-  // // Don't show check mark when hovering over infobutton
-  $("#js-poll-answer-container").on({
-    mouseenter: function() {
-      $(this).closest("li").addClass("qol-without-after");
-    },
-    mouseleave: function() {
-      $(this).closest("li").removeClass("qol-without-after");
-    }
-  }, ".qol-infobutton");
 });
