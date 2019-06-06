@@ -13,6 +13,8 @@ Playback Rate Control
 
 .qol-playback-rate-button {
   font-size: 16px;
+  width: 15px;
+  margin-right: 20px;
 }
 
 .qol-playback-rate-slider {
@@ -152,6 +154,10 @@ Live Show
   font-weight: bold;
   margin-left: 8px;
   padding: 1px 7px;
+
+  /* font-family: "Brush Script MT";
+  font-size: 18px;
+  margin-left: 5px; */
 }
 
 .poll-choices__item.qol-without-after::after{
