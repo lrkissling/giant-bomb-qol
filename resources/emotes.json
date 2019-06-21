@@ -115,6 +115,10 @@
     {
       "img":  "img/emotes/whygod.png",
       "name": ":whygod"
+    },
+    {
+      "img": "img/emotes/cringe.png",
+      "name": ":cringe"
     }
   ],
   "This Monstrosity": [
@@ -459,8 +463,16 @@
       "name": ":marino"
     },
     {
+      "img": "img/emotes/massalex.gif",
+      "name": ":massalex"
+    },
+    {
       "img":  "img/emotes/mattyftm.png",
       "name": ":mattyftm"
+    },
+    {
+      "img": "img/emotes/maybe.png",
+      "name": ":maybe"
     },
     {
       "img":  "img/emotes/mb.jpeg",
