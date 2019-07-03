@@ -148,16 +148,11 @@ Live Show
 }
 
 .qol-infobutton {
-  border: 2px solid #981b1d;
-  border-radius: 1em;
-  font-size: 12px;
-  font-weight: bold;
-  margin-left: 8px;
-  padding: 1px 7px;
+  margin-left: 5px;
+}
 
-  /* font-family: "Brush Script MT";
-  font-size: 18px;
-  margin-left: 5px; */
+.qol-infobutton > img {
+  width: 21px;
 }
 
 .poll-choices__item.qol-without-after::after{
