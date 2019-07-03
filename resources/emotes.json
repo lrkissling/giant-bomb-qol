@@ -229,6 +229,10 @@
       "name": ":langzone"
     },
     {
+      "img": "img/emotes/massalex.gif",
+      "name": ":massalex"
+    },
+    {
       "img":  "img/emotes/facepalm.gif",
       "name": ":facepalm"
     },
@@ -415,6 +419,10 @@
       "name": ":ghosty"
     },
     {
+      "img":  "img/emotes/gooigi.png",
+      "name": ":gooigi"
+    },
+    {
       "img":  "img/emotes/henry.jpeg",
       "name": ":henry"
     },
@@ -463,16 +471,16 @@
       "name": ":marino"
     },
     {
-      "img": "img/emotes/massalex.gif",
-      "name": ":massalex"
-    },
-    {
       "img":  "img/emotes/mattyftm.png",
       "name": ":mattyftm"
     },
     {
       "img": "img/emotes/maybe.png",
       "name": ":maybe"
+    },
+    {
+      "img":  "img/emotes/never.jpeg",
+      "name": ":never"
     },
     {
       "img":  "img/emotes/mb.jpeg",
@@ -493,10 +501,6 @@
     {
       "img":  "img/emotes/mrpibb.jpeg",
       "name": ":mrpibb"
-    },
-    {
-      "img":  "img/emotes/never.jpeg",
-      "name": ":never"
     },
     {
       "img":  "img/emotes/notblack.png",
