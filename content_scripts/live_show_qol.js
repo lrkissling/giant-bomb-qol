@@ -85,13 +85,13 @@ function createEmotesMenu() {
 // Adds an infobutton linking to the video on QL Crew
 function addInfobuttons() {
   const src = chrome.extension.getURL("img/info.png");
-  
+
   // For each poll option that doesn't already have an infobutton, and isn't the Mystery Box
   $.each($(".poll-choices__item > span:not(:has(a)):not(:contains('Mystery Box!'))"), function(index, value) {
+  // $.each($(".poll-choices__label"), function(index, value) { // for testing purposes
     // build query string
     let choice = $(value);
-    const text = choice.text();
-    const query = encodeURI(text.substr(0, text.lastIndexOf("(") - 1));
+    const query = buildQueryString(choice.text());
 
     // build link
     let link = $("<a>").attr("href", `https://www.qlcrew.com/?q=${query}`)
@@ -102,6 +102,19 @@ function addInfobuttons() {
     // append link to poll option
     choice.append(link);
   });
+}
+
+function buildQueryString(text) {
+  // remove date at the end
+  let search_text = text.substr(0, text.lastIndexOf("(") - 1);
+  // remove colons
+  search_text = search_text.replace(/:/g, "");
+  // remove hyphens
+  search_text = search_text.replace(/-/g, "");
+  // remove any extra spaces
+  search_text = search_text.replace(/\s+/g, " ");
+  // return URI-encoded string
+  return encodeURI(search_text);
 }
 
 $(document).ready(function() {
