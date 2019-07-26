@@ -107,10 +107,12 @@ function addInfobuttons() {
 function buildQueryString(text) {
   // remove date at the end
   let search_text = text.substr(0, text.lastIndexOf("(") - 1);
+  // remove "premier(e)" from beginning
+  search_text = search_text.replace(/premiere?:\s/gi, "");
   // remove colons
-  search_text = search_text.replace(/:/g, "");
+  search_text = search_text.replace(/:\s/g, " ");
   // remove hyphens
-  search_text = search_text.replace(/-/g, "");
+  search_text = search_text.replace(/\s-\s/g, " ");
   // remove any extra spaces
   search_text = search_text.replace(/\s+/g, " ");
   // return URI-encoded string

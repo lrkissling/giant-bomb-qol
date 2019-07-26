@@ -559,6 +559,10 @@
       "name": ":secrettape"
     },
     {
+      "img":  "img/emotes/slickomode.png",
+      "name": ":slickomode"
+    },
+    {
       "img":  "img/emotes/sparklykiss.png",
       "name": ":sparklykiss"
     },
