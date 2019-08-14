@@ -87,6 +87,7 @@ function addInfobuttons() {
   const src = chrome.extension.getURL("img/info.png");
 
   // For each poll option that doesn't already have an infobutton, and isn't the Mystery Box
+  // $.each($(".poll-choices__item > span:not(:contains('Mystery Box!'))"), function(index, value) {
   $.each($(".poll-choices__item > span:not(:has(a)):not(:contains('Mystery Box!'))"), function(index, value) {
   // $.each($(".poll-choices__label"), function(index, value) { // for testing purposes
     // build query string
@@ -135,11 +136,30 @@ $(document).ready(function() {
     $("#f_ChatInput").focus();
   });
 
-  // set up infobutton handling for GB Infinite polls
+  // Set up infobutton handling for GB Infinite polls
   if (show_infobuttons && window.location.href.indexOf("infinite") > -1) {
-    $("#js-chat-tab-poll").on("click", addInfobuttons);
+    // $("#js-chat-tab-poll").on("click", addInfobuttons);
 
-    // have to stop propagation of click event because it counts as poll answer.
+    // Add infobuttons to active poll on initial page load, if necessary
+    addInfobuttons();
+    
+    // Set up mutation observer for new polls
+    const poll_container = document.getElementById('js-poll-answer-container');
+    const observer_config = { childList: true };
+    // Callback function to execute when mutations are observed
+    const callback = function(mutationsList, observer) {
+      for (let mutation of mutationsList) {
+        if (mutation.addedNodes.length > 0) {
+          addInfobuttons();
+        }
+      }
+    };
+    // Create an observer instance linked to the callback function
+    const observer = new MutationObserver(callback);
+    // Start observing the poll container for mutations
+    observer.observe(poll_container, observer_config);
+
+    // Have to stop propagation of click event because it counts as poll answer.
     $("#js-poll-answer-container").on("click", ".qol-infobutton", function(event) {
       event.stopImmediatePropagation();
     });

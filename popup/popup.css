@@ -20,10 +20,17 @@ body {
   max-width: 420px;
 }
 
-h2 {
+#stream_title {
   background: rgba(0, 0, 0, 0.7);
   bottom: 50px;
   left: 0;
+  padding: 2px 5px;
+  position: absolute;
+}
+
+#gb_infinite_logo {
+  top: 15px;
+  right: 0;
   padding: 2px 5px;
   position: absolute;
 }
