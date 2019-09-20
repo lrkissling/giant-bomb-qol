@@ -1,6 +1,10 @@
 function addPlaybackRateControl() {
   let rightAVControls = $('.av-controls--right').first();
   rightAVControls.prepend(buildPlaybackRateControl());
+
+  if (navigator.userAgent.indexOf("Chrome") != -1) {
+    $('.qol-playback-rate-button-label').css("font-weight", "bold");
+  }
 }
 
 function buildPlaybackRateControl() {

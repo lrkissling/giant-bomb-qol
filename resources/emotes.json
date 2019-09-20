@@ -229,6 +229,10 @@
       "name": ":langzone"
     },
     {
+      "img": "img/emotes/massalex.gif",
+      "name": ":massalex"
+    },
+    {
       "img":  "img/emotes/facepalm.gif",
       "name": ":facepalm"
     },
@@ -415,6 +419,10 @@
       "name": ":ghosty"
     },
     {
+      "img":  "img/emotes/gooigi.png",
+      "name": ":gooigi"
+    },
+    {
       "img":  "img/emotes/henry.jpeg",
       "name": ":henry"
     },
@@ -475,6 +483,10 @@
       "name": ":maybe"
     },
     {
+      "img":  "img/emotes/never.jpeg",
+      "name": ":never"
+    },
+    {
       "img":  "img/emotes/mb.jpeg",
       "name": ":mb"
     },
@@ -493,10 +505,6 @@
     {
       "img":  "img/emotes/mrpibb.jpeg",
       "name": ":mrpibb"
-    },
-    {
-      "img":  "img/emotes/never.jpeg",
-      "name": ":never"
     },
     {
       "img":  "img/emotes/notblack.png",
@@ -553,6 +561,10 @@
     {
       "img":  "img/emotes/secrettape.png",
       "name": ":secrettape"
+    },
+    {
+      "img":  "img/emotes/slickomode.png",
+      "name": ":slickomode"
     },
     {
       "img":  "img/emotes/sparklykiss.png",

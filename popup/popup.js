@@ -131,7 +131,8 @@ function handleOptions(options) {
         if (options.is_live_streaming || options.is_infinite) {
           $("#stream_title").html(options.stream_title);
           $("#stream_image").attr("src", options.stream_image);
-          $("#stream_image").addClass(options.is_live_streaming ? "chat" : "infinite");
+          $("#live_stream_info").addClass(options.is_live_streaming ? "chat" : "infinite");
+          $("#gb_infinite_logo").css(options.is_infinite && !options.is_live_streaming ? "block" : "none");
           // Light up the notifications button to show that notifications are on
           //$("#stream_notifications").css("backgroundColor", "green");
           // If the stream image was previously hidden, show it and hide the disabled message
@@ -185,9 +186,12 @@ function updateStreamStatus(results) {
     is_infinite : is_infinite
   };
 
-  if (is_live_streaming || is_infinite) {
+  if (is_live_streaming) {
     options.stream_title = stream_info.title;
     options.stream_image = stream_info.image.small_url;
+  } else if (is_infinite) {
+    options.stream_title = stream_info.history[0].name;
+    options.stream_image = stream_info.history[0].image.small_url;
   }
 
   browser.storage.sync.set(options);

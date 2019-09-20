@@ -84,20 +84,40 @@ function createEmotesMenu() {
 
 // Adds an infobutton linking to the video on QL Crew
 function addInfobuttons() {
+  const src = chrome.extension.getURL("img/info.png");
+
   // For each poll option that doesn't already have an infobutton, and isn't the Mystery Box
+  // $.each($(".poll-choices__item > span:not(:contains('Mystery Box!'))"), function(index, value) {
   $.each($(".poll-choices__item > span:not(:has(a)):not(:contains('Mystery Box!'))"), function(index, value) {
+  // $.each($(".poll-choices__label"), function(index, value) { // for testing purposes
     // build query string
     let choice = $(value);
-    const text = choice.text();
-    let query = encodeURI(text.substr(0, text.lastIndexOf("(") - 1));
+    const query = buildQueryString(choice.text());
+
     // build link
-    const link = $("<a>").attr("href", `https://www.qlcrew.com/?q=${query}`)
-                         .attr("target", "_blank")
-                         .addClass("qol-infobutton")
-                         .text("i");
+    let link = $("<a>").attr("href", `https://www.qlcrew.com/?q=${query}`)
+                       .attr("target", "_blank")
+                       .addClass("qol-infobutton");
+    link.append($("<img>").attr("src", src));
+
     // append link to poll option
     choice.append(link);
   });
+}
+
+function buildQueryString(text) {
+  // remove date at the end
+  let search_text = text.substr(0, text.lastIndexOf("(") - 1);
+  // remove "premier(e)" from beginning
+  search_text = search_text.replace(/premiere?:\s/gi, "");
+  // remove colons
+  search_text = search_text.replace(/:\s/g, " ");
+  // remove hyphens
+  search_text = search_text.replace(/\s-\s/g, " ");
+  // remove any extra spaces
+  search_text = search_text.replace(/\s+/g, " ");
+  // return URI-encoded string
+  return encodeURI(search_text);
 }
 
 $(document).ready(function() {
@@ -116,11 +136,30 @@ $(document).ready(function() {
     $("#f_ChatInput").focus();
   });
 
-  // set up infobutton handling for GB Infinite polls
+  // Set up infobutton handling for GB Infinite polls
   if (show_infobuttons && window.location.href.indexOf("infinite") > -1) {
-    $("#js-chat-tab-poll").on("click", addInfobuttons);
+    // $("#js-chat-tab-poll").on("click", addInfobuttons);
 
-    // have to stop propagation of click event because it counts as poll answer.
+    // Add infobuttons to active poll on initial page load, if necessary
+    addInfobuttons();
+    
+    // Set up mutation observer for new polls
+    const poll_container = document.getElementById('js-poll-answer-container');
+    const observer_config = { childList: true };
+    // Callback function to execute when mutations are observed
+    const callback = function(mutationsList, observer) {
+      for (let mutation of mutationsList) {
+        if (mutation.addedNodes.length > 0) {
+          addInfobuttons();
+        }
+      }
+    };
+    // Create an observer instance linked to the callback function
+    const observer = new MutationObserver(callback);
+    // Start observing the poll container for mutations
+    observer.observe(poll_container, observer_config);
+
+    // Have to stop propagation of click event because it counts as poll answer.
     $("#js-poll-answer-container").on("click", ".qol-infobutton", function(event) {
       event.stopImmediatePropagation();
     });
