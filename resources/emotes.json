@@ -61,10 +61,6 @@
       "name": ":jtruth"
     },
     {
-      "img": "img/emotes/fish.jpg",
-      "name": ":fish"
-    },
-    {
       "img":  "img/emotes/wefeastin.gif",
       "name": ":wefeastin"
     },
@@ -401,6 +397,10 @@
     {
       "img":  "img/emotes/fine.png",
       "name": ":fine"
+    },
+    {
+      "img": "img/emotes/fish.jpg",
+      "name": ":fish"
     },
     {
       "img":  "img/emotes/forthekids.png",
