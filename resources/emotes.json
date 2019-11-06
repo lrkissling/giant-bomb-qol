@@ -41,12 +41,20 @@
       "name": ":promoves"
     },
     {
+      "img":  "img/emotes/benmoves.png",
+      "name": ":benmoves"
+    },
+    {
       "img":  "img/emotes/cools.png",
       "name": ":cools"
     },
     {
       "img":  "img/emotes/jeffu.png",
       "name": ":jeffu"
+    },
+    {
+      "img":  "img/emotes/dp2.gif",
+      "name": ":dp2"
     },
     {
       "img":  "img/emotes/jtruth.gif",
@@ -293,6 +301,10 @@
       "name": ":danny"
     },
     {
+      "img":  "img/emotes/shoutout.png",
+      "name": ":shoutout"
+    },
+    {
       "img":  "img/emotes/muir.png",
       "name": ":muir"
     },
@@ -314,6 +326,10 @@
     }
   ],
   "The Rest": [
+    {
+      "img":  "img/emotes/banana.gif",
+      "name": ":banana"
+    },
     {
       "img":  "img/emotes/berk.png",
       "name": ":berk"
@@ -363,6 +379,10 @@
       "name": ":cyborgmatt"
     },
     {
+      "img":  "img/emotes/dankyyy.gif",
+      "name": ":dankyyy"
+    },
+    {
       "img":  "img/emotes/dota.png",
       "name": ":dota"
     },
@@ -371,12 +391,20 @@
       "name": ":excitebike"
     },
     {
+      "img":  "img/emotes/eyes.png",
+      "name": ":eyes"
+    },
+    {
       "img":  "img/emotes/finaldasa.png",
       "name": ":finaldasa"
     },
     {
       "img":  "img/emotes/fine.png",
       "name": ":fine"
+    },
+    {
+      "img": "img/emotes/fish.jpg",
+      "name": ":fish"
     },
     {
       "img":  "img/emotes/forthekids.png",
@@ -575,6 +603,14 @@
       "name": ":rick"
     },
     {
+      "img":  "img/emotes/riki.png",
+      "name": ":riki"
+    },
+    {
+      "img":  "img/emotes/kiki.png",
+      "name": ":kiki"
+    },
+    {
       "img":  "img/emotes/rungfb.png",
       "name": ":rungfb"
     },
@@ -641,6 +677,10 @@
     {
       "img":  "img/emotes/weedthree.png",
       "name": ":weedthree"
+    },
+    {
+      "img":  "img/emotes/woooo.gif",
+      "name": ":woooo"
     },
     {
       "img":  "img/emotes/zombiepie.jpeg",
