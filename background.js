@@ -5,7 +5,7 @@ if (navigator.userAgent.indexOf("Chrome") != -1) {
 
 // Call on initial load and then set on a five minute schedule
 getOptions();
-setInterval(getOptions, 5 * 60 * 1000);
+setInterval(getOptions, 2 * 60 * 1000);
 
 /**
 * Retrieve user options. Chrome and Firefox handle this differently.

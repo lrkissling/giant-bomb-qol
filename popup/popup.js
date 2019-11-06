@@ -132,7 +132,14 @@ function handleOptions(options) {
           $("#stream_title").html(options.stream_title);
           $("#stream_image").attr("src", options.stream_image);
           $("#live_stream_info").addClass(options.is_live_streaming ? "chat" : "infinite");
-          $("#gb_infinite_logo").css(options.is_infinite && !options.is_live_streaming ? "block" : "none");
+
+          // show the gb infinite logo when live show isn't running
+          if (!options.is_live_streaming) {
+            $("#gb_infinite_logo").css("display", "block");
+          } else {
+            $("#gb_infinite_logo").css("display", "none");
+          }
+
           // Light up the notifications button to show that notifications are on
           //$("#stream_notifications").css("backgroundColor", "green");
           // If the stream image was previously hidden, show it and hide the disabled message
