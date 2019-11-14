@@ -120,6 +120,10 @@ Live Show
   width: 100%;
 }
 
+#qol-emote-fiiish {
+  width: 96px;
+}
+
 .chat .qol-chat-tabs__emotes .chat-tabs__wrapper.qol-red-background,
 .chat .qol-chat-tabs__emotes .chat-tabs__wrapper.qol-red-background:hover {
   background: #981b1d none repeat scroll 0 0;

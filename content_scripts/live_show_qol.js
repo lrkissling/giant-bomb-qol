@@ -58,9 +58,11 @@ function createEmotesMenu() {
         let src  = chrome.extension.getURL(emote.img),
             name = emote.name;
 
-        // have to account for the monstrosity
+        // have to account for the big boi emotes
         if (name == ":wigg") {
           emotes_html.push(`<button id='qol-emote-wigg' class='qol-emote' value='${name} '>`);
+        } else if (name == ":fiiish") {
+          emotes_html.push(`<button id='qol-emote-fiiish' class='qol-emote' value='${name} '>`);
         } else {
           emotes_html.push(`<button class='qol-emote' value='${name} '>`);
         }
@@ -142,7 +144,7 @@ $(document).ready(function() {
 
     // Add infobuttons to active poll on initial page load, if necessary
     addInfobuttons();
-    
+
     // Set up mutation observer for new polls
     const poll_container = document.getElementById('js-poll-answer-container');
     const observer_config = { childList: true };
