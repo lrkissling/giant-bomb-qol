@@ -133,7 +133,11 @@
       "name": ":cringe"
     }
   ],
-  "This Monstrosity": [
+  "These Monstrosities": [
+    {
+      "img": "img/emotes/fiish.png",
+      "name": ":fiiish"
+    },
     {
       "img":  "img/emotes/wigg.gif",
       "name": ":wigg"
@@ -203,6 +207,10 @@
     {
       "img":  "img/emotes/bde2.png",
       "name": ":bde2"
+    },
+    {
+      "img": "img/emotes/bdeshrug.png",
+      "name": ":bdeshrug"
     },
     {
       "img":  "img/emotes/wcarle.png",
@@ -323,6 +331,10 @@
   ],
   "The Rest": [
     {
+      "img": "img/emotes/bananabread.png",
+      "name": ":bananabread"
+    },
+    {
       "img":  "img/emotes/banana.gif",
       "name": ":banana"
     },
@@ -337,6 +349,10 @@
     {
       "img":  "img/emotes/bufu.png",
       "name": ":bufu"
+    },
+    {
+      "img": "img/emotes/bugdomtho.png",
+      "name": ":bugdomtho"
     },
     {
       "img":  "img/emotes/buzzclik.png",
@@ -527,6 +543,10 @@
       "name": ":mugetsu"
     },
     {
+      "img": "img/emotes/myleg.png",
+      "name": ":myleg"
+    },
+    {
       "img":  "img/emotes/never.jpeg",
       "name": ":never"
     },
@@ -561,6 +581,10 @@
     {
       "img":  "img/emotes/ohbehave.png",
       "name": ":ohbehave"
+    },
+    {
+      "img": "img/emotes/oney.png",
+      "name": ":oney"
     },
     {
       "img":  "img/emotes/pax.png",
@@ -655,6 +679,10 @@
       "name": ":toosweet"
     },
     {
+      "img": "img/emotes/train.png",
+      "name": ":train"
+    },
+    {
       "img":  "img/emotes/trianglechips.png",
       "name": ":trianglechips"
     },
@@ -673,6 +701,10 @@
     {
       "img":  "img/emotes/weedthree.png",
       "name": ":weedthree"
+    },
+    {
+      "img": "img/emotes/wumbo.png",
+      "name": ":wumbo"
     },
     {
       "img":  "img/emotes/woooo.gif",
