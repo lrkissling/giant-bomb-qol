@@ -90,7 +90,7 @@ function setNewEmotes(old_emotes) {
 
   // compare old_emotes to all_emotes to build list of new emotes
   const new_emotes = Object.keys(all_emotes).reduce((object,key) => {
-    if (!old_emotes.includes(key)) {
+    if (!old_emotes.includes(key) && !["goty", "millertime"].includes(key)) {
       object[key] = all_emotes[key];
     }
     return object;
@@ -100,24 +100,21 @@ function setNewEmotes(old_emotes) {
   XPCNativeWrapper(all_emotes);
 
   // add new emotes to emotes menu
-  let emotes_html = ["<div class='qol-emote-category'>New</div>"];
+  if (Object.keys(new_emotes).length > 0) {
+    let emotes_html = ["<div class='qol-emote-category'>New</div>"];
 
-  for (const [key, src] of Object.entries(new_emotes)) {
-    // filter out emotes with multiple keys
-    if (["goty", "millertime"].includes(key)) {
-      continue;
+    for (const [key, src] of Object.entries(new_emotes)) {
+      name = ":" + key;
+
+      emotes_html.push(`<button class='qol-emote' value='${name} '>`);
+      emotes_html.push(`<img src='${src}' title='${name}'/></button>`);
     }
 
-    name = ":" + key;
+    emotes_html.push("</div></div>");
+    emotes_html = emotes_html.join("");
 
-    emotes_html.push(`<button class='qol-emote' value='${name} '>`);
-    emotes_html.push(`<img src='${src}' title='${name}'/></button>`);
+    $(".qol-scroll-hold").prepend(emotes_html);
   }
-
-  emotes_html.push("</div></div>");
-  emotes_html = emotes_html.join("");
-
-  $(".qol-scroll-hold").prepend(emotes_html);
 }
 
 // Adds an infobutton linking to the video on QL Crew
