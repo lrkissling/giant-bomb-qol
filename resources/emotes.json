@@ -567,10 +567,6 @@
       "name": ":mrpibb"
     },
     {
-      "img": "img/emotes/mugetsu.png",
-      "name": ":mugetsu"
-    },
-    {
       "img":  "img/emotes/notblack.png",
       "name": ":notblack"
     },
@@ -649,10 +645,6 @@
     {
       "img":  "img/emotes/spicy.png",
       "name": ":spicy"
-    },
-    {
-      "img":  "img/emotes/srs.png",
-      "name": ":srs"
     },
     {
       "img":  "img/emotes/sweep.png",
