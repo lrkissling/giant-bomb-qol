@@ -84,6 +84,42 @@ function createEmotesMenu() {
   });
 }
 
+function setNewEmotes(old_emotes) {
+  // get master object of all emotes from firechat
+  const all_emotes = window.wrappedJSObject.Phoenix.FireChat.Emotes;
+
+  // compare old_emotes to all_emotes to build list of new emotes
+  const new_emotes = Object.keys(all_emotes).reduce((object,key) => {
+    if (!old_emotes.includes(key)) {
+      object[key] = all_emotes[key];
+    }
+    return object;
+  }, {});
+
+  // remove access to firechat's emotes since we no longer need it.
+  XPCNativeWrapper(all_emotes);
+
+  // add new emotes to emotes menu
+  let emotes_html = ["<div class='qol-emote-category'>New</div>"];
+
+  for (const [key, src] of Object.entries(new_emotes)) {
+    // filter out emotes with multiple keys
+    if (["goty", "millertime"].includes(key)) {
+      continue;
+    }
+
+    name = ":" + key;
+
+    emotes_html.push(`<button class='qol-emote' value='${name} '>`);
+    emotes_html.push(`<img src='${src}' title='${name}'/></button>`);
+  }
+
+  emotes_html.push("</div></div>");
+  emotes_html = emotes_html.join("");
+
+  $(".qol-scroll-hold").prepend(emotes_html);
+}
+
 // Adds an infobutton linking to the video on QL Crew
 function addInfobuttons() {
   const src = chrome.extension.getURL("img/info.png");
@@ -137,7 +173,9 @@ $(document).ready(function() {
     $("#f_ChatInput").val($("#f_ChatInput").val() + this.value);
     $("#f_ChatInput").focus();
   });
+});
 
+$(window).on("load", function() {
   // Set up infobutton handling for GB Infinite polls
   if (show_infobuttons && window.location.href.indexOf("infinite") > -1) {
     // $("#js-chat-tab-poll").on("click", addInfobuttons);
@@ -175,5 +213,20 @@ $(document).ready(function() {
         $(this).closest("li").removeClass("qol-without-after");
       }
     }, ".qol-infobutton");
+  }
+
+  // New Emotes functionality only works for Firefox
+  if (navigator.userAgent.indexOf("Chrome") == -1) {
+    // build single list of emotes already in the extension
+    let old_emotes = [];
+    $.getJSON(chrome.extension.getURL("resources/emotes.json"), function(data) {
+      for (const category of Object.values(data)) {
+        for (const emote of Object.values(category)) {
+          old_emotes.push(emote.name.substring(1));
+        }
+      }
+    });
+    // need a brief timeout to make sure firechat emotes are populated
+    setTimeout(setNewEmotes.bind(null, old_emotes), 2 * 1000);
   }
 });
