@@ -285,6 +285,10 @@
       "name": ":valex"
     },
     {
+      "img": "img/emotes/chairman.png",
+      "name": ":chairman"
+    },
+    {
       "img":  "img/emotes/austintwo.jpeg",
       "name": ":austintwo"
     },
@@ -409,6 +413,10 @@
     {
       "img":  "img/emotes/fine.png",
       "name": ":fine"
+    },
+    {
+      "img":  "img/emotes/1sttry.png",
+      "name": ":1sttry"
     },
     {
       "img": "img/emotes/fish.jpg",
@@ -579,6 +587,10 @@
       "name": ":ohbehave"
     },
     {
+      "img":  "img/emotes/okgod.png",
+      "name": ":okgod"
+    },
+    {
       "img":  "img/emotes/pax.png",
       "name": ":pax"
     },
@@ -635,6 +647,10 @@
       "name": ":slickomode"
     },
     {
+      "img":  "img/emotes/snom.png",
+      "name": ":snom"
+    },
+    {
       "img":  "img/emotes/sparklykiss.png",
       "name": ":sparklykiss"
     },
@@ -673,6 +689,10 @@
     {
       "img":  "img/emotes/trianglechips.png",
       "name": ":trianglechips"
+    },
+    {
+      "img":  "img/emotes/vibes.png",
+      "name": ":vibes"
     },
     {
       "img":  "img/emotes/vibrimote.gif",
