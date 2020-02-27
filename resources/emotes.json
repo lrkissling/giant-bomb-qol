@@ -289,6 +289,10 @@
       "name": ":valex"
     },
     {
+      "img": "img/emotes/chairman.png",
+      "name": ":chairman"
+    },
+    {
       "img":  "img/emotes/austintwo.jpeg",
       "name": ":austintwo"
     },
@@ -415,8 +419,16 @@
       "name": ":fine"
     },
     {
+      "img":  "img/emotes/1sttry.png",
+      "name": ":1sttry"
+    },
+    {
       "img": "img/emotes/fish.jpg",
       "name": ":fish"
+    },
+    {
+      "img": "img/emotes/fiiish.png",
+      "name": ":fiiish"
     },
     {
       "img":  "img/emotes/forthekids.png",
@@ -479,6 +491,10 @@
       "name": ":gooigi"
     },
     {
+      "img":  "img/emotes/guy.png",
+      "name": ":guy"
+    },
+    {
       "img":  "img/emotes/henry.jpeg",
       "name": ":henry"
     },
@@ -539,14 +555,6 @@
       "name": ":maybe"
     },
     {
-      "img": "img/emotes/mugetsu.png",
-      "name": ":mugetsu"
-    },
-    {
-      "img": "img/emotes/myleg.png",
-      "name": ":myleg"
-    },
-    {
       "img":  "img/emotes/never.jpeg",
       "name": ":never"
     },
@@ -583,8 +591,8 @@
       "name": ":ohbehave"
     },
     {
-      "img": "img/emotes/oney.png",
-      "name": ":oney"
+      "img":  "img/emotes/okgod.png",
+      "name": ":okgod"
     },
     {
       "img":  "img/emotes/pax.png",
@@ -643,6 +651,10 @@
       "name": ":slickomode"
     },
     {
+      "img":  "img/emotes/snom.png",
+      "name": ":snom"
+    },
+    {
       "img":  "img/emotes/sparklykiss.png",
       "name": ":sparklykiss"
     },
@@ -653,10 +665,6 @@
     {
       "img":  "img/emotes/spicy.png",
       "name": ":spicy"
-    },
-    {
-      "img":  "img/emotes/srs.png",
-      "name": ":srs"
     },
     {
       "img":  "img/emotes/sweep.png",
@@ -685,6 +693,10 @@
     {
       "img":  "img/emotes/trianglechips.png",
       "name": ":trianglechips"
+    },
+    {
+      "img":  "img/emotes/vibes.png",
+      "name": ":vibes"
     },
     {
       "img":  "img/emotes/vibrimote.gif",
