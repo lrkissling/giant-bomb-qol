@@ -201,6 +201,10 @@
       "name": ":jan"
     },
     {
+      "img": "img/emotes/cjan.png",
+      "name": "cjan"
+    },
+    {
       "img":  "img/emotes/bde.png",
       "name": ":bde"
     },
