@@ -170,9 +170,22 @@ $(document).ready(function() {
     $("#f_ChatInput").val($("#f_ChatInput").val() + this.value);
     $("#f_ChatInput").focus();
   });
-});
 
-$(window).on("load", function() {
+  // New Emotes functionality only works for Firefox
+  if (navigator.userAgent.indexOf("Chrome") == -1) {
+    // build single list of emotes already in the extension
+    let old_emotes = [];
+    $.getJSON(chrome.extension.getURL("resources/emotes.json"), function(data) {
+      for (const category of Object.values(data)) {
+        for (const emote of Object.values(category)) {
+          old_emotes.push(emote.name.substring(1));
+        }
+      }
+    });
+    // need a brief timeout to make sure firechat emotes are populated
+    setTimeout(setNewEmotes.bind(null, old_emotes), 10 * 1000);
+  }
+
   // Set up infobutton handling for GB Infinite polls
   if (show_infobuttons && window.location.href.indexOf("infinite") > -1) {
     // $("#js-chat-tab-poll").on("click", addInfobuttons);
@@ -210,20 +223,5 @@ $(window).on("load", function() {
         $(this).closest("li").removeClass("qol-without-after");
       }
     }, ".qol-infobutton");
-  }
-
-  // New Emotes functionality only works for Firefox
-  if (navigator.userAgent.indexOf("Chrome") == -1) {
-    // build single list of emotes already in the extension
-    let old_emotes = [];
-    $.getJSON(chrome.extension.getURL("resources/emotes.json"), function(data) {
-      for (const category of Object.values(data)) {
-        for (const emote of Object.values(category)) {
-          old_emotes.push(emote.name.substring(1));
-        }
-      }
-    });
-    // need a brief timeout to make sure firechat emotes are populated
-    setTimeout(setNewEmotes.bind(null, old_emotes), 2 * 1000);
   }
 });
