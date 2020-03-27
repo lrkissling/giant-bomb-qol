@@ -117,8 +117,8 @@
       "name": ":polls"
     },
     {
-      "img":  "img/emotes/salty.gif",
-      "name": ":salty"
+      "img":  "img/emotes/millertime.gif",
+      "name": ":millertime"
     },
     {
       "img":  "img/emotes/spooked.gif",
@@ -193,8 +193,16 @@
       "name": ":ben"
     },
     {
+      "img": "img/emotes/benihana.png",
+      "name": ":benihana"
+    },
+    {
       "img":  "img/emotes/jan.png",
       "name": ":jan"
+    },
+    {
+      "img": "img/emotes/cjan.png",
+      "name": "cjan"
     },
     {
       "img":  "img/emotes/bde.png",
@@ -331,6 +339,10 @@
   ],
   "The Rest": [
     {
+      "img": "img/emotes/annie.png",
+      "name": ":annie"
+    },
+    {
       "img": "img/emotes/bananabread.png",
       "name": ":bananabread"
     },
@@ -357,6 +369,10 @@
     {
       "img":  "img/emotes/buzzclik.png",
       "name": ":buzzclik"
+    },
+    {
+      "img": "img/emotes/cchuck.png",
+      "name": ":cchuck"
     },
     {
       "img":  "img/emotes/chaser.png",
@@ -523,6 +539,10 @@
       "name": ":jadegl"
     },
     {
+      "img": "img/emotes/jollibee.png",
+      "name": ":jollibee"
+    },
+    {
       "img": "img/emotes/jonno.png",
       "name": ":jonno"
     },
@@ -549,6 +569,14 @@
     {
       "img": "img/emotes/maybe.png",
       "name": ":maybe"
+    },
+    {
+      "img": "img/emotes/meesa.png",
+      "name": ":meesa"
+    },
+    {
+      "img": "img/emotes/minion.jpeg",
+      "name": ":minion"
     },
     {
       "img":  "img/emotes/never.jpeg",
@@ -663,6 +691,10 @@
       "name": ":spicy"
     },
     {
+      "img": "img/emotes/suki.png",
+      "name": ":suki"
+    },
+    {
       "img":  "img/emotes/sweep.png",
       "name": ":sweep"
     },
@@ -691,7 +723,7 @@
       "name": ":trianglechips"
     },
     {
-      "img":  "img/emotes/vibes.png",
+      "img":  "img/emotes/vibes.jpg",
       "name": ":vibes"
     },
     {
