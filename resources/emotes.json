@@ -17,6 +17,14 @@
       "name": ":inca"
     },
     {
+      "img": "img/emotes/abbydance.gif",
+      "name": ":abbydance"
+    },
+    {
+      "img": "img/emotes/bendance.gif",
+      "name": ":bendance"
+    },
+    {
       "img":  "img/emotes/fistpump.gif",
       "name": ":fistpump"
     },
@@ -27,10 +35,6 @@
     {
       "img":  "img/emotes/dabby.gif",
       "name": ":dabby"
-    },
-    {
-      "img": "img/emotes/abbydance.gif",
-      "name": ":abbydance"
     },
     {
       "img":  "img/emotes/bosslight.gif",
@@ -193,16 +197,12 @@
       "name": ":ben"
     },
     {
-      "img": "img/emotes/benihana.png",
-      "name": ":benihana"
-    },
-    {
       "img":  "img/emotes/jan.png",
       "name": ":jan"
     },
     {
       "img": "img/emotes/cjan.png",
-      "name": "cjan"
+      "name": ":cjan"
     },
     {
       "img":  "img/emotes/bde.png",
@@ -235,6 +235,10 @@
     {
       "img":  "img/emotes/jgps.png",
       "name": ":jgps"
+    },
+    {
+      "img": "img/emotes/xxx.png",
+      "name": ":xxx"
     },
     {
       "img": "img/emotes/fire.gif",
@@ -335,6 +339,10 @@
     {
       "img": "img/emotes/mahardy.png",
       "name": ":mahardy"
+    },
+    {
+      "img": "img/emotes/ohmike.jpg",
+      "name": ":ohmike"
     }
   ],
   "The Rest": [
@@ -349,6 +357,10 @@
     {
       "img":  "img/emotes/banana.gif",
       "name": ":banana"
+    },
+    {
+      "img": "img/emotes/benihana.png",
+      "name": ":benihana"
     },
     {
       "img":  "img/emotes/berk.png",
@@ -575,7 +587,7 @@
       "name": ":meesa"
     },
     {
-      "img": "img/emotes/minion.jpeg",
+      "img": "img/emotes/minion.jpg",
       "name": ":minion"
     },
     {
@@ -625,6 +637,10 @@
     {
       "img":  "img/emotes/pnc.png",
       "name": ":pnc"
+    },
+    {
+      "img":  "img/emotes/pour.gif",
+      "name": ":pour"
     },
     {
       "img":  "img/emotes/pseg.png",
