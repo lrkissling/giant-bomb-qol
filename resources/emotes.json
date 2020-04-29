@@ -5,6 +5,10 @@
       "name": ":bye"
     },
     {
+      "img":  "img/emotes/ben.png",
+      "name": ":ben"
+    },
+    {
       "img":  "img/emotes/blink.gif",
       "name": ":blink"
     },
@@ -191,10 +195,6 @@
     {
       "img":  "img/emotes/abby.jpg",
       "name": ":abby"
-    },
-    {
-      "img":  "img/emotes/ben.png",
-      "name": ":ben"
     },
     {
       "img":  "img/emotes/jan.png",
@@ -421,6 +421,14 @@
     {
       "img":  "img/emotes/dankyyy.gif",
       "name": ":dankyyy"
+    },
+    {
+      "img":  "img/emotes/death.png",
+      "name": ":death"
+    },
+    {
+      "img":  "img/emotes/dobby.jpg",
+      "name": ":dobby"
     },
     {
       "img":  "img/emotes/dota.png",
@@ -753,6 +761,10 @@
     {
       "img":  "img/emotes/wallmeat.png",
       "name": ":wallmeat"
+    },
+    {
+      "img":  "img/emotes/weeds.png",
+      "name": ":weeds"
     },
     {
       "img":  "img/emotes/weedthree.png",
