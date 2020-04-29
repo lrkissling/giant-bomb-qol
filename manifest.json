@@ -2,7 +2,7 @@
   "description": "Provides some simple Quality-of-Life enhancements to giantbomb.com.",
   "manifest_version": 2,
   "name": "Giant Bomb QoL",
-  "version": "4.9",
+  "version": "4.10"
 
   "permissions": [
     "*://*.giantbomb.com/api/*", "storage"
@@ -48,8 +48,7 @@
     },
     {
       "matches": [
-        "*://www.giantbomb.com/chat/*",
-        "*://www.giantbomb.com/infinite/*"
+        "*://www.giantbomb.com/*"
       ],
       "css": ["resources/giant_bomb_qol.css"],
       "js": [
