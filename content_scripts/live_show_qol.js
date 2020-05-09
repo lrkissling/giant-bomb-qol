@@ -25,6 +25,11 @@ function onError(error) {
 }
 
 $(document).ready(function() {
+  // Need a brief timeout before setup to ensure everything is ready.
+  setTimeout(setupLiveShowFeatures, 1 * 1000);
+});
+
+function setupLiveShowFeatures() {
   if (document.getElementById('js-chat-container')) {
     if (show_emotes_menu) {
       emoteSetup();
@@ -34,7 +39,7 @@ $(document).ready(function() {
       infobuttonSetup();
     }
   }
-});
+}
 
 function emoteSetup() {
   createEmotesMenu();
@@ -66,7 +71,7 @@ function emoteSetup() {
       }
     });
     // need a brief timeout to make sure firechat emotes are populated
-    setTimeout(setNewEmotes.bind(null, old_emotes), 10 * 1000);
+    setTimeout(setNewEmotes.bind(null, old_emotes), 9 * 1000);
   }
 }
 
