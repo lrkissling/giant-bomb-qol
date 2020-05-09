@@ -20,7 +20,7 @@
   },
 
   "background": {
-    "scripts": ["third_party/jquery-3.1.1.min.js", "background.js"]
+    "scripts": ["third_party/jquery-3.5.1.min.js", "background.js"]
   },
 
   "content_scripts": [
@@ -31,7 +31,7 @@
       ],
       "css": ["resources/giant_bomb_qol.css"],
       "js": [
-        "third_party/jquery-3.1.1.min.js",
+        "third_party/jquery-3.5.1.min.js",
         "content_scripts/hide_spoilers.js",
         "content_scripts/add_playback_rate.js"
       ]
@@ -42,7 +42,7 @@
       ],
       "css": ["resources/giant_bomb_qol.css"],
       "js": [
-        "third_party/jquery-3.1.1.min.js",
+        "third_party/jquery-3.5.1.min.js",
         "content_scripts/add_playback_rate.js"
        ]
     },
@@ -52,7 +52,7 @@
       ],
       "css": ["resources/giant_bomb_qol.css"],
       "js": [
-        "third_party/jquery-3.1.1.min.js",
+        "third_party/jquery-3.5.1.min.js",
         "content_scripts/live_show_qol.js"
       ]
     }
