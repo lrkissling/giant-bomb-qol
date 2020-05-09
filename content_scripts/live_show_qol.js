@@ -59,20 +59,7 @@ function emoteSetup() {
     $("#f_ChatInput").focus();
   });
 
-  // Sets up New Emotes functionality, only works for Firefox
-  if (navigator.userAgent.indexOf("Chrome") == -1) {
-    // build single list of emotes already in the extension
-    let old_emotes = [];
-    $.getJSON(chrome.extension.getURL("resources/emotes.json"), function(data) {
-      for (const category of Object.values(data)) {
-        for (const emote of Object.values(category)) {
-          old_emotes.push(emote.name.substring(1));
-        }
-      }
-    });
-    // need a brief timeout to make sure firechat emotes are populated
-    setTimeout(setNewEmotes.bind(null, old_emotes), 9 * 1000);
-  }
+  newEmotesSetup();
 }
 
 function createEmotesMenu() {
@@ -134,9 +121,53 @@ function createEmotesMenu() {
   });
 }
 
+function newEmotesSetup() {
+  // build single list of emotes already in the extension
+  let old_emotes = [];
+  $.getJSON(chrome.extension.getURL("resources/emotes.json"), function(data) {
+    for (const category of Object.values(data)) {
+      for (const emote of Object.values(category)) {
+        old_emotes.push(emote.name.substring(1));
+      }
+    }
+  });
+  // need a brief timeout to make sure firechat emotes are populated
+  setTimeout(runInPageContext.bind(null, setNewEmotes, old_emotes), 9 * 1000);
+}
+
+// Breaks out of the content script context by injecting a specially
+// constructed script tag and injecting it into the page.
+function runInPageContext(method, ...args) {
+  console.log('runInPageContext');
+  // The stringified method which will be parsed as a function object.
+  const stringifiedMethod = method instanceof Function
+    ? method.toString()
+    : `() => { ${method} }`;
+
+  // The stringified arguments for the method as JS code that will reconstruct the array.
+  const stringifiedArgs = JSON.stringify(args);
+
+  // The full content of the script tag.
+  const scriptContent = `
+    // Parse and run the method with its arguments.
+    (${stringifiedMethod})(...${stringifiedArgs});
+
+    // Remove the script element to cover our tracks.
+    document.currentScript.parentElement
+      .removeChild(document.currentScript);
+  `;
+
+  console.log(scriptContent);
+
+  // Create a script tag and inject it into the document.
+  const scriptElement = document.createElement('script');
+  scriptElement.innerHTML = scriptContent;
+  document.documentElement.prepend(scriptElement);
+}
+
 function setNewEmotes(old_emotes) {
   // get master object of all emotes from firechat
-  const all_emotes = window.wrappedJSObject.Phoenix.FireChat.Emotes;
+  const all_emotes = window.Phoenix.FireChat.Emotes;
 
   // compare old_emotes to all_emotes to build list of new emotes
   const new_emotes = Object.keys(all_emotes).reduce((object,key) => {
@@ -145,9 +176,6 @@ function setNewEmotes(old_emotes) {
     }
     return object;
   }, {});
-
-  // remove access to firechat's emotes since we no longer need it.
-  XPCNativeWrapper(all_emotes);
 
   // add new emotes to emotes menu
   if (Object.keys(new_emotes).length > 0) {
