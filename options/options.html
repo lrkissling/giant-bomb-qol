@@ -6,62 +6,72 @@
 
   <body>
     <hr>
-    <div class="option-text">
-      <label> API Key</label>
-      <div class="option-infobutton-container">
-        <img src="infobutton.png"/>
-        <div class="option-infobutton-text">
-          This extension uses the Giant Bomb API for certain features, which
-          requires the use of an API key. You can find your key by logging in to
-          Giant Bomb and navigating to <a href="http://www.giantbomb.com/api" target="_blank">giantbomb.com/api</a>.
-          Your key will never be logged or shared by Giant Bomb QoL.
+    <div>
+      <span class="option-text">
+        <label> API Key</label>
+        <div class="option-infobutton-container">
+          <img src="infobutton.png"/>
+          <div class="option-infobutton-text">
+            This extension uses the Giant Bomb API for certain features, which
+            requires the use of an API key. You can find your key by logging in to
+            Giant Bomb and navigating to <a href="http://www.giantbomb.com/api" target="_blank">giantbomb.com/api</a>.
+            Your key will never be logged or shared by Giant Bomb QoL.
+          </div>
         </div>
-      </div>
-    </div>
-    <div class="centered">
-      <input type="text" id="text_api_key"/><br>
+      </span>
+      <span class="centered">
+        <input type="text" id="text_api_key"/><br>
+      </span>
     </div>
     <hr>
-    <div class="option-text">
-      <label>Live Stream Notifications</label>
-      <div class="option-infobutton-container">
-        <img src="infobutton.png"/>
-        <div class="option-infobutton-text">
-          Notifies you via the toolbar button when Giant Bomb is live streaming.
-          Because of this feature's frequent API usage, you must provide your own
-          API key above.
+    <div>
+      <span class="option-text">
+        <label>Live Stream Notifications</label>
+        <div class="option-infobutton-container">
+          <img src="infobutton.png"/>
+          <div class="option-infobutton-text">
+            Notifies you via the toolbar button when Giant Bomb is live streaming.
+            Because of this feature's frequent API usage, you must provide your own
+            API key above.
+          </div>
         </div>
-      </div>
-    </div>
-    <div class="centered">
-      <input type="checkbox" id="cbox_stream_notifications" disabled="true"/><br>
+      </span>
+      <span class="centered">
+        <input type="checkbox" id="cbox_stream_notifications" disabled="true"/><br>
+      </span>
     </div>
     <hr>
-    <div class="option-text">
-      <label>Hide "This Is The Run" Spoilers</label>
-      <div class="option-infobutton-container">
-        <img src="infobutton.png"/>
-        <div class="option-infobutton-text">
-          This hides the length of This Is The Run videos, as well as the progress
-          scrubber. When using this, you cannot jump to different parts of the video.
+    <div>
+      <span class="option-text">
+        <label>Hide "This Is The Run" Spoilers</label>
+        <div class="option-infobutton-container">
+          <img src="infobutton.png"/>
+          <div class="option-infobutton-text">
+            This hides the length of This Is The Run videos, as well as the progress
+            scrubber. When using this, you cannot jump to different parts of the video.
+          </div>
         </div>
-      </div>
-    </div>
-    <div class="centered">
-      <input type="checkbox" id="cbox_hide_titr_spoilers" checked="true"/><br>
-    </div>
-    <hr>
-    <div class="option-text"><label>Chat Emotes</label></div>
-    <div class="centered">
-      <input type="checkbox" id="cbox_chat_emotes" checked="true"/><br>
+      </span>
+      <span class="centered">
+        <input type="checkbox" id="cbox_hide_titr_spoilers" checked="true"/><br>
+      </span>
     </div>
     <hr>
-    <div class="option-text"><label>Infobuttons on GB Infinite poll options</label></div>
-    <div class="centered">
-      <input type="checkbox" id="cbox_infinite_infobuttons" checked="true"/><br>
+    <div>
+      <span class="option-text"><label>Chat Emotes</label></span>
+      <span class="centered">
+        <input type="checkbox" id="cbox_chat_emotes" checked="true"/><br>
+      </span>
+    </div>
+    <hr>
+    <div>
+      <span class="option-text"><label>Infobuttons on GB Infinite poll options</label></span>
+      <span class="centered">
+        <input type="checkbox" id="cbox_infinite_infobuttons" checked="true"/><br>
+      </span>
     </div>
 
-    <script src="../third_party/jquery-3.1.1.min.js"></script>
+    <script src="../third_party/jquery-3.5.1.min.js"></script>
     <script src="options.js"></script>
 
   </body>
