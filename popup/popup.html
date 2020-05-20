@@ -18,18 +18,17 @@
     <div id="notifications_disabled" class="popup-font popup-info">
       Stream notifications are currently disabled.
     </div>
-    <div id="live_stream_info" class="popup-buttons">
-      <img id="stream_image" class="stream-link">
-      <img id="gb_infinite_logo" src="../img/gb-infinite.png" class="stream-link">
-      <h2 id="stream_title" class="popup-font stream-link"></h2>
+    <div id="live_streams" class="flex-row">
+      <div id="first_row" class="flex-column"></div>
+      <div id="second_row" class="flex-column"></div>
     </div>
     <div id="popup_bottom_row">
       <div id="options_link" class="popup-buttons popup-font" href="#">Add-On<br>Options</div>
-      <!-- <div id="stream_notifications" class="popup-buttons popup-font" href="#">Stream<br>Notifications</div> -->
       <img id="store_page" src="../img/logo-94x60.png" title="Store Page">
     </div>
 
     <script src="../third_party/jquery-3.5.1.min.js"></script>
+    <script src="../updateStreamStatus.js"></script>
     <script src="popup.js"></script>
   </body>
 

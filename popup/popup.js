@@ -7,8 +7,7 @@ const OPTIONS = [
   "stream_notifications",
   "is_live_streaming",
   "is_infinite",
-  "stream_title",
-  "stream_image"
+  "streams"
 ];
 
 // Gets necessary user options. Handled differently by Chrome/Firefox.
@@ -19,15 +18,9 @@ if (browser == chrome) {
   getting.then(handleOptions, onError);
 }
 
-// Opens the chat page and closes the pop-up.
-$(document).on("click", ".chat", function() {
-  window.open("https://www.giantbomb.com/chat/");
-  window.close();
-});
-
-// Opens the infinite page and closes the pop-up.
-$(document).on("click", ".infinite", function() {
-  window.open("https://www.giantbomb.com/infinite/");
+// Opens the appropriate stream page and closes the pop-up.
+$(document).on("click", ".live_stream_info", function() {
+  window.open($(this).attr('href'));
   window.close();
 });
 
@@ -84,7 +77,8 @@ function saveKey(api_key, results){
   browser.storage.sync.set({"api_key": api_key});
   browser.storage.sync.set({"stream_notifications": true});
 
-  updateStreamStatus(results);
+  // located in updateStreamStatus.js
+  UpdateStreamStatus(results);
 
   if (browser == chrome) {
     browser.storage.sync.get(OPTIONS, handleOptions);
@@ -94,33 +88,6 @@ function saveKey(api_key, results){
   }
 }
 
-/*
-// Toggle stream notifications
- $("#stream_notifications").click(function(){
-
-  // Pull up user options for stream notifications based on browser
-  if(navigator.userAgent.indexOf("Chrome") != -1){
-    // Grab the stream notifications value from storage, flip it, save it, then handle options
-    chrome.storage.sync.get(OPTIONS,function(ops){
-      chrome.storage.sync.set({"stream_notifications": !ops.stream_notifications}, function(){
-        chrome.storage.sync.get(OPTIONS, function(ops){
-          console.log(ops);
-          handleOptions(ops);
-        });
-      });
-    });
-  }
-  else{
-    browser.storage.sync.get(OPTIONS,function(ops){
-      browser.storage.sync.set({"stream_notifications": !ops.stream_notifications}, function(){
-        browser.storage.sync.get(OPTIONS, handleOptions, onError);
-      });
-    },onError);
-  }
-
-});
-*/
-
 function handleOptions(options) {
   // Check api key validity
   if (options.api_key !== undefined &&
@@ -129,21 +96,36 @@ function handleOptions(options) {
       if (options.stream_notifications === undefined || options.stream_notifications) {
         // If notifications are enabled, display the stream notification html
         if (options.is_live_streaming || options.is_infinite) {
-          $("#stream_title").html(options.stream_title);
-          $("#stream_image").attr("src", options.stream_image);
-          $("#live_stream_info").addClass(options.is_live_streaming ? "chat" : "infinite");
+          const gbi_logo_display = options.is_live_streaming ? "none" : "block";
 
-          // show the gb infinite logo when live show isn't running
-          if (!options.is_live_streaming) {
-            $("#gb_infinite_logo").css("display", "block");
-          } else {
-            $("#gb_infinite_logo").css("display", "none");
+          for (let i = 0; i < options.streams.length; i++) {
+            // if Giant Bomb is live-streaming, don't include GB Infinite
+            if (options.is_live_streaming && options.streams[i].url == "https://www.giantbomb.com/infinite") {
+              continue;
+            }
+
+            // add stream to appropriate spot in popup
+            if ([0,1].includes(i)) {
+              $("#first_row").append(
+                $(`<div class="live_stream_info popup-buttons" href=${options.streams[i].url}>`).append(
+                  $(`<img id="stream_image" class="stream-link", src="${options.streams[i].image}">`),
+                  $(`<img id="gb_infinite_logo" src="../img/gb-infinite.png" class="stream-link ${gbi_logo_display}">`),
+                  $(`<h2 id="stream_title" class="popup-font stream-link">`).append(options.streams[i].title)
+                )
+              );
+            } else if ([2,3].includes(i)) {
+              $("#second_row").append(
+                $(`<div class="live_stream_info popup-buttons" href=${options.streams[i].url}>`).append(
+                  $(`<img id="stream_image" class="stream-link", src="${options.streams[i].image}">`),
+                  $(`<img id="gb_infinite_logo" src="../img/gb-infinite.png" class="stream-link ${gbi_logo_display}">`),
+                  $(`<h2 id="stream_title" class="popup-font stream-link">`).append(options.streams[i].title)
+                )
+              );
+            }
           }
 
-          // Light up the notifications button to show that notifications are on
-          //$("#stream_notifications").css("backgroundColor", "green");
           // If the stream image was previously hidden, show it and hide the disabled message
-          $("#live_stream_info").css("display", "block");
+          $(".live_stream_info").css("display", "block");
           $("#stream_image").css("display","block");
           $("#notifications_disabled").css("display", "none");
           $("#check_options").css("display", "none");
@@ -154,12 +136,10 @@ function handleOptions(options) {
           $("#notifications_disabled").css("display", "none");
         }
       }
-      // Otherwise, dim the notifications button and inform the user that notifications are disabled
       else {
-        //$("#stream_notifications").css("backgroundColor", "#3a3c3c");
         // Disable the stream info on the fly
         $("#stream_image").css("display","none");
-        $("#live_stream_info").css("display","none");
+        $(".live_stream_info").css("display","none");
         $("#notifications_disabled").css("display", "block");
       }
   }
@@ -167,48 +147,6 @@ function handleOptions(options) {
   else {
     $("#check_options").css("display", "block");
   }
-}
-
-// TODO: Refactor this function and the one in background to an exterior file
-/**
-* Parse results of API calls to determine browserAction icon appearance and
-* store necessary information for retrieval by the popup.
-*/
-function updateStreamStatus(results) {
-  let is_live_streaming = false,
-      is_infinite = false,
-      stream_info = null;
-  for (var key in results) {
-    stream_info = results[key];
-    if (stream_info.title != "Giant Bomb Infinite") {
-      is_live_streaming = true;
-      break;
-    } else {
-      is_infinite = true;
-    }
-  }
-
-  let options = {
-    is_live_streaming : is_live_streaming,
-    is_infinite : is_infinite
-  };
-
-  if (is_live_streaming) {
-    options.stream_title = stream_info.title;
-    options.stream_image = stream_info.image.small_url;
-  } else if (is_infinite) {
-    options.stream_title = stream_info.history[0].name;
-    options.stream_image = stream_info.history[0].image.small_url;
-  }
-
-  browser.storage.sync.set(options);
-  browser.browserAction.setIcon({
-    path: { 38: is_live_streaming ? "../img/gb-live.png" : "../img/gb-offair.png" }
-  });
-  browser.browserAction.setTitle({
-    title: is_live_streaming ? "Giant Bomb is Live!" : "Giant Bomb QoL"
-  });
-
 }
 
 function onError(error) {

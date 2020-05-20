@@ -17,7 +17,7 @@ a:active {
 body {
   background-color: #232425;
   margin:0px !important;
-  max-width: 420px;
+  max-width: 800px;
 }
 
 #stream_title {
@@ -54,13 +54,6 @@ body {
   width: 400px;
 }
 
-#live_stream_info {
-  display: none;
-  position: relative;
-  border-bottom: 1px solid #3a3c3c;
-  padding: 8px 0px;
-}
-
 #options_link, #stream_notifications {
   border-right: 1px solid #3a3c3c;
   border-left: 1px solid #3a3c3c;
@@ -94,6 +87,23 @@ body {
 .centered {
   display: inline-block;
   text-align: center;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.live_stream_info {
+  display: none;
+  position: relative;
+  border-bottom: 1px solid #3a3c3c;
+  padding: 8px 0px;
 }
 
 .option-infobutton-container {
@@ -152,4 +162,12 @@ body {
   text-align: center;
 
   -webkit-box-sizing: border-box;
+}
+
+.block {
+  display: block;
+}
+
+.none {
+  display: none;
 }
