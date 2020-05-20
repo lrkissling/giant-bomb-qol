@@ -100,12 +100,12 @@ function handleOptions(options) {
 
           for (let i = 0; i < options.streams.length; i++) {
             // if Giant Bomb is live-streaming, don't include GB Infinite
-            if (options.is_live_streaming && options.streams[i].url == "https://www.giantbomb.com/infinite") {
+            if (options.is_live_streaming && options.streams[i].url == "https://www.giantbomb.com/infinite/") {
               continue;
             }
 
             // add stream to appropriate spot in popup
-            if ([0,1].includes(i)) {
+            if ([0,1,3].includes(i)) {
               $("#first_row").append(
                 $(`<div class="live_stream_info popup-buttons" href=${options.streams[i].url}>`).append(
                   $(`<img id="stream_image" class="stream-link", src="${options.streams[i].image}">`),
@@ -113,7 +113,7 @@ function handleOptions(options) {
                   $(`<h2 id="stream_title" class="popup-font stream-link">`).append(options.streams[i].title)
                 )
               );
-            } else if ([2,3].includes(i)) {
+            } else if ([2,4].includes(i)) {
               $("#second_row").append(
                 $(`<div class="live_stream_info popup-buttons" href=${options.streams[i].url}>`).append(
                   $(`<img id="stream_image" class="stream-link", src="${options.streams[i].image}">`),
