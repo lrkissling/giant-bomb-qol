@@ -6,7 +6,7 @@ function UpdateStreamStatus(results) {
   let is_live_streaming = false,
       is_infinite = false,
       streams = [];
-      // stream_info = null;
+      
   for (var key in results) {
     const stream_info = results[key];
 

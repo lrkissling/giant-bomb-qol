@@ -83,7 +83,7 @@ body {
 
 #stream_image {
   max-width: 400px;
-  max-height: 270px;
+  height: 240px;
 }
 
 .centered {
