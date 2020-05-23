@@ -25,6 +25,10 @@
       "name": ":abbydance"
     },
     {
+      "img": "img/emotes/rave.gif",
+      "name": ":rave"
+    },
+    {
       "img": "img/emotes/bendance.gif",
       "name": ":bendance"
     },
@@ -403,6 +407,10 @@
       "name": ":crispy"
     },
     {
+      "img":  "img/emotes/crowhole.png",
+      "name": ":crowhole"
+    },
+    {
       "img":  "img/emotes/ctrl.png",
       "name": ":ctrl"
     },
@@ -579,6 +587,14 @@
       "name": ":manthechat"
     },
     {
+      "img":  "img/emotes/marcus.png",
+      "name": ":marcus"
+    },
+    {
+      "img":  "img/emotes/marcushrek.png",
+      "name": ":marcushrek"
+    },
+    {
       "img":  "img/emotes/marino.png",
       "name": ":marino"
     },
@@ -687,6 +703,10 @@
       "name": ":kiki"
     },
     {
+      "img":  "img/emotes/rodney.png",
+      "name": ":rodney"
+    },
+    {
       "img":  "img/emotes/rungfb.png",
       "name": ":rungfb"
     },
@@ -713,6 +733,14 @@
     {
       "img":  "img/emotes/spicy.png",
       "name": ":spicy"
+    },
+    {
+      "img":  "img/emotes/squid.png",
+      "name": ":squid"
+    },
+    {
+      "img":  "img/emotes/steve.png",
+      "name": ":steve"
     },
     {
       "img": "img/emotes/suki.png",
@@ -777,6 +805,10 @@
     {
       "img":  "img/emotes/woooo.gif",
       "name": ":woooo"
+    },
+    {
+      "img": "img/emotes/yeehaw.png",
+      "name": ":yeehaw"
     },
     {
       "img":  "img/emotes/zombiepie.jpeg",
