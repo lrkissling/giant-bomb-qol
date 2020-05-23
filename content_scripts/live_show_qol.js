@@ -138,7 +138,6 @@ function newEmotesSetup() {
 // Breaks out of the content script context by injecting a specially
 // constructed script tag and injecting it into the page.
 function runInPageContext(method, ...args) {
-  console.log('runInPageContext');
   // The stringified method which will be parsed as a function object.
   const stringifiedMethod = method instanceof Function
     ? method.toString()
@@ -156,8 +155,6 @@ function runInPageContext(method, ...args) {
     document.currentScript.parentElement
       .removeChild(document.currentScript);
   `;
-
-  console.log(scriptContent);
 
   // Create a script tag and inject it into the document.
   const scriptElement = document.createElement('script');
