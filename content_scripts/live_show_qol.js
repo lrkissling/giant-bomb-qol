@@ -1,11 +1,12 @@
 var show_emotes_menu = false;
 var show_infobuttons = false;
+var hide_report = false;
 
 // handle options, using browser-specific option retrieval.
 if (navigator.userAgent.indexOf("Chrome") != -1) {
-  chrome.storage.sync.get(["chat_emotes", "infinite_infobuttons"], handleOptions);
+  chrome.storage.sync.get(["chat_emotes", "infinite_infobuttons", "hide_report"], handleOptions);
 } else {
-  getting = browser.storage.sync.get(["chat_emotes", "infinite_infobuttons"]);
+  getting = browser.storage.sync.get(["chat_emotes", "infinite_infobuttons", "hide_report"]);
   getting.then(handleOptions, onError);
 }
 
@@ -17,6 +18,10 @@ function handleOptions(item) {
 
   if (item.infinite_infobuttons === undefined || item.infinite_infobuttons) {
     show_infobuttons = true;
+  }
+
+  if (item.hide_report) {
+    hide_report = true;
   }
 }
 
@@ -37,6 +42,10 @@ function setupLiveShowFeatures() {
 
     if (show_infobuttons && window.location.href.indexOf("infinite") > -1) {
       infobuttonSetup();
+    }
+
+    if (hide_report) {
+      hideReportButtons();
     }
   }
 }
@@ -263,4 +272,12 @@ function buildQueryString(text) {
   search_text = search_text.replace(/\s+/g, " ");
   // return URI-encoded string
   return encodeURI(search_text);
+}
+
+function hideReportButtons() {
+  // create new style element and set all report links to display: none
+  const style = document.createElement('style');
+  style.innerHTML = `.chat-history__report { display: none; }`;
+
+  document.head.appendChild(style);
 }

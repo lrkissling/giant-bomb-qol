@@ -9,7 +9,8 @@ var apiKey              = document.querySelector("#text_api_key"),
     streamNotifications = document.querySelector("#cbox_stream_notifications"),
     hideTitrSpoilers    = document.querySelector("#cbox_hide_titr_spoilers"),
     chatEmotes          = document.querySelector("#cbox_chat_emotes"),
-    infiniteInfobuttons = document.querySelector("#cbox_infinite_infobuttons");
+    infiniteInfobuttons = document.querySelector("#cbox_infinite_infobuttons"),
+    hideReport          = document.querySelector("#cbox_hide_report");
 
 // Invoke saveOptions whenever an option is changed
 $(apiKey).on("input", saveOptions);
@@ -17,6 +18,7 @@ $(streamNotifications).on("change", saveOptions);
 $(hideTitrSpoilers).on("change", saveOptions);
 $(chatEmotes).on("change", saveOptions);
 $(infiniteInfobuttons).on("change", saveOptions);
+$(hideReport).on("change", saveOptions);
 
 // Handle mouseover of all infobuttons
 $(".option-infobutton-container").on("mouseover", function() {
@@ -43,7 +45,8 @@ function saveOptions(e) {
     stream_notifications: streamNotifications.checked,
     hide_titr_spoilers: hideTitrSpoilers.checked,
     chat_emotes: chatEmotes.checked,
-    infinite_infobuttons: infiniteInfobuttons.checked
+    infinite_infobuttons: infiniteInfobuttons.checked,
+    hide_report: hideReport.checked
   };
 
   browser.storage.sync.set(options);
@@ -115,6 +118,14 @@ function restoreOptions() {
     }
   }
 
+  function setHideReport(result) {
+    if (result.hide_report !== undefined) {
+      hideReport.checked = result.hide_report;
+    } else {
+      hideReport.checked = false;
+    }
+  }
+
   // Firefox and Chrome handle storage get and set differently
   if (navigator.userAgent.indexOf("Chrome") != -1) {
     chrome.storage.sync.get("api_key", setApiKey);
@@ -122,12 +133,14 @@ function restoreOptions() {
     chrome.storage.sync.get("hide_titr_spoilers", setHideTitrSpoilers);
     chrome.storage.sync.get("chat_emotes", setChatEmotes);
     chrome.storage.sync.get("infinite_infobuttons", setInfiniteInfobuttons);
+    chrome.storage.sync.get("hide_report", setHideReport);
   } else {
     browser.storage.sync.get("api_key").then(setApiKey, onError);
     browser.storage.sync.get("stream_notifications").then(setStreamNotifications, onError);
     browser.storage.sync.get("hide_titr_spoilers").then(setHideTitrSpoilers, onError);
     browser.storage.sync.get("chat_emotes").then(setChatEmotes, onError);
     browser.storage.sync.get("infinite_infobuttons").then(setInfiniteInfobuttons, onError);
+    browser.storage.sync.get("hide_report").then(setHideReport, onError);
   }
 
   function onError(error) {
