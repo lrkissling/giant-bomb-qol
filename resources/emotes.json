@@ -333,6 +333,10 @@
       "name": ":chairman"
     },
     {
+      "img":  "img/emotes/oohspicy.gif",
+      "name": ":oohspicy"
+    },
+    {
       "img": "img/emotes/disgust.jpg",
       "name": ":disgust"
     },
@@ -699,16 +703,20 @@
       "name": ":maybe"
     },
     {
+      "img":  "img/emotes/never.jpeg",
+      "name": ":never"
+    },
+    {
+      "img": "img/emotes/mediocre.png",
+      "name": ":mediocre"
+    },
+    {
       "img": "img/emotes/meesa.png",
       "name": ":meesa"
     },
     {
       "img": "img/emotes/minion.jpg",
       "name": ":minion"
-    },
-    {
-      "img":  "img/emotes/never.jpeg",
-      "name": ":never"
     },
     {
       "img":  "img/emotes/mb.jpeg",
@@ -747,8 +755,24 @@
       "name": ":okgod"
     },
     {
+      "img":  "img/emotes/oogachaka.gif",
+      "name": ":oogachaka"
+    },
+    {
       "img":  "img/emotes/pax.png",
       "name": ":pax"
+    },
+    {
+      "img":  "img/emotes/pbjtime.gif",
+      "name": ":pbjtime"
+    },
+    {
+      "img":  "img/emotes/pizzatime.gif",
+      "name": ":pizzatime"
+    },
+    {
+      "img":  "img/emotes/pleaseclap.gif",
+      "name": ":pleaseclap"
     },
     {
       "img":  "img/emotes/pnc.png",
@@ -795,12 +819,24 @@
       "name": ":kiki"
     },
     {
+      "img":  "img/emotes/rocketpilgrim.png",
+      "name": ":rocketpilgrim"
+    },
+    {
       "img":  "img/emotes/rodney.png",
       "name": ":rodney"
     },
     {
       "img":  "img/emotes/rungfb.png",
       "name": ":rungfb"
+    },
+    {
+      "img":  "img/emotes/sadness.png",
+      "name": ":sadness"
+    },
+    {
+      "img":  "img/emotes/seaman.png",
+      "name": ":seaman"
     },
     {
       "img":  "img/emotes/secrettape.png",
@@ -839,8 +875,16 @@
       "name": ":steve"
     },
     {
+      "img":  "img/emotes/stinkydinky.png",
+      "name": ":stinkydinky"
+    },
+    {
       "img": "img/emotes/suki.png",
       "name": ":suki"
+    },
+    {
+      "img":  "img/emotes/sully.png",
+      "name": ":sully"
     },
     {
       "img":  "img/emotes/sweep.png",
@@ -853,6 +897,10 @@
     {
       "img":  "img/emotes/thatpinguino.png",
       "name": ":thatpinguino"
+    },
+    {
+      "img":  "img/emotes/thatsright.gif",
+      "name": ":thatsright"
     },
     {
       "img":  "img/emotes/toasty.gif",
