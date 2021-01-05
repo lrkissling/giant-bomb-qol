@@ -49,6 +49,10 @@
       "name": ":bosslight"
     },
     {
+      "img":  "img/emotes/djshaq.gif",
+      "name": ":djshaq"
+    },
+    {
       "img":  "img/emotes/promoves.png",
       "name": ":promoves"
     },
@@ -87,6 +91,14 @@
     {
       "img":  "img/emotes/parappa.gif",
       "name": ":parappa"
+    },
+    {
+      "img":  "img/emotes/headbang.gif",
+      "name": ":headbang"
+    },
+    {
+      "img":  "img/emotes/hahawow.gif",
+      "name": ":hahawow"
     },
     {
       "img":  "img/emotes/fridayyy.gif",
@@ -321,6 +333,10 @@
       "name": ":chairman"
     },
     {
+      "img": "img/emotes/disgust.jpg",
+      "name": ":disgust"
+    },
+    {
       "img": "img/emotes/bleff.png",
       "name": ":bleff"
     },
@@ -383,8 +399,8 @@
       "name": ":bat"
     },
     {
-      "img": "img/emotes/knife.png",
-      "name": ":knife"
+      "img": "img/emotes/knoife.png",
+      "name": ":knoife"
     },
     {
       "img": "img/emotes/benihana.png",
@@ -523,6 +539,10 @@
       "name": ":forthekids"
     },
     {
+      "img":  "img/emotes/frogmario.png",
+      "name": ":frogmario"
+    },
+    {
       "img":  "img/emotes/funfactor.png",
       "name": ":funfactor"
     },
@@ -579,8 +599,20 @@
       "name": ":gooigi"
     },
     {
+      "img":  "img/emotes/gritty.png",
+      "name": ":gritty"
+    },
+    {
+      "img":  "img/emotes/grohl.gif",
+      "name": ":grohl"
+    },
+    {
       "img":  "img/emotes/guy.png",
       "name": ":guy"
+    },
+    {
+      "img":  "img/emotes/hotsoup.png",
+      "name": ":hotsoup"
     },
     {
       "img":  "img/emotes/henry.jpeg",
@@ -597,6 +629,10 @@
     {
       "img":  "img/emotes/imscared.png",
       "name": ":imscared"
+    },
+    {
+      "img":  "img/emotes/isleep.png",
+      "name": ":isleep"
     },
     {
       "img":  "img/emotes/itsalockdown.png",
@@ -619,12 +655,20 @@
       "name": ":jollibee"
     },
     {
+      "img": "img/emotes/jon.png",
+      "name": ":jon"
+    },
+    {
       "img": "img/emotes/jonno.png",
       "name": ":jonno"
     },
     {
       "img":  "img/emotes/laika.jpeg",
       "name": ":laika"
+    },
+    {
+      "img": "img/emotes/linkdrink.png",
+      "name": ":linkdrink"
     },
     {
       "img":  "img/emotes/luchadeer.png",
