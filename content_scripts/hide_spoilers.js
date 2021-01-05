@@ -11,15 +11,19 @@ function onError(error) {
 // Check that they want to hide spoilers
 function handleOptions(items) {
   if (items.hide_titr_spoilers === undefined || items.hide_titr_spoilers) {
-    // Ensure that the video is a TITR video, then hide appropriate elements.
-    if ($("h2.topslot-show-title").text().toUpperCase().includes("THIS IS THE RUN")) {
+    const episode_title = $("div.episode-content > h1").text().toUpperCase();
+    if (episode_title.match(/.*^(THIS IS THE RUN|GOING ROGUE).*$/)) {
       hideVideoSpoilers();
       hideThumbnailSpoilers();
     }
 
-    // look for video cards for TITR videos and hide timestamp.
+    // look for video cards for TITR & Going Rogue videos and hide timestamp.
     $("div.card-byline:contains('This Is the Run')").each(function() {
-      $(this).siblings().first().find("span.bottom-left-card").first().addClass("qol-hidden");
+      $(this).siblings().first().find("span.position-bottom-left").first().addClass("qol-hidden");
+
+    });
+    $("div.card-byline:contains('Going Rogue')").each(function() {
+      $(this).siblings().first().find("span.position-bottom-left").first().addClass("qol-hidden");
     });
   }
 }
