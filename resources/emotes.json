@@ -177,6 +177,10 @@
       "name": ":rorie"
     },
     {
+      "img": "img/emotes/bakalar.png",
+      "name": ":bakalar"
+    },
+    {
       "img":  "img/emotes/drew.png",
       "name": ":drew"
     },
@@ -237,6 +241,14 @@
       "name": ":gerstfield"
     },
     {
+      "img": "img/emotes/bigger.gif",
+      "name": ":bigger"
+    },
+    {
+      "img": "img/emotes/biggest.gif",
+      "name": ":biggest"
+    },
+    {
       "img":  "img/emotes/jgps.png",
       "name": ":jgps"
     },
@@ -289,6 +301,10 @@
       "name": ":tmoves"
     },
     {
+      "img": "img/emotes/braaad.png",
+      "name": ":braaad"
+    },
+    {
       "img":  "img/emotes/vinnbot.png",
       "name": ":vinnbot"
     },
@@ -305,12 +321,12 @@
       "name": ":chairman"
     },
     {
-      "img":  "img/emotes/austintwo.jpeg",
-      "name": ":austintwo"
+      "img": "img/emotes/bleff.png",
+      "name": ":bleff"
     },
     {
-      "img": "img/emotes/bakalar.png",
-      "name": ":bakalar"
+      "img":  "img/emotes/austintwo.jpeg",
+      "name": ":austintwo"
     },
     {
       "img":  "img/emotes/belair.png",
@@ -363,6 +379,14 @@
       "name": ":banana"
     },
     {
+      "img": "img/emotes/bat.png",
+      "name": ":bat"
+    },
+    {
+      "img": "img/emotes/knife.png",
+      "name": ":knife"
+    },
+    {
       "img": "img/emotes/benihana.png",
       "name": ":benihana"
     },
@@ -371,8 +395,16 @@
       "name": ":berk"
     },
     {
+      "img": "img/emotes/bigbean.png",
+      "name": ":bigbean"
+    },
+    {
       "img":  "img/emotes/botcolony.png",
       "name": ":botcolony"
+    },
+    {
+      "img": "img/emotes/brewer.png",
+      "name": ":brewer"
     },
     {
       "img":  "img/emotes/bufu.png",
@@ -383,8 +415,20 @@
       "name": ":bugdomtho"
     },
     {
+      "img": "img/emotes/bugsnax.png",
+      "name": ":bugsnax"
+    },
+    {
+      "img": "img/emotes/bunger.png",
+      "name": ":bunger"
+    },
+    {
       "img":  "img/emotes/buzzclik.png",
       "name": ":buzzclik"
+    },
+    {
+      "img": "img/emotes/cactus.png",
+      "name": ":cactus"
     },
     {
       "img": "img/emotes/cchuck.png",
@@ -393,6 +437,10 @@
     {
       "img":  "img/emotes/chaser.png",
       "name": ":chaser"
+    },
+    {
+      "img":  "img/emotes/clap.gif",
+      "name": ":clap"
     },
     {
       "img":  "img/emotes/coolbaby.png",
@@ -713,6 +761,10 @@
     {
       "img":  "img/emotes/secrettape.png",
       "name": ":secrettape"
+    },
+    {
+      "img":  "img/emotes/666.png",
+      "name": ":666"
     },
     {
       "img":  "img/emotes/slickomode.png",
