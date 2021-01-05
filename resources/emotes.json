@@ -903,12 +903,28 @@
       "name": ":thatsright"
     },
     {
+      "img":  "img/emotes/thinkinaboutthos.png",
+      "name": ":thinkinaboutthos"
+    },
+    {
+      "img":  "img/emotes/thisistheron.png",
+      "name": ":thisistheron"
+    },
+    {
+      "img":  "img/emotes/titotime.png",
+      "name": ":titotime"
+    },
+    {
       "img":  "img/emotes/toasty.gif",
       "name": ":toasty"
     },
     {
       "img":  "img/emotes/toosweet.png",
       "name": ":toosweet"
+    },
+    {
+      "img":  "img/emotes/toronto.png",
+      "name": ":toronto"
     },
     {
       "img": "img/emotes/train.png",
@@ -925,6 +941,10 @@
     {
       "img":  "img/emotes/vibrimote.gif",
       "name": ":vibrimote"
+    },
+    {
+      "img":  "img/emotes/vmdt.png",
+      "name": ":vmdt"
     },
     {
       "img":  "img/emotes/wafflestomp.png",
