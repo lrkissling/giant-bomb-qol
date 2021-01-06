@@ -6,7 +6,7 @@ function UpdateStreamStatus(results) {
   let is_live_streaming = false,
       is_infinite = false,
       streams = [];
-      
+
   for (var key in results) {
     const stream_info = results[key];
 
@@ -32,14 +32,6 @@ function UpdateStreamStatus(results) {
     is_infinite : is_infinite,
     streams: streams
   };
-
-  // if (is_live_streaming) {
-  //   options.stream_title = stream_info.title;
-  //   options.stream_image = stream_info.image.small_url;
-  // } else if (is_infinite) {
-  //   options.stream_title = stream_info.history[0].name;
-  //   options.stream_image = stream_info.history[0].image.small_url;
-  // }
 
   browser.storage.sync.set(options);
   browser.browserAction.setIcon({
