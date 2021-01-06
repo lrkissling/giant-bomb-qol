@@ -399,6 +399,160 @@
       "name": ":notblack"
     }
   ],
+  "Critters": [
+    {
+      "img": "img/emotes/annie.png",
+      "name": ":annie"
+    },
+    {
+      "img": "img/emotes/bugdomtho.png",
+      "name": ":bugdomtho"
+    },
+    {
+      "img": "img/emotes/bugsnax.png",
+      "name": ":bugsnax"
+    },
+    {
+      "img": "img/emotes/bunger.png",
+      "name": ":bunger"
+    },
+    {
+      "img":  "img/emotes/crowhole.png",
+      "name": ":crowhole"
+    },
+    {
+      "img":  "img/emotes/dankyyy.gif",
+      "name": ":dankyyy"
+    },
+    {
+      "img":  "img/emotes/death.png",
+      "name": ":death"
+    },
+    {
+      "img":  "img/emotes/fine.png",
+      "name": ":fine"
+    },
+    {
+      "img": "img/emotes/fish.jpg",
+      "name": ":fish"
+    },
+    {
+      "img": "img/emotes/fiiish.png",
+      "name": ":fiiish"
+    },
+    {
+      "img":  "img/emotes/frogmario.png",
+      "name": ":frogmario"
+    },
+    {
+      "img":  "img/emotes/gritty.png",
+      "name": ":gritty"
+    },
+    {
+      "img":  "img/emotes/henry.jpeg",
+      "name": ":henry"
+    },
+    {
+      "img":  "img/emotes/laika.jpeg",
+      "name": ":laika"
+    },
+    {
+      "img":  "img/emotes/luchadeer.png",
+      "name": ":luchadeer"
+    },
+    {
+      "img":  "img/emotes/puggy.png",
+      "name": ":puggy"
+    },
+    {
+      "img":  "img/emotes/seaman.png",
+      "name": ":seaman"
+    },
+    {
+      "img":  "img/emotes/snom.png",
+      "name": ":snom"
+    },
+    {
+      "img":  "img/emotes/sparklykiss.png",
+      "name": ":sparklykiss"
+    },
+    {
+      "img":  "img/emotes/squid.png",
+      "name": ":squid"
+    },
+    {
+      "img": "img/emotes/suki.png",
+      "name": ":suki"
+    }
+  ],
+  "The Eternal Question": [
+    {
+      "img": "img/emotes/bat.png",
+      "name": ":bat"
+    },
+    {
+      "img": "img/emotes/knoife.png",
+      "name": ":knoife"
+    }
+  ],
+  "Food": [
+    {
+      "img": "img/emotes/bananabread.png",
+      "name": ":bananabread"
+    },
+    {
+      "img":  "img/emotes/banana.gif",
+      "name": ":banana"
+    },
+    {
+      "img": "img/emotes/bigbean.png",
+      "name": ":bigbean"
+    },
+    {
+      "img":  "img/emotes/botcolony.png",
+      "name": ":botcolony"
+    },
+    {
+      "img": "img/emotes/bugsnax.png",
+      "name": ":bugsnax"
+    },
+    {
+      "img": "img/emotes/bunger.png",
+      "name": ":bunger"
+    },
+    {
+      "img":  "img/emotes/hotsoup.png",
+      "name": ":hotsoup"
+    },
+    {
+      "img":  "img/emotes/pbjtime.gif",
+      "name": ":pbjtime"
+    },
+    {
+      "img":  "img/emotes/pizzatime.gif",
+      "name": ":pizzatime"
+    },
+    {
+      "img":  "img/emotes/spicy.png",
+      "name": ":spicy"
+    },
+    {
+      "img":  "img/emotes/sweep.png",
+      "name": ":sweep"
+    },
+    {
+      "img":  "img/emotes/thinkinaboutthos.png",
+      "name": ":thinkinaboutthos"
+    },
+    {
+      "img":  "img/emotes/trianglechips.png",
+      "name": ":trianglechips"
+    },
+    {
+      "img":  "img/emotes/wallmeat.png",
+      "name": ":wallmeat"
+    }
+  ],
   "Brands": [
     {
       "img":  "img/emotes/forthekids.png",
@@ -455,29 +609,13 @@
     {
       "img":  "img/emotes/buzzclik.png",
       "name": ":buzzclik"
+    },
+    {
+      "img": "img/emotes/jollibee.png",
+      "name": ":jollibee"
     }
   ],
   "The Rest": [
-    {
-      "img": "img/emotes/annie.png",
-      "name": ":annie"
-    },
-    {
-      "img": "img/emotes/bananabread.png",
-      "name": ":bananabread"
-    },
-    {
-      "img":  "img/emotes/banana.gif",
-      "name": ":banana"
-    },
-    {
-      "img": "img/emotes/bat.png",
-      "name": ":bat"
-    },
-    {
-      "img": "img/emotes/knoife.png",
-      "name": ":knoife"
-    },
     {
       "img": "img/emotes/benihana.png",
       "name": ":benihana"
@@ -487,32 +625,12 @@
       "name": ":berk"
     },
     {
-      "img": "img/emotes/bigbean.png",
-      "name": ":bigbean"
-    },
-    {
-      "img":  "img/emotes/botcolony.png",
-      "name": ":botcolony"
-    },
-    {
       "img": "img/emotes/brewer.png",
       "name": ":brewer"
     },
     {
       "img":  "img/emotes/bufu.png",
       "name": ":bufu"
-    },
-    {
-      "img": "img/emotes/bugdomtho.png",
-      "name": ":bugdomtho"
-    },
-    {
-      "img": "img/emotes/bugsnax.png",
-      "name": ":bugsnax"
-    },
-    {
-      "img": "img/emotes/bunger.png",
-      "name": ":bunger"
     },
     {
       "img": "img/emotes/cactus.png",
@@ -543,10 +661,6 @@
       "name": ":crispy"
     },
     {
-      "img":  "img/emotes/crowhole.png",
-      "name": ":crowhole"
-    },
-    {
       "img":  "img/emotes/ctrl.png",
       "name": ":ctrl"
     },
@@ -561,14 +675,6 @@
     {
       "img":  "img/emotes/cyborgmatt.png",
       "name": ":cyborgmatt"
-    },
-    {
-      "img":  "img/emotes/dankyyy.gif",
-      "name": ":dankyyy"
-    },
-    {
-      "img":  "img/emotes/death.png",
-      "name": ":death"
     },
     {
       "img":  "img/emotes/dobby.jpg",
@@ -587,24 +693,8 @@
       "name": ":finaldasa"
     },
     {
-      "img":  "img/emotes/fine.png",
-      "name": ":fine"
-    },
-    {
       "img":  "img/emotes/1sttry.png",
       "name": ":1sttry"
-    },
-    {
-      "img": "img/emotes/fish.jpg",
-      "name": ":fish"
-    },
-    {
-      "img": "img/emotes/fiiish.png",
-      "name": ":fiiish"
-    },
-    {
-      "img":  "img/emotes/frogmario.png",
-      "name": ":frogmario"
     },
     {
       "img":  "img/emotes/funfactor.png",
@@ -623,20 +713,8 @@
       "name": ":gooigi"
     },
     {
-      "img":  "img/emotes/gritty.png",
-      "name": ":gritty"
-    },
-    {
       "img":  "img/emotes/grohl.gif",
       "name": ":grohl"
-    },
-    {
-      "img":  "img/emotes/hotsoup.png",
-      "name": ":hotsoup"
-    },
-    {
-      "img":  "img/emotes/henry.jpeg",
-      "name": ":henry"
     },
     {
       "img":  "img/emotes/hype.gif",
@@ -671,10 +749,6 @@
       "name": ":jadegl"
     },
     {
-      "img": "img/emotes/jollibee.png",
-      "name": ":jollibee"
-    },
-    {
       "img": "img/emotes/jon.png",
       "name": ":jon"
     },
@@ -683,16 +757,8 @@
       "name": ":jonno"
     },
     {
-      "img":  "img/emotes/laika.jpeg",
-      "name": ":laika"
-    },
-    {
       "img": "img/emotes/linkdrink.png",
       "name": ":linkdrink"
-    },
-    {
-      "img":  "img/emotes/luchadeer.png",
-      "name": ":luchadeer"
     },
     {
       "img":  "img/emotes/manthechat.png",
@@ -767,14 +833,6 @@
       "name": ":oogachaka"
     },
     {
-      "img":  "img/emotes/pbjtime.gif",
-      "name": ":pbjtime"
-    },
-    {
-      "img":  "img/emotes/pizzatime.gif",
-      "name": ":pizzatime"
-    },
-    {
       "img":  "img/emotes/pleaseclap.gif",
       "name": ":pleaseclap"
     },
@@ -789,10 +847,6 @@
     {
       "img":  "img/emotes/pseg.png",
       "name": ":pseg"
-    },
-    {
-      "img":  "img/emotes/puggy.png",
-      "name": ":puggy"
     },
     {
       "img":  "img/emotes/pushwarren.png",
@@ -839,10 +893,6 @@
       "name": ":sadness"
     },
     {
-      "img":  "img/emotes/seaman.png",
-      "name": ":seaman"
-    },
-    {
       "img":  "img/emotes/secrettape.png",
       "name": ":secrettape"
     },
@@ -855,24 +905,8 @@
       "name": ":slickomode"
     },
     {
-      "img":  "img/emotes/snom.png",
-      "name": ":snom"
-    },
-    {
-      "img":  "img/emotes/sparklykiss.png",
-      "name": ":sparklykiss"
-    },
-    {
       "img":  "img/emotes/sparkybuzzsaw.png",
       "name": ":sparkybuzzsaw"
-    },
-    {
-      "img":  "img/emotes/spicy.png",
-      "name": ":spicy"
-    },
-    {
-      "img":  "img/emotes/squid.png",
-      "name": ":squid"
     },
     {
       "img":  "img/emotes/steve.png",
@@ -883,16 +917,8 @@
       "name": ":stinkydinky"
     },
     {
-      "img": "img/emotes/suki.png",
-      "name": ":suki"
-    },
-    {
       "img":  "img/emotes/sully.png",
       "name": ":sully"
-    },
-    {
-      "img":  "img/emotes/sweep.png",
-      "name": ":sweep"
     },
     {
       "img":  "img/emotes/takenking.png",
@@ -905,10 +931,6 @@
     {
       "img":  "img/emotes/thatsright.gif",
       "name": ":thatsright"
-    },
-    {
-      "img":  "img/emotes/thinkinaboutthos.png",
-      "name": ":thinkinaboutthos"
     },
     {
       "img":  "img/emotes/thisistheron.png",
@@ -935,10 +957,6 @@
       "name": ":train"
     },
     {
-      "img":  "img/emotes/trianglechips.png",
-      "name": ":trianglechips"
-    },
-    {
       "img":  "img/emotes/vibes.jpg",
       "name": ":vibes"
     },
@@ -953,10 +971,6 @@
     {
       "img":  "img/emotes/wafflestomp.png",
       "name": ":wafflestomp"
-    },
-    {
-      "img":  "img/emotes/wallmeat.png",
-      "name": ":wallmeat"
     },
     {
       "img":  "img/emotes/weeds.png",
