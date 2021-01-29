@@ -249,7 +249,7 @@ function addInfobuttons() {
     const query = buildQueryString(choice.text());
 
     // build link
-    let link = $("<a>").attr("href", `https://www.qlcrew.com/?q=${query}`)
+    let link = $("<a>").attr("href", `https://qlcrew.com/?q=${query}`)
                        .attr("target", "_blank")
                        .addClass("qol-infobutton");
     link.append($("<img>").attr("src", src));
