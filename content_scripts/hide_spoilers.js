@@ -14,16 +14,18 @@ function handleOptions(items) {
     const episode_title = $("div.episode-content > h1").text().toUpperCase();
     if (episode_title.match(/.*^(THIS IS THE RUN|GOING ROGUE).*$/)) {
       hideVideoSpoilers();
-      hideThumbnailSpoilers();
+      // need a minor timeout to ensure thumbnail vids are rendered
+      setTimeout(hideThumbnailSpoilers, 1 * 1000);
     }
 
     // look for video cards for TITR & Going Rogue videos and hide timestamp.
     $("div.card-byline:contains('This Is the Run')").each(function() {
-      $(this).siblings().first().find("span.position-bottom-left").first().addClass("qol-hidden");
-
+      $(this).siblings().first().find("span.position-bottom-left span.horizontal-spacing").first().css("display", "none");
+      $(this).siblings().find("div.content-progress").css("display", "none");
     });
     $("div.card-byline:contains('Going Rogue')").each(function() {
-      $(this).siblings().first().find("span.position-bottom-left").first().addClass("qol-hidden");
+      $(this).siblings().first().find("span.position-bottom-left span.horizontal-spacing").first().css("display", "none");
+      $(this).siblings("div.content-progress").css("display", "none");
     });
   }
 }
@@ -39,5 +41,6 @@ function hideVideoSpoilers() {
 
 // Hides timestamps from video thumbnails
 function hideThumbnailSpoilers() {
-  $("span.bottom-left-card span.horizontal-spacing").css("display", "none");
+  $("span.position-bottom-left span.horizontal-spacing").css("display", "none");
+  $("div.content-progress").css("display", "none");
 }

@@ -27,7 +27,8 @@
     {
       "matches": [
         "*://www.giantbomb.com/",
-        "*://www.giantbomb.com/shows/*"
+        "*://www.giantbomb.com/shows/*",
+        "*://www.giantbomb.com/videos/*"
       ],
       "css": ["resources/giant_bomb_qol.css"],
       "js": [
