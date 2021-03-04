@@ -49,10 +49,6 @@
       "name": ":bosslight"
     },
     {
-      "img":  "img/emotes/djshaq.gif",
-      "name": ":djshaq"
-    },
-    {
       "img":  "img/emotes/promoves.png",
       "name": ":promoves"
     },
@@ -321,10 +317,6 @@
       "name": ":valex"
     },
     {
-      "img": "img/emotes/chairman.png",
-      "name": ":chairman"
-    },
-    {
       "img":  "img/emotes/oohspicy.gif",
       "name": ":oohspicy"
     },
@@ -473,14 +465,6 @@
       "name": ":snom"
     },
     {
-      "img":  "img/emotes/sparklykiss.png",
-      "name": ":sparklykiss"
-    },
-    {
-      "img":  "img/emotes/squid.png",
-      "name": ":squid"
-    },
-    {
       "img": "img/emotes/suki.png",
       "name": ":suki"
     }
@@ -519,10 +503,6 @@
     {
       "img": "img/emotes/bunger.png",
       "name": ":bunger"
-    },
-    {
-      "img":  "img/emotes/hotsoup.png",
-      "name": ":hotsoup"
     },
     {
       "img":  "img/emotes/pbjtime.gif",
@@ -587,10 +567,6 @@
       "name": ":itsinthegame"
     },
     {
-      "img":  "img/emotes/masterrace.gif",
-      "name": ":masterrace"
-    },
-    {
       "img":  "img/emotes/gamespot.png",
       "name": ":gamespot"
     },
@@ -616,10 +592,6 @@
     }
   ],
   "The Rest": [
-    {
-      "img": "img/emotes/benihana.png",
-      "name": ":benihana"
-    },
     {
       "img":  "img/emotes/berk.png",
       "name": ":berk"
@@ -657,10 +629,6 @@
       "name": ":creeper"
     },
     {
-      "img":  "img/emotes/crispy.png",
-      "name": ":crispy"
-    },
-    {
       "img":  "img/emotes/ctrl.png",
       "name": ":ctrl"
     },
@@ -671,14 +639,6 @@
     {
       "img":  "img/emotes/sitesdown.png",
       "name": ":sitesdown"
-    },
-    {
-      "img":  "img/emotes/cyborgmatt.png",
-      "name": ":cyborgmatt"
-    },
-    {
-      "img":  "img/emotes/dobby.jpg",
-      "name": ":dobby"
     },
     {
       "img":  "img/emotes/excitebike.gif",
@@ -729,10 +689,6 @@
       "name": ":imscared"
     },
     {
-      "img":  "img/emotes/isleep.png",
-      "name": ":isleep"
-    },
-    {
       "img":  "img/emotes/itsalockdown.png",
       "name": ":itsalockdown"
     },
@@ -749,28 +705,12 @@
       "name": ":jadegl"
     },
     {
-      "img": "img/emotes/jon.png",
-      "name": ":jon"
-    },
-    {
       "img": "img/emotes/jonno.png",
       "name": ":jonno"
     },
     {
-      "img": "img/emotes/linkdrink.png",
-      "name": ":linkdrink"
-    },
-    {
       "img":  "img/emotes/manthechat.png",
       "name": ":manthechat"
-    },
-    {
-      "img":  "img/emotes/marcus.png",
-      "name": ":marcus"
-    },
-    {
-      "img":  "img/emotes/marcushrek.png",
-      "name": ":marcushrek"
     },
     {
       "img":  "img/emotes/marino.png",
@@ -809,10 +749,6 @@
       "name": ":mento"
     },
     {
-      "img":  "img/emotes/mooseymcman.png",
-      "name": ":mooseymcman"
-    },
-    {
       "img":  "img/emotes/mracoon.png",
       "name": ":mracoon"
     },
@@ -831,10 +767,6 @@
     {
       "img":  "img/emotes/oogachaka.gif",
       "name": ":oogachaka"
-    },
-    {
-      "img":  "img/emotes/pleaseclap.gif",
-      "name": ":pleaseclap"
     },
     {
       "img":  "img/emotes/pnc.png",
@@ -857,16 +789,8 @@
       "name": ":rawiswaluigi"
     },
     {
-      "img":  "img/emotes/refleksy.png",
-      "name": ":refleksy"
-    },
-    {
       "img":  "img/emotes/rekt.png",
       "name": ":rekt"
-    },
-    {
-      "img":  "img/emotes/rick.jpeg",
-      "name": ":rick"
     },
     {
       "img":  "img/emotes/riki.png",
@@ -889,20 +813,12 @@
       "name": ":rungfb"
     },
     {
-      "img":  "img/emotes/sadness.png",
-      "name": ":sadness"
-    },
-    {
       "img":  "img/emotes/secrettape.png",
       "name": ":secrettape"
     },
     {
       "img":  "img/emotes/666.png",
       "name": ":666"
-    },
-    {
-      "img":  "img/emotes/slickomode.png",
-      "name": ":slickomode"
     },
     {
       "img":  "img/emotes/sparkybuzzsaw.png",
@@ -953,10 +869,6 @@
       "name": ":toronto"
     },
     {
-      "img": "img/emotes/train.png",
-      "name": ":train"
-    },
-    {
       "img":  "img/emotes/vibes.jpg",
       "name": ":vibes"
     },
@@ -967,10 +879,6 @@
     {
       "img":  "img/emotes/vmdt.png",
       "name": ":vmdt"
-    },
-    {
-      "img":  "img/emotes/wafflestomp.png",
-      "name": ":wafflestomp"
     },
     {
       "img":  "img/emotes/weeds.png",
