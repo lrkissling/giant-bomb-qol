@@ -33,6 +33,10 @@
       "name": ":bendance"
     },
     {
+      "img":  "img/emotes/linkadink.gif",
+      "name": ":linkadink"
+    },
+    {
       "img":  "img/emotes/fistpump.gif",
       "name": ":fistpump"
     },
@@ -321,6 +325,10 @@
       "name": ":oohspicy"
     },
     {
+      "img":  "img/emotes/ad.png",
+      "name": ":ad"
+    },
+    {
       "img": "img/emotes/disgust.jpg",
       "name": ":disgust"
     },
@@ -597,6 +605,10 @@
       "name": ":berk"
     },
     {
+      "img":  "img/emotes/bigmud.png",
+      "name": ":bigmud"
+    },
+    {
       "img": "img/emotes/brewer.png",
       "name": ":brewer"
     },
@@ -727,6 +739,10 @@
     {
       "img":  "img/emotes/never.jpeg",
       "name": ":never"
+    },
+    {
+      "img":  "img/emotes/matt.png",
+      "name": ":matt"
     },
     {
       "img": "img/emotes/mediocre.png",
@@ -879,6 +895,10 @@
     {
       "img":  "img/emotes/vmdt.png",
       "name": ":vmdt"
+    },
+    {
+      "img": "img/emotes/wazowski.png",
+      "name": ":wazowski"
     },
     {
       "img":  "img/emotes/weeds.png",
