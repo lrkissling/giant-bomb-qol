@@ -117,6 +117,10 @@
       "name": ":fadetoblack"
     },
     {
+      "img": "img/emotes/jesss.gif",
+      "name": ":jesss"
+    },
+    {
       "img":  "img/emotes/bopped.png",
       "name": ":bopped"
     },
@@ -209,6 +213,10 @@
       "name": ":jason"
     },
     {
+      "img":  "img/emotes/austin.png",
+      "name": ":austin"
+    },
+    {
       "img":  "img/emotes/abby.jpg",
       "name": ":abby"
     },
@@ -217,32 +225,20 @@
       "name": ":jan"
     },
     {
-      "img": "img/emotes/grubb.png",
-      "name": ":grubb"
+      "img": "img/emotes/jesshr.png",
+      "name": ":jesshr"
     },
     {
-      "img": "img/emotes/cjan.png",
-      "name": ":cjan"
+      "img": "img/emotes/grubb.png",
+      "name": ":grubb"
     },
     {
       "img":  "img/emotes/bde.png",
       "name": ":bde"
     },
     {
-      "img":  "img/emotes/bde2.png",
-      "name": ":bde2"
-    },
-    {
-      "img": "img/emotes/bdeshrug.png",
-      "name": ":bdeshrug"
-    },
-    {
       "img":  "img/emotes/wcarle.png",
       "name": ":wcarle"
-    },
-    {
-      "img":  "img/emotes/austin.png",
-      "name": ":austin"
     },
     {
       "img":  "img/emotes/alexis.png",
@@ -333,6 +329,10 @@
       "name": ":oohspicy"
     },
     {
+      "img": "img/emotes/jerf.png",
+      "name": ":jerf"
+    },
+    {
       "img":  "img/emotes/ad.png",
       "name": ":ad"
     },
@@ -341,8 +341,20 @@
       "name": ":disgust"
     },
     {
+      "img": "img/emotes/cjan.png",
+      "name": ":cjan"
+    },
+    {
       "img": "img/emotes/bleff.png",
       "name": ":bleff"
+    },
+    {
+      "img":  "img/emotes/bde2.png",
+      "name": ":bde2"
+    },
+    {
+      "img": "img/emotes/bdeshrug.png",
+      "name": ":bdeshrug"
     },
     {
       "img":  "img/emotes/austintwo.jpeg",
@@ -479,6 +491,10 @@
     {
       "img":  "img/emotes/henry.jpeg",
       "name": ":henry"
+    },
+    {
+      "img": "img/emotes/herdier.png",
+      "name": ":herdier"
     },
     {
       "img":  "img/emotes/laika.jpeg",
@@ -775,6 +791,10 @@
     {
       "img":  "img/emotes/jadegl.png",
       "name": ":jadegl"
+    },
+    {
+      "img": "img/emotes/jerry.png",
+      "name": ":jerry"
     },
     {
       "img": "img/emotes/jonno.png",
