@@ -73,6 +73,10 @@
       "name": ":jeffu"
     },
     {
+      "img": "img/emotes/sora.png",
+      "name": ":sora"
+    },
+    {
       "img":  "img/emotes/dp2.gif",
       "name": ":dp2"
     },
@@ -235,6 +239,10 @@
     {
       "img": "img/emotes/lucy.png",
       "name": ":lucy"
+    },
+    {
+      "img": "img/emotes/tam.png",
+      "name": ":tam"
     },
     {
       "img":  "img/emotes/bde.png",
@@ -541,12 +549,20 @@
       "name": ":seaman"
     },
     {
+      "img": "img/emotes/snailser.png",
+      "name": ":snailser"
+    },
+    {
       "img":  "img/emotes/snom.png",
       "name": ":snom"
     },
     {
       "img": "img/emotes/suki.png",
       "name": ":suki"
+    },
+    {
+      "img": "img/emotes/xlboi.gif",
+      "name": ":xlboi"
     }
   ],
   "The Eternal Question": [
@@ -611,6 +627,10 @@
     {
       "img":  "img/emotes/trianglechips.png",
       "name": ":trianglechips"
+    },
+    {
+      "img": "img/emotes/vb.png",
+      "name": ":vb"
     },
     {
       "img":  "img/emotes/wallmeat.png",
@@ -971,6 +991,10 @@
     {
       "img":  "img/emotes/sully.png",
       "name": ":sully"
+    },
+    {
+      "img": "img/emotes/suplex.gif",
+      "name": ":suplex"
     },
     {
       "img":  "img/emotes/takenking.png",
