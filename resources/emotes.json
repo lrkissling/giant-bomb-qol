@@ -217,6 +217,10 @@
       "name": ":jan"
     },
     {
+      "img": "img/emotes/grubb.png",
+      "name": ":grubb"
+    },
+    {
       "img": "img/emotes/cjan.png",
       "name": ":cjan"
     },
@@ -379,6 +383,10 @@
     {
       "img": "img/emotes/ohmike.jpg",
       "name": ":ohmike"
+    },
+    {
+      "img": "img/emotes/gwarsenio.png",
+      "name": ":gwarsenio"
     }
   ],
   "Bombin'": [
@@ -405,6 +413,10 @@
     {
       "img": "img/emotes/diobomb.png",
       "name": ":diobomb"
+    },
+    {
+      "img": "img/emotes/grubbsnax.gif",
+      "name": ":grubbsnax"
     }
   ],
   "Critters": [
@@ -701,6 +713,10 @@
       "name": ":eyes"
     },
     {
+      "img": "img/emotes/fancycat.jpg",
+      "name": ":fancycat"
+    },
+    {
       "img":  "img/emotes/finaldasa.png",
       "name": ":finaldasa"
     },
@@ -711,6 +727,10 @@
     {
       "img":  "img/emotes/funfactor.png",
       "name": ":funfactor"
+    },
+    {
+      "img": "img/emotes/fupa.png",
+      "name": ":fupa"
     },
     {
       "img":  "img/emotes/gamer.png",
