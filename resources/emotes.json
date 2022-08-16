@@ -33,6 +33,10 @@
       "name": ":bendance"
     },
     {
+      "img": "img/emotes/drumface.gif",
+      "name": ":drumface"
+    },
+    {
       "img":  "img/emotes/linkadink.gif",
       "name": ":linkadink"
     },
@@ -397,6 +401,10 @@
     {
       "img":  "img/emotes/notblack.png",
       "name": ":notblack"
+    },
+    {
+      "img": "img/emotes/diobomb.png",
+      "name": ":diobomb"
     }
   ],
   "Critters": [
@@ -645,8 +653,16 @@
       "name": ":cchuck"
     },
     {
+      "img": "img/emotes/change.gif",
+      "name": ":change"
+    },
+    {
       "img":  "img/emotes/chaser.png",
       "name": ":chaser"
+    },
+    {
+      "img": "img/emotes/chefskiss.png",
+      "name": ":chefskiss"
     },
     {
       "img":  "img/emotes/clap.gif",
@@ -671,6 +687,10 @@
     {
       "img":  "img/emotes/sitesdown.png",
       "name": ":sitesdown"
+    },
+    {
+      "img": "img/emotes/drunk.png",
+      "name": ":drunk"
     },
     {
       "img":  "img/emotes/excitebike.gif",
