@@ -337,6 +337,10 @@
       "name": ":jerf"
     },
     {
+      "img": "img/emotes/ripped.png",
+      "name": ":ripped"
+    },
+    {
       "img":  "img/emotes/ad.png",
       "name": ":ad"
     },
@@ -383,6 +387,10 @@
     {
       "img":  "img/emotes/pryckert.jpeg",
       "name": ":pryckert"
+    },
+    {
+      "img": "img/emotes/poggers.png",
+      "name": ":poggers"
     },
     {
       "img":  "img/emotes/fobwashed.png",
@@ -889,6 +897,14 @@
       "name": ":pnc"
     },
     {
+      "img": "img/emotes/pinman.png",
+      "name": ":pinman"
+    },
+    {
+      "img": "img/emotes/postdab.png",
+      "name": ":postdab"
+    },
+    {
       "img":  "img/emotes/pour.gif",
       "name": ":pour"
     },
@@ -935,6 +951,10 @@
     {
       "img":  "img/emotes/666.png",
       "name": ":666"
+    },
+    {
+      "img": "img/emotes/skaguy.png",
+      "name": ":skaguy"
     },
     {
       "img":  "img/emotes/sparkybuzzsaw.png",
