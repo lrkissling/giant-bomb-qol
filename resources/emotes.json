@@ -233,6 +233,10 @@
       "name": ":grubb"
     },
     {
+      "img": "img/emotes/lucy.png",
+      "name": ":lucy"
+    },
+    {
       "img":  "img/emotes/bde.png",
       "name": ":bde"
     },
@@ -399,6 +403,10 @@
     {
       "img": "img/emotes/gwarsenio.png",
       "name": ":gwarsenio"
+    },
+    {
+      "img": "img/emotes/minotti.png",
+      "name": ":minotti"
     }
   ],
   "Bombin'": [
@@ -425,6 +433,10 @@
     {
       "img": "img/emotes/diobomb.png",
       "name": ":diobomb"
+    },
+    {
+      "img": "img/emotes/onepunchbomb.png",
+      "name": ":onepunchbomb"
     },
     {
       "img": "img/emotes/grubbsnax.gif",
@@ -497,8 +509,16 @@
       "name": ":herdier"
     },
     {
+      "img": "img/emotes/klc.png",
+      "name": ":klc"
+    },
+    {
       "img":  "img/emotes/laika.jpeg",
       "name": ":laika"
+    },
+    {
+      "img": "img/emotes/lechonk.png",
+      "name": ":lechonk"
     },
     {
       "img":  "img/emotes/luchadeer.png",
