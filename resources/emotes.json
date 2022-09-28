@@ -423,6 +423,10 @@
     {
       "img": "img/emotes/minotti.png",
       "name": ":minotti"
+    },
+    {
+      "img": "img/emotes/eviluno.png",
+      "name": ":eviluno"
     }
   ],
   "Bombin'": [
@@ -603,6 +607,14 @@
     {
       "img": "img/emotes/bunger.png",
       "name": ":bunger"
+    },
+    {
+      "img": "img/emotes/glizzy.png",
+      "name": ":glizzy"
+    },
+    {
+      "img": "img/emotes/ketchup.png",
+      "name": ":ketchup"
     },
     {
       "img":  "img/emotes/pbjtime.gif",
@@ -963,6 +975,10 @@
     {
       "img":  "img/emotes/rungfb.png",
       "name": ":rungfb"
+    },
+    {
+      "img": "img/emotes/scissorme.gif",
+      "name": ":scissorme"
     },
     {
       "img":  "img/emotes/secrettape.png",
