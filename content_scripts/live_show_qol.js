@@ -140,8 +140,8 @@ function newEmotesSetup() {
       }
     }
   });
-  // need a brief timeout to make sure firechat emotes are populated
-  setTimeout(runInPageContext.bind(null, setNewEmotes, old_emotes), 9 * 1000);
+  // need a brief timeout to make sure emotes are populated
+  setTimeout(runInPageContext.bind(null, setNewEmotes, old_emotes), 5 * 1000);
 }
 
 // Breaks out of the content script context by injecting a specially
