@@ -172,8 +172,8 @@ function runInPageContext(method, ...args) {
 }
 
 function setNewEmotes(old_emotes) {
-  // get master object of all emotes from firechat
-  const all_emotes = window.Phoenix.FireChat.Emotes;
+  // get master object of all emotes
+  const all_emotes = getAllChatEmotes();
 
   // compare old_emotes to all_emotes to build list of new emotes
   const new_emotes = Object.keys(all_emotes).reduce((object,key) => {
@@ -199,6 +199,29 @@ function setNewEmotes(old_emotes) {
 
     $(".qol-scroll-hold").prepend(emotes_html);
   }
+
+   /**
+   * Parses page for list that matches following structure"
+   * <ul class="chat-emotes-list">
+   *   <li title="abby">
+   *     <img src=".../abby.png" />
+   *   </li>
+   * </ul>
+   * @returns Object with key/value pairs matching li title and img src
+   */
+    function getAllChatEmotes() {
+      try {
+        const emotesListParent = document.getElementsByClassName("chat-emotes-list")[0];
+        return Array.from(emotesListParent.children).reduce((emotesObject, el) => {
+          const key = el.getAttribute("title");
+          const value = el.firstElementChild.getAttribute("src");
+          emotesObject[key] = value;
+          return emotesObject;
+        }, {});
+      } catch {
+        return {};
+      }
+    }
 }
 
 function infobuttonSetup() {
