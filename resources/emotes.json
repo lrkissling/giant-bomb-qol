@@ -420,13 +420,89 @@
       "img": "img/emotes/gwarsenio.png",
       "name": ":gwarsenio"
     },
+        {
+      "img": "img/emotes/eviluno.png",
+      "name": ":eviluno"
+    },
+        {
+      "img": "img/emotes/grubb2.png",
+      "name": ":grubb2"
+    },
+        {
+      "img": "img/emotes/grubby.gif",
+      "name": ":grubby"
+    },
+        {
+      "img": "img/emotes/battgrubb.gif",
+      "name": ":battgrubb"
+    },
+        {
+      "img": "img/emotes/grubbmouth.gif",
+      "name": ":grubbmouth"
+    },
+        {
+      "img": "img/emotes/wolfpack.png",
+      "name": ":grubbpack"
+    },
     {
       "img": "img/emotes/minotti.png",
       "name": ":minotti"
     },
     {
-      "img": "img/emotes/eviluno.png",
-      "name": ":eviluno"
+      "img": "img/emotes/mitch.png",
+      "name": ":mitch"
+    },
+        {
+      "img": "img/emotes/koolmitch.png",
+      "name": ":koolmitch"
+    },
+        {
+      "img": "img/emotes/robomitch.png",
+      "name": ":robomitch"
+    },
+        {
+      "img": "img/emotes/shure.png",
+      "name": ":mikeshure"
+    },
+        {
+      "img": "img/emotes/bailey.png",
+      "name": ":bailey"
+    },
+        {
+      "img": "img/emotes/baileyblink.gif",
+      "name": ":baileyblink"
+    },
+        {
+      "img": "img/emotes/coolguy.png",
+      "name": ":coolguy"
+    },
+        {
+      "img": "img/emotes/danic.png",
+      "name": ":danic"
+    },
+        {
+      "img": "img/emotes/degg.png",
+      "name": ":degg"
+    },
+        {
+      "img": "img/emotes/hellotam.png",
+      "name": ":hellotam"
+    },
+        {
+      "img": "img/emotes/narutam.png",
+      "name": ":narutam"
+    },
+        {
+      "img": "img/emotes/lucywave.gif",
+      "name": ":lucywave"
+    },
+        {
+      "img": "img/emotes/smuglucy.jpg",
+      "name": ":smuglucy"
+    },
+        {
+      "img": "img/emotes/turboshawn.png",
+      "name": ":turboshawn"
     }
   ],
   "Bombin'": [
@@ -468,6 +544,10 @@
       "img": "img/emotes/annie.png",
       "name": ":annie"
     },
+        {
+      "img": "img/emotes/barley.png",
+      "name": ":barley"
+    },
     {
       "img": "img/emotes/big.png",
       "name": ":big"
@@ -479,6 +559,10 @@
     {
       "img": "img/emotes/bugsnax.png",
       "name": ":bugsnax"
+    },
+        {
+      "img": "img/emotes/bulb.png",
+      "name": ":bulborb"
     },
     {
       "img": "img/emotes/bunger.png",
@@ -499,6 +583,14 @@
     {
       "img":  "img/emotes/death.png",
       "name": ":death"
+    },
+        {
+      "img": "img/emotes/dkdance.gif",
+      "name": ":dkdance"
+    },
+        {
+      "img": "img/emotes/elephant.png",
+      "name": ":elephant"
     },
     {
       "img":  "img/emotes/fine.png",
@@ -528,6 +620,10 @@
       "img": "img/emotes/herdier.png",
       "name": ":herdier"
     },
+        {
+      "img": "img/emotes/kermit.png",
+      "name": ":kermit"
+    },
     {
       "img": "img/emotes/klc.png",
       "name": ":klc"
@@ -547,6 +643,14 @@
     {
       "img":  "img/emotes/puggy.png",
       "name": ":puggy"
+    },
+        {
+      "img": "img/emotes/scout.png",
+      "name": ":scout"
+    },
+        {
+      "img": "img/emotes/salute.png",
+      "name": ":salute"
     },
     {
       "img":  "img/emotes/seaman.png",
@@ -607,6 +711,10 @@
     {
       "img": "img/emotes/bunger.png",
       "name": ":bunger"
+    },
+        {
+      "img": "img/emotes/cafemario.gif",
+      "name": ":coffee"
     },
     {
       "img": "img/emotes/glizzy.png",
@@ -752,6 +860,10 @@
       "img": "img/emotes/chefskiss.png",
       "name": ":chefskiss"
     },
+        {
+      "img": "img/emotes/chuchu.png",
+      "name": ":chuchu"
+    },
     {
       "img":  "img/emotes/clap.gif",
       "name": ":clap"
@@ -824,6 +936,14 @@
       "img":  "img/emotes/grohl.gif",
       "name": ":grohl"
     },
+        {
+      "img": "img/emotes/hell.gif",
+      "name": ":hell"
+    },
+        {
+      "img": "img/emotes/hiding.gif",
+      "name": ":hiding"
+    },
     {
       "img":  "img/emotes/hype.gif",
       "name": ":hype"
@@ -859,6 +979,10 @@
     {
       "img": "img/emotes/jonno.png",
       "name": ":jonno"
+    },
+        {
+      "img": "img/emotes/justaboy.png",
+      "name": ":justaboy"
     },
     {
       "img":  "img/emotes/manthechat.png",
@@ -1043,6 +1167,10 @@
     {
       "img":  "img/emotes/toronto.png",
       "name": ":toronto"
+    },
+        {
+      "img": "img/emotes/unyeah.png",
+      "name": ":unyeah"
     },
     {
       "img":  "img/emotes/vibes.jpg",
