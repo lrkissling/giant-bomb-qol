@@ -4,13 +4,13 @@
 */
 function UpdateStreamStatus(results) {
   let is_live_streaming = false,
-      is_infinite = false,
+      is_forever = false,
       streams = [];
 
   for (var key in results) {
     const stream_info = results[key];
 
-    if (stream_info.title != "Giant Bomb Infinite") {
+    if (stream_info.channel_name != "giantbombforever") {
       is_live_streaming = true;
       streams.push({
         title: stream_info.title,
@@ -18,7 +18,7 @@ function UpdateStreamStatus(results) {
         url: stream_info.site_detail_url
       });
     } else {
-      is_infinite = true;
+      is_forever = true;
       streams.push({
         title: stream_info.history[0].name,
         image: stream_info.history[0].image.small_url,
@@ -29,7 +29,7 @@ function UpdateStreamStatus(results) {
 
   let options = {
     is_live_streaming : is_live_streaming,
-    is_infinite : is_infinite,
+    is_forever : is_forever,
     streams: streams
   };
 
