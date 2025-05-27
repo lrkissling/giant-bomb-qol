@@ -17,7 +17,7 @@
       "128": "img/icon-128.png"
   },
 
-  "browser_action": {
+  "action": {
     "default_popup": "popup/popup.html",
     "default_icon": "img/gb-offair.png"
   },
