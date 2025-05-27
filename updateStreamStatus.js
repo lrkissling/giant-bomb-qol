@@ -1,5 +1,5 @@
 /**
-* Parse results of API calls to determine browserAction icon appearance and
+* Parse results of API calls to determine toolbar icon appearance and
 * store necessary information for retrieval by the popup.
 */
 function UpdateStreamStatus(results) {
@@ -43,10 +43,10 @@ function UpdateStreamStatus(results) {
   };
 
   browser.storage.sync.set(options);
-  browser.browserAction.setIcon({
+  browser.action.setIcon({
     path: { 38: is_live_streaming ? "../img/gb-live.png" : "../img/gb-offair.png" }
   });
-  browser.browserAction.setTitle({
+  browser.action.setTitle({
     title: is_live_streaming ? "Giant Bomb is Live!" : "Giant Bomb QoL"
   });
 }

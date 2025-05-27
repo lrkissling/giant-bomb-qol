@@ -51,12 +51,12 @@ function saveOptions(e) {
 
   browser.storage.sync.set(options);
 
-  // Ensure that the user sees the correct browserAction icon
+  // Ensure that the user sees the correct toolbar icon
   if (options.api_key.length !== 40 || !options.stream_notifications) {
-    browser.browserAction.setIcon({
+    browser.action.setIcon({
       path: { 38: "../img/gb-offair.png" }
     });
-    browser.browserAction.setTitle({
+    browser.action.setTitle({
       title: ""
     });
   }
