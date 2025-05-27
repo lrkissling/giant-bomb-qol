@@ -40,7 +40,7 @@ function setupLiveShowFeatures() {
       emoteSetup();
     }
 
-    if (show_infobuttons && window.location.href.indexOf("infinite") > -1) {
+    if (show_infobuttons && ["infinite", "forever"].some(el => window.location.href.includes(el))) {
       infobuttonSetup();
     }
 

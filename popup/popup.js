@@ -6,6 +6,7 @@ const OPTIONS = [
   "api_key",
   "stream_notifications",
   "is_live_streaming",
+  "is_forever",
   "is_infinite",
   "streams"
 ];
@@ -95,12 +96,13 @@ function handleOptions(options) {
       // Display proper html depending on whether or not there is a livestream
       if (options.stream_notifications === undefined || options.stream_notifications) {
         // If notifications are enabled, display the stream notification html
-        if (options.is_live_streaming || options.is_infinite) {
+        if (options.is_live_streaming || options.is_forever || options.is_infinite) {
           const gbi_logo_display = options.is_live_streaming ? "none" : "block";
+          const gbi_logo_image = options.is_forever ? 'forever' : 'infinite';
 
           for (let i = 0; i < options.streams.length; i++) {
             // if Giant Bomb is live-streaming, don't include GB Infinite
-            if (options.is_live_streaming && options.streams[i].url == "https://www.giantbomb.com/infinite/") {
+            if (options.is_live_streaming && ["infinite", "forever"].some(el => options.streams[i].url.includes(el))) {
               continue;
             }
 
@@ -109,7 +111,7 @@ function handleOptions(options) {
               $("#first_row").append(
                 $(`<div class="live_stream_info popup-buttons" href=${options.streams[i].url}>`).append(
                   $(`<img id="stream_image" class="stream-link", src="${options.streams[i].image}">`),
-                  $(`<img id="gb_infinite_logo" src="../img/gb-infinite.png" class="stream-link ${gbi_logo_display}">`),
+                  $(`<img id="gb_infinite_logo" src="../img/gb-${gbi_logo_image}.png" class="stream-link ${gbi_logo_display}">`),
                   $(`<h2 id="stream_title" class="popup-font stream-link">`).append(options.streams[i].title)
                 )
               );
@@ -117,7 +119,7 @@ function handleOptions(options) {
               $("#second_row").append(
                 $(`<div class="live_stream_info popup-buttons" href=${options.streams[i].url}>`).append(
                   $(`<img id="stream_image" class="stream-link", src="${options.streams[i].image}">`),
-                  $(`<img id="gb_infinite_logo" src="../img/gb-infinite.png" class="stream-link ${gbi_logo_display}">`),
+                  $(`<img id="gb_infinite_logo" src="../img/gb-${gbi_logo_image}.png" class="stream-link ${gbi_logo_display}">`),
                   $(`<h2 id="stream_title" class="popup-font stream-link">`).append(options.streams[i].title)
                 )
               );
