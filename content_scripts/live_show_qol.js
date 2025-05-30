@@ -1,14 +1,16 @@
+// Handles most Chrome/Firefox incompatibilities.
+if (navigator.userAgent.indexOf("Chrome") != -1) {
+  browser = chrome;
+}
+
 var show_emotes_menu = false;
 var show_infobuttons = false;
 var hide_report = false;
 
-// handle options, using browser-specific option retrieval.
-if (navigator.userAgent.indexOf("Chrome") != -1) {
-  chrome.storage.sync.get(["chat_emotes", "infinite_infobuttons", "hide_report"], handleOptions);
-} else {
-  getting = browser.storage.sync.get(["chat_emotes", "infinite_infobuttons", "hide_report"]);
-  getting.then(handleOptions, onError);
-}
+// handle options
+browser.storage.sync.get([
+  "chat_emotes", "infinite_infobuttons", "hide_report"
+]).then(handleOptions, onError);
 
 // Check user options to see if they want the emotes menu or infobuttons
 function handleOptions(item) {
