@@ -11,13 +11,7 @@ const OPTIONS = [
   "streams"
 ];
 
-// Gets necessary user options. Handled differently by Chrome/Firefox.
-if (browser == chrome) {
-  browser.storage.sync.get(OPTIONS, handleOptions);
-} else {
-  getting = browser.storage.sync.get(OPTIONS);
-  getting.then(handleOptions, onError);
-}
+browser.storage.sync.get(OPTIONS).then(handleOptions, onError);
 
 // Opens the appropriate stream page and closes the pop-up.
 $(document).on("click", ".live_stream_info", function() {
