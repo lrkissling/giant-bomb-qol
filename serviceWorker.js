@@ -90,7 +90,7 @@ function fetchLiveShows(api_key) {
 
       return resp.json()
     })
-    .then(data => data.results);
+    .then(data => data ? data.results : null);
   return results;
 }
 
