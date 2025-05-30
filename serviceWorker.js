@@ -53,12 +53,20 @@ async function getOptions() {
  * @param {object} options web extension options object
  * @returns boolean whether to check for live shows
  */
-const shouldCheckForLiveShows = options => (
-  options &&
-  options.api_key !== undefined &&
-  options.api_key.length === 40 &&
-  (options.stream_notifications === undefined || options.stream_notifications)
-);
+async function shouldCheckForLiveShows(options) {
+  const HOST_PERMISSION = { origins: ["*://*.giantbomb.com/api/*"] };
+  const containsHostPermission = await browser.permissions.contains(HOST_PERMISSION);
+  if (!containsHostPermission) {
+    return false;
+  }
+
+  return (
+    options &&
+    options.api_key !== undefined &&
+    options.api_key.length === 40 &&
+    (options.stream_notifications === undefined || options.stream_notifications)
+  );
+ };
 
 /**
  * Fetches live show results from Giant Bomb API.
@@ -83,8 +91,7 @@ function fetchLiveShows(api_key) {
       return resp.json()
     })
     .then(data => data.results);
-
-    return results;
+  return results;
 }
 
 /**
@@ -95,8 +102,9 @@ function fetchLiveShows(api_key) {
 */
 async function liveShowHandler() {
   const options = await getOptions();
+  const hasPermission = await shouldCheckForLiveShows(options);
 
-  if (shouldCheckForLiveShows(options)) {
+  if (hasPermission) {
     const results = await fetchLiveShows(options.api_key);
     if (results) {
       updateStreamStatus(results);
