@@ -14,7 +14,6 @@ checkAlarmState(liveShowAlarm);
 
 // Every time the live show alarm triggers, call getOptions() again
 browser.alarms.onAlarm.addListener((alarm) => {
-  console.log('alarm triggered', alarm.name);
   if (alarm.name === liveShowAlarm) {
     getOptions();
   }
@@ -29,7 +28,7 @@ async function checkAlarmState(alarmName) {
   const alarm = await browser.alarms.get(alarmName);
 
   if (!alarm) {
-    await chrome.alarms.create(alarmName, { periodInMinutes: 1 });
+    await chrome.alarms.create(alarmName, { periodInMinutes: 2 });
   }
 }
 
@@ -37,7 +36,6 @@ async function checkAlarmState(alarmName) {
 * Retrieve user options. Chrome and Firefox handle this differently.
 */
 function getOptions() {
-  console.log('made it to getOptions()');
   if (navigator.userAgent.indexOf("Chrome") != -1) {
     chrome.storage.sync.get(["api_key", "stream_notifications"], handleOptions);
   } else {
@@ -50,7 +48,6 @@ function getOptions() {
 * Check for Live Show when user has provided API key and has option turned on.
 */
 function handleOptions(options) {
-  console.log('made it to handleOptions()');
   if (options.api_key !== undefined &&
       options.api_key.length === 40 &&
       (options.stream_notifications === undefined || options.stream_notifications)) {
@@ -62,7 +59,6 @@ function handleOptions(options) {
 * Make live show API call and send results to updateStreamStatus.
 */
 function checkForLiveShow(api_key) {
-  console.log('made it to checkForLiveShow()');
   const params = new URLSearchParams({
     api_key,
     format: "json",
@@ -76,7 +72,7 @@ function checkForLiveShow(api_key) {
 
       return resp.json()
     })
-    .then(data => {console.log(data); updateStreamStatus(data.results);});
+    .then(data => updateStreamStatus(data.results));
 }
 
 function onError(error) {
