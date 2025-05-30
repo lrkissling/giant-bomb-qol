@@ -5,6 +5,7 @@ const generateManifest = (platformProps) => ({
   version: "4.21",
 
   permissions: [
+    "alarms",
     "storage"
   ],
 

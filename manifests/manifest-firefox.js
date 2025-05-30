@@ -8,7 +8,6 @@ module.exports = {
     }
   },
   background: {
-    scripts: [ "serviceWorker.js" ],
-    type: "module",
+    scripts: [ "updateStreamStatus.js", "serviceWorker.js", ],
   },
 }

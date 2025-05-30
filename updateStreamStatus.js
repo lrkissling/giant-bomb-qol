@@ -2,7 +2,7 @@
 * Parse results of API calls to determine toolbar icon appearance and
 * store necessary information for retrieval by the popup.
 */
-function UpdateStreamStatus(results) {
+function updateStreamStatus(results) {
   let is_live_streaming = false,
       is_forever = false,
       is_infinite = false,

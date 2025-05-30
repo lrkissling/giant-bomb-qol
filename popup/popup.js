@@ -79,7 +79,7 @@ function saveKey(api_key, results){
   browser.storage.sync.set({"stream_notifications": true});
 
   // located in updateStreamStatus.js
-  UpdateStreamStatus(results);
+  updateStreamStatus(results);
 
   if (browser == chrome) {
     browser.storage.sync.get(OPTIONS, handleOptions);
