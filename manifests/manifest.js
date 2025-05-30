@@ -2,7 +2,7 @@ const generateManifest = (platformProps) => ({
   description: "Provides some simple Quality-of-Life enhancements to giantbomb.com.",
   manifest_version: 3,
   name: "Giant Bomb QoL",
-  version: "4.21",
+  version: "5.0",
 
   permissions: [
     "alarms",
