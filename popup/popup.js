@@ -11,6 +11,8 @@ const OPTIONS = [
   "streams"
 ];
 
+const HOST_PERMISSION = { origins: ["*://*.giantbomb.com/api/*"] };
+
 browser.storage.sync.get(OPTIONS).then(handleOptions, onError);
 
 // Opens the appropriate stream page and closes the pop-up.
@@ -43,6 +45,17 @@ $("#text_api_key").on("input", function() {
   } else {
     $("#text_api_key").removeClass("invalid");
   }
+});
+
+$("#request_host_permission").click(function() {
+  browser.permissions.request(HOST_PERMISSION)
+    .then((granted) => {
+      if (granted) {
+        console.log('premission granted!');
+      } else {
+        console.log('permission denied =(');
+      }
+    });
 });
 
 // Hit the chats endpoint to see if the key works, 100 means invalid key
@@ -78,7 +91,13 @@ function saveKey(api_key, results){
   browser.storage.sync.get(OPTIONS).then(handleOptions, onError);
 }
 
-function handleOptions(options) {
+async function handleOptions(options) {
+  const containsHostPermission = await browser.permissions.contains(HOST_PERMISSION);
+  if (!containsHostPermission) {
+    $("#host_permissions_disabled").css("display", "block");
+    return;
+  }
+
   // Check api key validity
   if (options.api_key !== undefined &&
      options.api_key.length === 40) {
