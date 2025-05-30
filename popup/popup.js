@@ -75,12 +75,7 @@ function saveKey(api_key, results){
   // located in updateStreamStatus.js
   updateStreamStatus(results);
 
-  if (browser == chrome) {
-    browser.storage.sync.get(OPTIONS, handleOptions);
-  } else {
-    getting = browser.storage.sync.get(OPTIONS);
-    getting.then(handleOptions, onError);
-  }
+  browser.storage.sync.get(OPTIONS).then(handleOptions, onError);
 }
 
 function handleOptions(options) {
