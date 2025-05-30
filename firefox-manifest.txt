@@ -1,8 +1,0 @@
-// Add this to manifest for Firefox builds
-
-"applications": {
-  "gecko": {
-    "id": "giantbomb@qol.snake",
-    "strict_min_version": "53.0"
-  }
-},

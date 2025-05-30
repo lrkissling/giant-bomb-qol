@@ -1,14 +1,16 @@
+// Handles most Chrome/Firefox incompatibilities.
+if (navigator.userAgent.indexOf("Chrome") != -1) {
+  browser = chrome;
+}
+
 var show_emotes_menu = false;
 var show_infobuttons = false;
 var hide_report = false;
 
-// handle options, using browser-specific option retrieval.
-if (navigator.userAgent.indexOf("Chrome") != -1) {
-  chrome.storage.sync.get(["chat_emotes", "infinite_infobuttons", "hide_report"], handleOptions);
-} else {
-  getting = browser.storage.sync.get(["chat_emotes", "infinite_infobuttons", "hide_report"]);
-  getting.then(handleOptions, onError);
-}
+// handle options
+browser.storage.sync.get([
+  "chat_emotes", "infinite_infobuttons", "hide_report"
+]).then(handleOptions, onError);
 
 // Check user options to see if they want the emotes menu or infobuttons
 function handleOptions(item) {
@@ -73,7 +75,7 @@ function emoteSetup() {
 
 function createEmotesMenu() {
   // html for the Emotes tab
-  let hardcore = chrome.extension.getURL("img/emotes/hardcore.png"),
+  let hardcore = browser.runtime.getURL("img/emotes/hardcore.png"),
       tab_html = [
         "<a id='qol_show_emotes' class='chat-tabs__wrapper' href='#' rel='nofollow'>",
         "<span class='chat-tabs__label'>",
@@ -89,7 +91,7 @@ function createEmotesMenu() {
   parentElement.appendChild(li);
 
   // parse the emotes.json to create html for the emotes list
-  $.getJSON(chrome.extension.getURL("resources/emotes.json"), function(data) {
+  $.getJSON(browser.runtime.getURL("resources/emotes.json"), function(data) {
     let emotes_html = [
       "<div class='chat-panel__header'>",
       "<strong class='chat-panel__title'>Emotes</strong>",
@@ -101,7 +103,7 @@ function createEmotesMenu() {
       emotes_html.push(`<div class='qol-emote-category'>${category}</div>`);
 
       for (const emote of Object.values(emotes)) {
-        let src  = chrome.extension.getURL(emote.img),
+        let src  = browser.runtime.getURL(emote.img),
             name = emote.name;
 
         // have to account for the big boi emotes
@@ -133,7 +135,7 @@ function createEmotesMenu() {
 function newEmotesSetup() {
   // build single list of emotes already in the extension
   let old_emotes = [];
-  $.getJSON(chrome.extension.getURL("resources/emotes.json"), function(data) {
+  $.getJSON(browser.runtime.getURL("resources/emotes.json"), function(data) {
     for (const category of Object.values(data)) {
       for (const emote of Object.values(category)) {
         old_emotes.push(emote.name.substring(1));
@@ -263,7 +265,7 @@ function infobuttonSetup() {
 
 // Adds an infobutton linking to the video on QL Crew
 function addInfobuttons() {
-  const src = chrome.extension.getURL("img/info.png");
+  const src = browser.runtime.getURL("img/info.png");
 
   // For each poll option that doesn't already have an infobutton, and isn't the Mystery Box
   $.each($(".poll-choices__item > span:not(:has(a)):not(:contains('Mystery Box!'))"), function(index, value) {

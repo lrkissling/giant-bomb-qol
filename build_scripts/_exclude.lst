@@ -1,0 +1,9 @@
+build_scripts/*
+dist/*
+local/*
+manifests/*
+.gitignore
+.jshintrc
+package-lock.json
+package.json
+README.md
