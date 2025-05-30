@@ -32,7 +32,7 @@ const shouldHideSpoilers = options => options.hide_titr_spoilers === undefined |
  * Handler for the hide_spoilers content script. This handler does the following:
  *   - gets user options for hiding spoilers
  *   - checks if user wants to hide spoilers
- *   - hide spoilers
+ *   - hides spoilers
  */
 async function hideSpoilersHandler() {
   const options = await getOptions();
