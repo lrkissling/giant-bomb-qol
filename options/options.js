@@ -126,22 +126,12 @@ function restoreOptions() {
     }
   }
 
-  // Firefox and Chrome handle storage get and set differently
-  if (navigator.userAgent.indexOf("Chrome") != -1) {
-    chrome.storage.sync.get("api_key", setApiKey);
-    chrome.storage.sync.get("stream_notifications", setStreamNotifications);
-    chrome.storage.sync.get("hide_titr_spoilers", setHideTitrSpoilers);
-    chrome.storage.sync.get("chat_emotes", setChatEmotes);
-    chrome.storage.sync.get("infinite_infobuttons", setInfiniteInfobuttons);
-    chrome.storage.sync.get("hide_report", setHideReport);
-  } else {
-    browser.storage.sync.get("api_key").then(setApiKey, onError);
-    browser.storage.sync.get("stream_notifications").then(setStreamNotifications, onError);
-    browser.storage.sync.get("hide_titr_spoilers").then(setHideTitrSpoilers, onError);
-    browser.storage.sync.get("chat_emotes").then(setChatEmotes, onError);
-    browser.storage.sync.get("infinite_infobuttons").then(setInfiniteInfobuttons, onError);
-    browser.storage.sync.get("hide_report").then(setHideReport, onError);
-  }
+  browser.storage.sync.get("api_key").then(setApiKey, onError);
+  browser.storage.sync.get("stream_notifications").then(setStreamNotifications, onError);
+  browser.storage.sync.get("hide_titr_spoilers").then(setHideTitrSpoilers, onError);
+  browser.storage.sync.get("chat_emotes").then(setChatEmotes, onError);
+  browser.storage.sync.get("infinite_infobuttons").then(setInfiniteInfobuttons, onError);
+  browser.storage.sync.get("hide_report").then(setHideReport, onError);
 
   function onError(error) {
     console.log(`Error: ${error}`);
