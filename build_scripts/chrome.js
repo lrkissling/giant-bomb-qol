@@ -4,7 +4,7 @@ const child_process = require("child_process")
 const platformProps = require("../manifests/manifest-chrome");
 const generateManifest = require("../manifests/manifest");
 
-// create Firefox-compatible manifest file
+// create Chrome-compatible manifest file
 const manifest = generateManifest(platformProps);
 writeFileSync("./manifest.json", JSON.stringify(manifest, null, 2));
 
