@@ -43,7 +43,7 @@ async function getOptions() {
     return options;
   } catch (e) {
     onError(e);
-    return null
+    return null;
   }
 }
 
