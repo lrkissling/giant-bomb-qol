@@ -60,6 +60,10 @@ div:has(> .live-message-separator-line__hr) {
   display: block;
 }
 
+.chat-line__message > .message {
+  display: block;
+}
+
 .chat-input__buttons-container {
   display: none !important;
 }
@@ -91,4 +95,24 @@ div:has(> .live-message-separator-line__hr) {
 .chat-wysiwyg-input__editor:focus {
   /* background-color: white; */
   border: none !important;
+}
+
+.community-highlight-stack__scroll-area--disable {
+  display: none !important;
+}
+
+.marquee-animation {
+  display: none !important;
+}
+
+.chat-room__content > div:has(div.channel-leaderboard-header-rotating__users) {
+  display: none !important;
+}
+
+.chat-room__content > div:has(div.community-highlight-stack__backlog-card) {
+  display: none !important;
+}
+
+.user-notice-line {
+  display: none !important;
 }

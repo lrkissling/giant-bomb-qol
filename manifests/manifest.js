@@ -54,7 +54,10 @@ const generateManifest = (platformProps) => ({
       ]
     },
     {
-      matches: [ "https://www.twitch.tv/embed/giantbombforever/chat*" ],
+      matches: [
+        "https://www.twitch.tv/embed/giantbombforever/chat*",
+        "https://www.twitch.tv/embed/giantbomb/chat*"
+      ],
       all_frames: true,
       css: [ "resources/twitch_chat.css"],
       js: [
