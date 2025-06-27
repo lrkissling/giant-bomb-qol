@@ -1,3 +1,24 @@
 .stream-chat-header {
   background-color: white !important;
 }
+
+/* Bottom to Top */
+.chat-scrollable-area__message-container {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+/* Remove "More Messages Below" text */
+.chat-scroll-footer__placeholder {
+  display: none !important;
+}
+
+/* Remove "Welcome to chat room!" text */
+.chat-line__status {
+  display: none;
+}
+
+/* Remove "New" line */
+div:has(> .live-message-separator-line__hr) {
+  display: none !important;
+}
