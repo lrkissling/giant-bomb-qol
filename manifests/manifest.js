@@ -52,6 +52,11 @@ const generateManifest = (platformProps) => ({
         "third_party/jquery-3.5.1.min.js",
         "content_scripts/live_show_qol.js"
       ]
+    },
+    {
+      matches: [ "https://www.twitch.tv/embed/giantbombforever/chat*" ],
+      all_frames: true,
+      css: [ "resources/twitch_chat.css"],
     }
   ],
 
