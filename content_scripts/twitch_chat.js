@@ -3,7 +3,11 @@ if (navigator.userAgent.indexOf("Chrome") != -1) {
   browser = chrome;
 }
 
+// audio for new polls on GB Forever
 const gbForeverAudio = new Audio(browser.runtime.getURL("resources/ding.mp3"));
+
+const isGiantBotMessage = node => node.innerText.startsWith('GiantBotForever');
+const isNewPollMessage = node => node.innerText.includes('Voting has started!');
 
 $(document).ready(function() {
   setTimeout(setupChatFeatures, 1 * 2000);
@@ -19,12 +23,13 @@ function setupChatFeatures() {
   const chatInputElem = document.getElementsByClassName("chat-input")[0];
   chatContentElem.before(chatInputElem);
 
+  // setup mutation observer for new chat messages
   setupChatMutationObserver();
 
+  // highlight all GiantBotForever messages on page load
   const chatContainer = document.getElementsByClassName('chat-scrollable-area__message-container')[0];
   if (chatContainer) {
-    console.log(chatContainer);
-    chatContainer.childNodes.forEach(node => highlightGiantbotMessages(node));
+    chatContainer.childNodes.forEach(node => isGiantBotMessage(node) && highlightGiantBotMessage(node));
   }
 }
 
@@ -38,7 +43,15 @@ function setupChatMutationObserver() {
   // Callback function to execute when mutations are observed
   const callback = function(mutationsList, observer) {
     for (let mutation of mutationsList) {
-      mutation.addedNodes.forEach(node => highlightGiantbotMessages(node));
+      mutation.addedNodes.forEach((node) => {
+        if (isGiantBotMessage(node)) {
+          highlightGiantBotMessage(node);
+
+          if(isNewPollMessage(node)) {
+            gbForeverAudio.play();
+          }
+        }
+      });
     }
   };
 
@@ -48,9 +61,6 @@ function setupChatMutationObserver() {
   observer.observe(chatContainer, { childList: true });
 }
 
-function highlightGiantbotMessages(node) {
-  if (node.innerText.startsWith('GiantBotForever')) {
-    gbForeverAudio.play();
-    node.classList.add('gb-qol-giantbot-message');
-  }
+function highlightGiantBotMessage(node) {
+  node.classList.add('gb-qol-giantbot-message');
 }
