@@ -71,6 +71,13 @@ const generateManifest = (platformProps) => ({
     {
       resources: [ "img/*", "resources/emotes.json" ],
       matches: [ "*://www.giantbomb.com/*" ]
+    },
+    {
+      resources: [ "resources/ding.mp3" ],
+      matches: [
+        "https://www.twitch.tv/embed/giantbombforever/chat*",
+        "https://www.twitch.tv/embed/giantbomb/chat*"
+      ]
     }
   ],
 

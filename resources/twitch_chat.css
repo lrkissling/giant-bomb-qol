@@ -25,6 +25,10 @@ div:has(> .live-message-separator-line__hr) {
   display: none !important;
 }
 
+.chat-list--default .scrollable-area > .simplebar-scroll-content > .simplebar-content {
+  background-color: #232425;
+}
+
 .chat-room__content {
   background-color: #313335;
   border-radius: 0 0 4px 4px;
@@ -115,4 +119,8 @@ div:has(> .live-message-separator-line__hr) {
 
 .user-notice-line {
   display: none !important;
+}
+
+.gb-qol-giantbot-message {
+  background-color: #162538;
 }
