@@ -41,6 +41,8 @@ div:has(> .live-message-separator-line__hr) {
 
 .chat-line__message {
   border-bottom: 3px solid #202122;
+  box-shadow: 0 1px 0 #313335;
+  margin: 0 8px;
   padding: 8px 4px 8px 4px;
 }
 
