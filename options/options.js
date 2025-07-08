@@ -8,17 +8,15 @@ if (navigator.userAgent.indexOf("Chrome") != -1) {
 var apiKey              = document.querySelector("#text_api_key"),
     streamNotifications = document.querySelector("#cbox_stream_notifications"),
     hideTitrSpoilers    = document.querySelector("#cbox_hide_titr_spoilers"),
-    chatEmotes          = document.querySelector("#cbox_chat_emotes"),
-    infiniteInfobuttons = document.querySelector("#cbox_infinite_infobuttons"),
-    hideReport          = document.querySelector("#cbox_hide_report");
+    gbChatStyle         = document.querySelector("#cbox_gb_chat_style"),
+    pollSound           = document.querySelector("#cbox_gbforever_poll_sound");
 
 // Invoke saveOptions whenever an option is changed
 $(apiKey).on("input", saveOptions);
 $(streamNotifications).on("change", saveOptions);
 $(hideTitrSpoilers).on("change", saveOptions);
-$(chatEmotes).on("change", saveOptions);
-$(infiniteInfobuttons).on("change", saveOptions);
-$(hideReport).on("change", saveOptions);
+$(gbChatStyle).on("change", saveOptions);
+$(pollSound).on("change", saveOptions);
 
 // Handle mouseover of all infobuttons
 $(".option-infobutton-container").on("mouseover", function() {
@@ -44,9 +42,8 @@ function saveOptions(e) {
     api_key: apiKey.value.trim(),
     stream_notifications: streamNotifications.checked,
     hide_titr_spoilers: hideTitrSpoilers.checked,
-    chat_emotes: chatEmotes.checked,
-    infinite_infobuttons: infiniteInfobuttons.checked,
-    hide_report: hideReport.checked
+    gb_chat_style: gbChatStyle.checked,
+    gbforever_poll_sound: pollSound.checked,
   };
 
   browser.storage.sync.set(options);
@@ -102,38 +99,29 @@ function restoreOptions() {
     }
   }
 
-  function setChatEmotes(result) {
-    if (result.chat_emotes !== undefined) {
-      chatEmotes.checked = result.chat_emotes;
+  function setGbChatStyle(result) {
+    if (result.gb_chat_style !== undefined) {
+      gbChatStyle.checked = result.gb_chat_style;
     } else {
-      chatEmotes.checked = true;
+      gbChatStyle.checked = true;
     }
   }
 
-  function setInfiniteInfobuttons(result) {
-    if (result.infinite_infobuttons !== undefined) {
-      infiniteInfobuttons.checked = result.infinite_infobuttons;
+  function setGbForeverPollSound(result) {
+    if (result.gbforever_poll_sound !== undefined) {
+      pollSound.checked = result.gbforever_poll_sound;
     } else {
-      infiniteInfobuttons.checked = true;
-    }
-  }
-
-  function setHideReport(result) {
-    if (result.hide_report !== undefined) {
-      hideReport.checked = result.hide_report;
-    } else {
-      hideReport.checked = false;
+      pollSound.checked = true;
     }
   }
 
   browser.storage.sync.get("api_key").then(setApiKey, onError);
   browser.storage.sync.get("stream_notifications").then(setStreamNotifications, onError);
   browser.storage.sync.get("hide_titr_spoilers").then(setHideTitrSpoilers, onError);
-  browser.storage.sync.get("chat_emotes").then(setChatEmotes, onError);
-  browser.storage.sync.get("infinite_infobuttons").then(setInfiniteInfobuttons, onError);
-  browser.storage.sync.get("hide_report").then(setHideReport, onError);
+  browser.storage.sync.get("gb_chat_style").then(setGbChatStyle, onError);
+  browser.storage.sync.get("gbforever_poll_sound").then(setGbForeverPollSound, onError);
 
   function onError(error) {
-    console.log(`Error: ${error}`);
+    console.error(`Error: ${error}`);
   }
 }
