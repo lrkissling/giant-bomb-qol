@@ -10,6 +10,11 @@
   flex-direction: column-reverse;
 }
 
+.chat-input .tw-absolute {
+  top: 100%;
+  bottom: 0 !important;
+}
+
 /* Remove "More Messages Below" text */
 .chat-scroll-footer__placeholder {
   display: none !important;
