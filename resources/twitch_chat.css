@@ -15,6 +15,21 @@
   bottom: 0 !important;
 }
 
+.chat-input-tray__open {
+  top: 100%;
+  bottom: 0 !important;
+  border-radius: 4px;
+  clip-path: none;
+}
+
+.autocomplete-match-list {
+  background-color: #18181b;
+  border-color: #313335;
+  border-radius: 0 0 4px 4px;
+  border-style: solid;
+  border-width: 0 2px 2px 2px;
+}
+
 /* Remove "More Messages Below" text */
 .chat-scroll-footer__placeholder {
   display: none !important;
