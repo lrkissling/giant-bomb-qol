@@ -146,3 +146,7 @@ div:has(> .live-message-separator-line__hr) {
 .gb-qol-giantbot-message {
   background-color: #162538;
 }
+
+.gb-qol-hide {
+  display: none;
+}

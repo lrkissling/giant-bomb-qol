@@ -51,17 +51,19 @@ function scrollChatToTop() {
 }
 
 function setupChatFeatures() {
+  hideUsersInChatButton();
+
   // setup mutation observer for new chat messages
   setupChatMutationObserver();
 
   // highlight all GiantBotForever messages on page load
   const chatContainer = document.getElementsByClassName('chat-scrollable-area__message-container')[0];
   if (chatContainer) {
-    chatContainer.childNodes.forEach((node) => {
-      if (isGiantBotMessage(node)) {
-        highlightGiantBotMessage(node);
-        rearrangePollOption(node);
-      }
+    const giantBotMessages = Array.from(chatContainer.childNodes).filter(node => isGiantBotMessage(node));
+    giantBotMessages.forEach((node) => {
+      node.classList.add('gb-qol-message-modified');
+      highlightGiantBotMessage(node);
+      rearrangePollOption(node);
     });
   }
 }
@@ -77,7 +79,9 @@ function setupChatMutationObserver() {
   const callback = function(mutationsList, observer) {
     for (let mutation of mutationsList) {
       mutation.addedNodes.forEach((node) => {
-        if (isGiantBotMessage(node)) {
+        if (isGiantBotMessage(node) && !node.classList.contains('gb-qol-message-modified')) {
+          node.classList.add('gb-qol-message-modified');
+
           highlightGiantBotMessage(node);
 
           if(isNewPollMessage(node) && gbforever_poll_sound) {
@@ -96,6 +100,13 @@ function setupChatMutationObserver() {
   observer.observe(chatContainer, { childList: true });
 }
 
+function hideUsersInChatButton() {
+  const node = document.querySelector('[aria-label="Users in Chat"');
+  if (node) {
+    node.classList.add('gb-qol-hide');
+  }
+}
+
 function highlightGiantBotMessage(node) {
   node.classList.add('gb-qol-giantbot-message');
 }
@@ -109,6 +120,7 @@ function rearrangePollOption(node) {
 }
 
 function getXthPreviousSiblingNode(node, num) {
-  if (num === 0) return node;
+  console.debug('getXthPreviousSiblingNode called with', num);
+  if (num === 0 || !node.previousElementSibling) return node;
   return (getXthPreviousSiblingNode(node.previousElementSibling, num - 1));
 }
