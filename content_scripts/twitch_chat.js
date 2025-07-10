@@ -31,6 +31,7 @@ const gbForeverAudio = new Audio(browser.runtime.getURL("resources/ding.mp3"));
 
 const isGiantBotMessage = node => node.innerText.startsWith('GiantBotForever');
 const isNewPollMessage = node => node.innerText.includes('Voting has started!');
+const botMessageStartsWith = (node, text) => node.innerText.startsWith(`GiantBotForever:\n${text}`);
 
 $(document).ready(function() {
   setTimeout(moveChatInputToTop, 1 * 1000);
@@ -56,7 +57,12 @@ function setupChatFeatures() {
   // highlight all GiantBotForever messages on page load
   const chatContainer = document.getElementsByClassName('chat-scrollable-area__message-container')[0];
   if (chatContainer) {
-    chatContainer.childNodes.forEach(node => isGiantBotMessage(node) && highlightGiantBotMessage(node));
+    chatContainer.childNodes.forEach((node) => {
+      if (isGiantBotMessage(node)) {
+        highlightGiantBotMessage(node);
+        rearrangePollOption(node);
+      }
+    });
   }
 }
 
@@ -77,6 +83,8 @@ function setupChatMutationObserver() {
           if(isNewPollMessage(node) && gbforever_poll_sound) {
             gbForeverAudio.play();
           }
+
+          rearrangePollOption(node);
         }
       });
     }
@@ -90,4 +98,17 @@ function setupChatMutationObserver() {
 
 function highlightGiantBotMessage(node) {
   node.classList.add('gb-qol-giantbot-message');
+}
+
+function rearrangePollOption(node) {
+  for (let i = 5; i >= 1; i--) {
+    if (botMessageStartsWith(node, `${i}:`)) {
+      node.parentNode.insertBefore(node, getXthPreviousSiblingNode(node, i));
+    }
+  }
+}
+
+function getXthPreviousSiblingNode(node, num) {
+  if (num === 0) return node;
+  return (getXthPreviousSiblingNode(node.previousElementSibling, num - 1));
 }
