@@ -70,6 +70,12 @@ div:has(> .live-message-separator-line__hr) {
   padding: 8px;
 }
 
+.chat-line__message:hover {
+  .chat-line__message-highlight {
+    background: inherit;
+  }
+}
+
 .chat-line__timestamp {
   display: none;
 }
