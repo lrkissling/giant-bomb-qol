@@ -49,6 +49,10 @@ div:has(> .live-message-separator-line__hr) {
   background-color: #232425;
 }
 
+.chat-list--default .simplebar-track {
+  z-index: 100;
+}
+
 .chat-room__content {
   background-color: #313335;
   border-radius: 0 0 4px 4px;
@@ -62,8 +66,8 @@ div:has(> .live-message-separator-line__hr) {
 .chat-line__message {
   border-bottom: 3px solid #202122;
   box-shadow: 0 1px 0 #313335;
-  margin: 0 8px;
-  padding: 8px 4px 8px 4px;
+  margin: 0 4px;
+  padding: 8px;
 }
 
 .chat-line__timestamp {
@@ -145,6 +149,10 @@ div:has(> .live-message-separator-line__hr) {
 
 .gb-qol-giantbot-message {
   background-color: #162538;
+}
+
+.gb-qol-staff-message {
+  background-color: #381616;
 }
 
 .gb-qol-hide {

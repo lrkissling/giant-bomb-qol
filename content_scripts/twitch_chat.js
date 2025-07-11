@@ -59,11 +59,18 @@ function setupChatFeatures() {
   // highlight all GiantBotForever messages on page load
   const chatContainer = document.getElementsByClassName('chat-scrollable-area__message-container')[0];
   if (chatContainer) {
-    const giantBotMessages = Array.from(chatContainer.childNodes).filter(node => isGiantBotMessage(node));
+    const messagesArray = Array.from(chatContainer.childNodes);
+    const giantBotMessages = messagesArray.filter(node => isGiantBotMessage(node));
+    const staffMessages = messagesArray.filter(node => isStaffMessage(node));
+
     giantBotMessages.forEach((node) => {
       node.classList.add('gb-qol-message-modified');
       highlightGiantBotMessage(node);
       rearrangePollOption(node);
+    });
+
+    staffMessages.forEach((node) => {
+      highlightStaffMessage(node);
     });
   }
 }
@@ -79,16 +86,20 @@ function setupChatMutationObserver() {
   const callback = function(mutationsList, observer) {
     for (let mutation of mutationsList) {
       mutation.addedNodes.forEach((node) => {
-        if (isGiantBotMessage(node) && !node.classList.contains('gb-qol-message-modified')) {
+        if (!node.classList.contains('gb-qol-message-modified')) {
           node.classList.add('gb-qol-message-modified');
 
-          highlightGiantBotMessage(node);
+          if (isGiantBotMessage(node)) {
+            highlightGiantBotMessage(node);
 
-          if(isNewPollMessage(node) && gbforever_poll_sound) {
-            gbForeverAudio.play();
+            if(isNewPollMessage(node) && gbforever_poll_sound) {
+              gbForeverAudio.play();
+            }
+
+            rearrangePollOption(node);
+          } else if (isStaffMessage(node)) {
+            highlightStaffMessage(node);
           }
-
-          rearrangePollOption(node);
         }
       });
     }
@@ -109,6 +120,23 @@ function hideUsersInChatButton() {
 
 function highlightGiantBotMessage(node) {
   node.classList.add('gb-qol-giantbot-message');
+}
+
+function isStaffMessage(node) {
+  const staffUsernames = [
+    'chucktowski',
+    'coffeewithjan',
+    'danryckert',
+    'giantbomb',
+    'jeffgrubb',
+    'tolkoto',
+    'turboshawn',
+  ];
+  return staffUsernames.includes(node.innerText.split(':')[0].toLowerCase());
+}
+
+function highlightStaffMessage(node) {
+  node.classList.add('gb-qol-staff-message');
 }
 
 function rearrangePollOption(node) {
