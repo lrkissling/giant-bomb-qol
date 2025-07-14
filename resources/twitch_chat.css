@@ -124,15 +124,6 @@ div:has(> .live-message-separator-line__hr) {
   padding-inline-start: 8px !important;
 }
 
-.chat-wysiwyg-input__editor:hover {
-  border: none !important;
-}
-
-.chat-wysiwyg-input__editor:focus {
-  /* background-color: white; */
-  border: none !important;
-}
-
 .community-highlight-stack__scroll-area--disable {
   display: none !important;
 }
