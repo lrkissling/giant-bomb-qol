@@ -35,6 +35,7 @@ const botMessageStartsWith = (node, text) => node.innerText.startsWith(`GiantBot
 
 $(document).ready(function() {
   if (gb_chat_style) {
+    setTimeout(applyQolStyleMarkerToChat, 0.5 * 100);
     setTimeout(moveChatInputToTop, 1 * 1000);
     setTimeout(transformChat, 1.5 * 1000);
     setTimeout(scrollChatToTop, 2 * 1000);
@@ -44,6 +45,10 @@ $(document).ready(function() {
     setTimeout(setupChatMutationObserver(checkForNewPollAndPlaySound), 1.5 * 1000);
   }
 });
+
+function applyQolStyleMarkerToChat() {
+  document.getElementById('root').classList.add('gb-qol')
+}
 
 function moveChatInputToTop() {
   const chatContentElem = document.getElementsByClassName("chat-room__content")[0];
