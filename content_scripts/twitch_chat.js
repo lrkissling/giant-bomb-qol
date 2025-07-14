@@ -34,9 +34,15 @@ const isNewPollMessage = node => node.innerText.includes('Voting has started!');
 const botMessageStartsWith = (node, text) => node.innerText.startsWith(`GiantBotForever:\n${text}`);
 
 $(document).ready(function() {
-  setTimeout(moveChatInputToTop, 1 * 1000);
-  setTimeout(scrollChatToTop, 1.5 * 1000);
-  setTimeout(setupChatFeatures, 1.5 * 1000);
+  if (gb_chat_style) {
+    setTimeout(moveChatInputToTop, 1 * 1000);
+    setTimeout(transformChat, 1.5 * 1000);
+    setTimeout(scrollChatToTop, 2 * 1000);
+  }
+
+  if (gbforever_poll_sound) {
+    setTimeout(setupChatMutationObserver(checkForNewPollAndPlaySound), 1.5 * 1000);
+  }
 });
 
 function moveChatInputToTop() {
@@ -50,32 +56,39 @@ function scrollChatToTop() {
   chatScrollElem.scrollTop = 0;
 }
 
-function setupChatFeatures() {
+function transformChat() {
   hideUsersInChatButton();
 
-  // setup mutation observer for new chat messages
-  setupChatMutationObserver();
-
-  // highlight all GiantBotForever messages on page load
+  // transform messages on initial page load
   const chatContainer = document.getElementsByClassName('chat-scrollable-area__message-container')[0];
   if (chatContainer) {
-    const messagesArray = Array.from(chatContainer.childNodes);
-    const giantBotMessages = messagesArray.filter(node => isGiantBotMessage(node));
-    const staffMessages = messagesArray.filter(node => isStaffMessage(node));
+    Array.from(chatContainer.childNodes).forEach(m => transformMessage(m));
+  }
 
-    giantBotMessages.forEach((node) => {
-      node.classList.add('gb-qol-message-modified');
+  // setup mutation observer for transforming new chat messages
+  setupChatMutationObserver(transformMessage);
+}
+
+function transformMessage(node) {
+  if (!node.classList.contains('gb-qol-message-modified')) {
+    node.classList.add('gb-qol-message-modified');
+
+    if (isGiantBotMessage(node)) {
       highlightGiantBotMessage(node);
       rearrangePollOption(node);
-    });
-
-    staffMessages.forEach((node) => {
+    } else if (isStaffMessage(node)) {
       highlightStaffMessage(node);
-    });
+    }
   }
 }
 
-function setupChatMutationObserver() {
+function checkForNewPollAndPlaySound(node) {
+  if(isGiantBotMessage(node) && isNewPollMessage(node)) {
+    gbForeverAudio.play();
+  }
+}
+
+function setupChatMutationObserver(func) {
   const chatContainer = document.getElementsByClassName('chat-scrollable-area__message-container')[0];
 
   if (!chatContainer) {
@@ -86,21 +99,7 @@ function setupChatMutationObserver() {
   const callback = function(mutationsList, observer) {
     for (let mutation of mutationsList) {
       mutation.addedNodes.forEach((node) => {
-        if (!node.classList.contains('gb-qol-message-modified')) {
-          node.classList.add('gb-qol-message-modified');
-
-          if (isGiantBotMessage(node)) {
-            highlightGiantBotMessage(node);
-
-            if(isNewPollMessage(node) && gbforever_poll_sound) {
-              gbForeverAudio.play();
-            }
-
-            rearrangePollOption(node);
-          } else if (isStaffMessage(node)) {
-            highlightStaffMessage(node);
-          }
-        }
+        func(node);
       });
     }
   };
@@ -148,7 +147,6 @@ function rearrangePollOption(node) {
 }
 
 function getXthPreviousSiblingNode(node, num) {
-  console.debug('getXthPreviousSiblingNode called with', num);
   if (num === 0 || !node.previousElementSibling) return node;
   return (getXthPreviousSiblingNode(node.previousElementSibling, num - 1));
 }
